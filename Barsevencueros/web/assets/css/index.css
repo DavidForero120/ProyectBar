@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+*{
+    margin: 0%
+   
+}
+
+#grid-container{
+    background-image: url(../img/bar.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
+        width: 537px;
+    height: 390px;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px #000;
+    border: 1px solid #ffffff40;
+}
+#filter{
+    -webkit-backdrop-filter:blur(15px);
+    backdrop-filter:blur(15px);
+    background-color: rgba(243,243,243,0.2 ) ;
+}
+
+
+form {
+    font-family: 'Inter', sans-serif;
+    width: 59%;
+    margin-top: 12%;
+    margin-left: 29%;
+}
+h1 {
+    padding: 6%;
+    text-align: center;
+    margin-left: -19%;
+}
+
+div#input {
+    text-align: center;
+    margin-left: -11%;
+    width: 102%;
+}
+
+input[type="text"] {
+    padding: 2%;
+    margin-bottom: 3%;
+}
+
+input[type="password"]{
+    padding: 2%; margin-bottom: 7%;
+}
+
+button {
+    padding: 3%;
+    width: 35%;
+    border-radius: 5%;
+    background-color: black;
+    color: white;
+}
+
+button:hover{
+    background-color: white;
+    color: black
+}
+
+.logo{
+    background-image: url(../img/logo.png)
+}
