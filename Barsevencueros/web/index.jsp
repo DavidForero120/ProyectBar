@@ -16,7 +16,7 @@
       <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="assets/css/index.css" rel="stylesheet" type="text/css"/>
-        <title>Login</title>
+        <title>Ingresar</title>
     </head>
     <body>
         
