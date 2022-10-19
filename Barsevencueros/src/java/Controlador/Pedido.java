@@ -36,10 +36,10 @@ public class Pedido extends HttpServlet
    PedidoVO pedVO = new PedidoVO();
    
    List<PedidoVO>lista = new ArrayList<>();
-    int item = 0, cantidad;
+    int item = 0;
     String id_Producto, nombre_Producto;
     double precio, subtotal;
-    
+    int cantidad_producto;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
@@ -72,14 +72,14 @@ public class Pedido extends HttpServlet
                     id_Producto=prodVO.getId_producto();
                     nombre_Producto = prodVO.getProducto_nombre();
                     precio = prodVO.getProducto_precio();
-                    //cantidad = Integer.parseInt(request.getParameter("cantidad"));
-                    subtotal= precio*cantidad;
-                    
+                    cantidad_producto=Integer.parseInt(request.getParameter("cantidad"));
+                    subtotal= precio*cantidad_producto;
+                    pedVO=new PedidoVO();
                     pedVO.setItem(item);
                     pedVO.setId_producto(id_Producto);
                     pedVO.setNombre_Producto(nombre_Producto);
                     pedVO.setPrecio(precio);
-                    pedVO.setCantidad_producto(cantidad);
+                    pedVO.setCantidad_producto(cantidad_producto);
                     pedVO.setSubtotal(subtotal);
                     
                     lista.add(pedVO);

@@ -50,7 +50,7 @@
 
                                 </div>
                                 <div class="col-sm-2 d-flex">
-                                    <input type="number" name="cantidad" value="1">
+                                    <input type="number" name="cantidad" value="1" class="form-control">
                                 </div>
                                 <div class="col-sm-3 d-flex">
                                     <input type="text" name="stock" value="${pr.getProducto_cantidad()}" disabled="disabled">
@@ -77,6 +77,7 @@
                                     <th>Nro</th>
                                     <th>id_producto</th>
                                     <th>nombre_producto</th>
+                                    <th>Cantidad</th>
                                     <th>Precio</th>
                                     <th>Subtotal</th>
                                     <th>Precio2Sapohpta</th>
@@ -88,6 +89,7 @@
                                         <td>${list.getItem()}</td>
                                         <td>${list.getId_producto()}</td>
                                         <td>${list.getNombre_Producto()}</td>
+                                        <td>${list.getCantidad_producto()}</td>
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getSubtotal()}</td>
                                     </tr>

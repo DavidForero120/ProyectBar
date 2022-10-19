@@ -28,9 +28,9 @@ public class PedidoDAO extends ConexionBd {
     private boolean operacion = false;
     private String sql;
 
-    private String id_pedido = "", id_usuarioFK = "",clienteFK = "",mesaFK="",fecha="", pedido_estado = "";
+    private String  id_usuarioFK = "",clienteFK = "",mesaFK="",fecha="", pedido_estado = "";
     private Double sub_total, precio, total;
-    private int metodo_pago, cantidad_producto;
+    private int metodo_pago, cantidad_producto, id_pedido;
     
     PedidoVO pedVO = new PedidoVO();
     

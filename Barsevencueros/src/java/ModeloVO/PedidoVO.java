@@ -11,12 +11,13 @@ package ModeloVO;
  */
 public class PedidoVO {
 
-    String id_Pedido, id_desPedido, id_producto, id_Cliente, nombre_Producto, estado, fecha, id_usuarioFK, mesaFK;
+    String id_desPedido, id_producto, id_Cliente, nombre_Producto, estado, fecha, id_usuarioFK, mesaFK;
 
-    int item, cantidad_producto, metodo_pago;
+    int item, cantidad_producto, metodo_pago, id_Pedido;
     double total, subtotal, precio;
 
-    public PedidoVO(String id_Pedido, String id_desPedido, String id_producto, String id_Cliente, String nombre_Producto, String estado, String fecha, String id_usuarioFK, String mesaFK, int item, int cantidad_producto, int metodo_pago, double total, double subtotal, double precio) {
+    public PedidoVO(String id_desPedido, String id_producto, String id_Cliente, String nombre_Producto, String estado, String fecha, String id_usuarioFK, String mesaFK, int id_Pedido, int item, int cantidad_producto, int metodo_pago, double total, double subtotal, double precio) {
+        
         this.id_Pedido = id_Pedido;
         this.id_desPedido = id_desPedido;
         this.id_producto = id_producto;
@@ -37,13 +38,14 @@ public class PedidoVO {
     public PedidoVO() {
     }
 
-    public String getId_Pedido() {
+    public int getId_Pedido() {
         return id_Pedido;
     }
 
-    public void setId_Pedido(String id_Pedido) {
+    public void setId_Pedido(int id_Pedido) {
         this.id_Pedido = id_Pedido;
     }
+
 
     public String getId_desPedido() {
         return id_desPedido;

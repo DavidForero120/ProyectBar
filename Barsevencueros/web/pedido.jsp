@@ -86,7 +86,7 @@
                     desVO = listaPedido.get(i);
             %>
                 <tr>
-                    <td><%=pedVO.getId_pedido()%></td>
+                    <td><%=pedVO.getId_Pedido()%></td>
                     <td>Producto</td>
                     <td>usuario</td>
                     <td>Cliente</td>
