@@ -68,7 +68,7 @@ public class MesaControlador extends HttpServlet {
                     request.setAttribute("datosConsultados", mesaVO);
                     request.getRequestDispatcher("actualizarMesa.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("mensajeError", "el vehiculo no se pudo encontrar");
+                    request.setAttribute("mensajeError", "La mesa no se pudo encontrar");
                     request.getRequestDispatcher("registroMesa.jsp").forward(request, response);
                 }
                 break;

@@ -27,11 +27,15 @@
                     <form action="Usuario" method="POST">
                         <h1>Iniciar sesión</h1>
                         <div id="input">
-                            <label>Usuario:</label>
+                            <div id="label">
+                                <label>Usuario:</label>
+                            </div>
                             <input type="text" name="usuario_nombre" required="">
                         </div>
                         <div id="input">
-                            <label>Contraseña:</label>
+                            <div id="label">
+                                <label>Contraseña:</label>
+                            </div>
                             <input type="password" name="usuario_password" required="">
                         </div>
                         <div id="input">
@@ -40,14 +44,17 @@
                             <input type="hidden" value="1" name="valor" >
                         </div>
                     </form>
-                </div>
-                <%
+                    <div class="error">
+                    <%
                 if (request.getAttribute("Error") != null) {%>
                 ${Error}
                 <%} else {%>
                 ${Exito}
                 <%}
                 %>
+                    </div>
+                </div>
+                
             </div>
         </div>
             <script src="js/acciones.js"></script>

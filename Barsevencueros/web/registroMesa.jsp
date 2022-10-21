@@ -10,71 +10,84 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Sesiones.jsp" %>
 <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Nueva mesa</title>
+        <link href="assets/css/mesa.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h3>Registrar Mesa</h3>
-        <form method="POST" action="Mesa" >
-            <label for="nMesa">Número de mesa:</label>
-            <input type="text" name="numero" id="nMesa">
-            <select name="estado">
-                <option value="1">Activo</option>
-                <option value="2">Inactivo</option>           
-            </select>
-            <button>Registar</button>
-            <input type="hidden" value="1" name="valor">
-        </form>
-        <%
-            if (request.getAttribute("mensajeError") != null) { %>
-        ${mensajeError}
+        <div id="container-img">
+            <div class="container-main">
+                <div class="title-main">
+                    <h3 class="register-title">Mesa</h3>
+                </div>
+                <div class="main-form">
+                    <div class="form-mesa">
+                        <form method="POST" action="Mesa">
+                            <h2 class="title-reg">Registro de Mesa</h2>
+                            <label for="nMesa">Número de mesa:</label>
+                            <input type="text" name="numero" id="nMesa">
+                            <select name="estado">
+                                <option value="1">Activo</option>
+                                <option value="2">Inactivo</option>           
+                            </select>
+                            <button class="register">Registrar</button>
+                            <input type="hidden" value="1" name="valor">
+                        </form>
+                    </div>
+                    <div class="error">
+                    <%            if (request.getAttribute("mensajeError") != null) { %>
+                    ${mensajeError}
 
-        <%} else {%>
-        ${mensajeExito}        
-        <%}%>
-        <h3>Mesas Registradas</h3>
-            <table class="table table-dark table-striped-column">
-                <tr>
-                    <td>Numero de Mesa</td>
-                    <td>Estado</td>
-                
-                </tr>s
-        <%
-            MesaVO mesaVO = new MesaVO();
-            MesaDAO mesaDAO = new MesaDAO();
-            
-            ArrayList<MesaVO> listarMesa = mesaDAO.listar();
-            
-            for(int i=0;i<listarMesa.size();i++){
-                mesaVO = listarMesa.get(i);
-        %>
-        <tr>
-            <td><%=mesaVO.getMesa_numero()%></td>
-            <td><%=mesaVO.getMesa_estado()%></td>
-        </tr>
-        <%}%>
-            </table>
-            
-        <form method="post" action="Mesa" class="table table-striped-columns">
-            <table>
-                <tr>
-                    <th> 
-                        <h5>Consultar por numero de mesa</h5>
-                        <div class="input-group mb-3">
-                        <input type="text" name="id" class="form-control">
-                        <button class="btn btn-outline-secundarry" >Consultar</button>
-                        <input type="hidden" value="3" name="valor">
-                        </div>
-                        
-                        
-                    </th>
-                </tr>
-            </table>        
-        </form>
+                    <%} else {%>
+                    ${mensajeExito}        
+                    <%}%></div>
+                    <div class="shows-registers">
+                        <h3>Mesas Registradas</h3>
+                        <table class="mesas-register">
+                            <thead>
+                            <tr>
+                                <td class="mesa-n">Numero de Mesa</td>
+                                <td class="mesa-n">Estado</td>
+                            </tr>
+                            </thead>
+                            <%
+                                MesaVO mesaVO = new MesaVO();
+                                MesaDAO mesaDAO = new MesaDAO();
+
+                                ArrayList<MesaVO> listarMesa = mesaDAO.listar();
+
+                                for (int i = 0; i < listarMesa.size(); i++) {
+                                    mesaVO = listarMesa.get(i);
+                            %>
+                            <tr class="change">
+                                <td><%=mesaVO.getMesa_numero()%></td>
+                                <td><%=mesaVO.getMesa_estado()%></td>
+                            </tr>
+                            <%}%>
+                        </table>
+                    </div>
+                    <div class="query-mesa">
+                        <form method="post" action="Mesa" >
+                            <table class="query">
+                                <tr>
+                                    <th> 
+                                        <h2 class="number">Consultar por numero de mesa</h2>
+                                        <div >
+                                            <input type="text" name="id" id="query-all">
+                                            <button class="query-button">Consultar</button>
+                                            <input type="hidden" value="3" name="valor">
+                                        </div>
+                                    </th>
+                                </tr>
+                            </table>        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

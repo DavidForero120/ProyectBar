@@ -15,6 +15,6 @@
         <h1>Mesero</h1>
         <button> <a href="../BarSevenCueros/cliente.jsp">Registrar Clientes</a></button>
         <button> <a href="../BarSevenCueros/listarCliente.jsp">Administrar Clientes</a></button>
-        <button> <a href="../BarSevenCueros/registroMesa.jsp">Administrar Mesas</a></button>
+        <button> <a href="registroMesa.jsp">Administrar Mesas</a></button>
     </body>
 </html>
