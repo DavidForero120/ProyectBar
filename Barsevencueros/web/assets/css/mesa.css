@@ -14,7 +14,6 @@ and open the template in the editor.
 }
 
 #container-img{
-    background-image: url(../img/regMesa.jpg);
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,37 +23,37 @@ and open the template in the editor.
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    font-size: 2em;
+    font-size: 3em;
     color: white;
     padding: 0.8em;
 }
 .form-mesa {
-    display: flex;
-    font-size: 3em;
-    color: white;
+    width: 95%;
     margin-top: 7%;
-    justify-content: center;
-    margin-bottom: 13%;
+    margin-left: 3%;
+}
+
+#hr {
+    background-color: #246355;
+    height: 3px;
+    border: #246355;
 }
 .query-mesa {
     display: flex;
     justify-content: center;
-    color: white;
+    color: black;
         margin-top: 6%;
 }
 .title-reg {
     font-style: italic;
+    color: black;
+    font-weight: bold;
+    text-align: center;
 }
-input#nMesa {
-    height: 12%;
-    width: 77%;
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
-    background-color: rgba(243,243,243,0.2 );
-    border-color: white;
-    border-radius: 8px;
-    margin-bottom: 7%;
+label{
+    color: black;
 }
+
 select {
     padding: 6.5px;
     display: flex;
@@ -63,73 +62,48 @@ select {
     border-radius: 8px;
     font-size: 32px;
 }
-.register {
-    padding: 0.5em;
-    width: 107%;
-    border-radius: 9px;
-    font-size: 0.5em;
+
+#button{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
 }
 
-.register:hover{
-    background-color: black;
-    border-color: white;
-    color: white; 
-    transition: 1s;
-}
 
-table.query {
-    font-size: 2.5em;
+.number {
+    font-style: italic;
     text-align: center;
-    width: 99%;
+    font-size: 1.3em;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    font-weight: bold;
 }
-
-input#query-all {
-    height: 3em;
-    width: 48%;
-    -webkit-backdrop-filter: blur(15px);
-    backdrop-filter: blur(15px);
-    background-color: rgba(243,243,243,0.2 );
-    border-color: white;
-    border-radius: 8px;
+.error2 {
+    text-align: center;
+    font-size: 1em;
     margin-bottom: 7%;
 }
-
-.query-button {
-    width: 19%;
-    height: 2em;
-    font-size: 0.8em;
-}
-
-.number{
-        font-style: italic;
-}
-
 .shows-registers {
-
     background-color: white;
-    margin-top: 44%;
-    margin-left: 25%;
-    position: absolute;
-    font-size: 1.5em;
+    margin-top: 10%;
+    padding: 2%;
     border: #000;
-    width: 51%;
+    width: 100vw;
+    margin: 1;
 }
 h3 {
-    margin-top: -27%;
     text-align: center;
-    margin-left: 38%;
-    font-size: 2em;
-    color: white;
-    margin-left: 3%;
-    margin-bottom: 5%;
+    font-size: 1.5em;
+    color: black;
+    width: 100vw;
 }
 .mesas-register {
     border-color: #000;
     width: 100%;
-    margin-top:-4%;
 }
-td{
-    padding: 20px;
+td {
+    padding: 10px;
 }
 .mesa-n{
     background-color: #246355;
@@ -142,20 +116,45 @@ tr:nth-child(even){
 } 
 
 .error {
-    font-size: 2em;
-    margin-top: -6%;
-    color: white;
+    font-size: 1em;
+    margin-top: 1%;
+    color: black;
     display: flex;
     justify-content: center;
 }
+
+#titulo_{
+    font-weight: bold;
+}
+
+#tabla_{
+    margin-top: 5%;
+}
 @media screen and (min-width:1024px)
 {
-    h3.register-title {
-    margin: auto;
-    margin-bottom: -7%;
-    background-color: white;
-    color: black;
-    width: 96%;
+    div#titulo_ {
+    margin-top: -9%;
+    margin-bottom: -2%;
 }
-    
+.form-mesa {
+    margin-top: 0%;
+}
+h2.title-reg {
+    margin-bottom: 1.5%;
+}
+div#button {
+    margin-left: -3%;
+    margin-bottom: 0%;
+    margin-top: 2%;
+}
+.shows-registers {
+    width: 98vw;
+    font-weight: bold;
+}
+div#titulo_ {
+    margin-left: -2%;
+}
+h3 {
+    font-weight: bold;
+}
 }
