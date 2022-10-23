@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Mesero</h1>
-        <button> <a href="../BarSevenCueros/cliente.jsp">Registrar Clientes</a></button>
+        <button> <a href="../Barsevencueros/cliente.jsp">Registrar Clientes</a></button>
         <button> <a href="../BarSevenCueros/listarCliente.jsp">Administrar Clientes</a></button>
         <button> <a href="registroMesa.jsp">Administrar Mesas</a></button>
     </body>

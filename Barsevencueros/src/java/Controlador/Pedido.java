@@ -5,6 +5,7 @@
  */
 package Controlador;
 import ModeloDAO.ClienteDAO;
+import ModeloDAO.PedidoDAO;
 import ModeloDAO.ProductoDAO;
 import ModeloDAO.desPedidoDAO;
 import ModeloVO.ClienteVO;
@@ -34,13 +35,13 @@ public class Pedido extends HttpServlet
    ProductoDAO prodDAO = new ProductoDAO();
    
    PedidoVO pedVO = new PedidoVO();
+   PedidoDAO pedDAO = new PedidoDAO();
    
    List<PedidoVO>lista = new ArrayList<>();
     int item = 0;
     String id_Producto, nombre_Producto;
     double precio, subtotal;
     int cantidad_producto;
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
@@ -64,7 +65,9 @@ public class Pedido extends HttpServlet
                     String id = request.getParameter("id_producto");
                     prodVO.setId_producto(id);
                     prodVO = prodDAO.buscarQ(id);
+                    request.setAttribute("cliente", cliVO);
                     request.setAttribute("pr", prodVO);
+                    request.setAttribute("lista", lista);
                     break;
                 
                 case "AgregarQ":
@@ -72,18 +75,19 @@ public class Pedido extends HttpServlet
                     id_Producto=prodVO.getId_producto();
                     nombre_Producto = prodVO.getProducto_nombre();
                     precio = prodVO.getProducto_precio();
-                    cantidad_producto=Integer.parseInt(request.getParameter("cantidad"));
-                    subtotal= precio*cantidad_producto;
+                    cantidad_producto = Integer.parseInt(request.getParameter("cantidad"));
+                    subtotal= precio;
                     pedVO=new PedidoVO();
                     pedVO.setItem(item);
                     pedVO.setId_producto(id_Producto);
                     pedVO.setNombre_Producto(nombre_Producto);
                     pedVO.setPrecio(precio);
-                    pedVO.setCantidad_producto(cantidad_producto);
+                    //pedVO.setCantidad_producto(cantidad_producto);
                     pedVO.setSubtotal(subtotal);
                     
                     lista.add(pedVO);
                     request.setAttribute("lista", lista);
+                    request.setAttribute("cliente", cliVO);
                  break;
                 
                 default:

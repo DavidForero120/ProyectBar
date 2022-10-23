@@ -30,7 +30,7 @@ public class desPedidoDAO extends ConexionBd implements Crud{
     private String sql;
 
     private String id_productoFK="", pedidoFK="", total="";
-    private int cantidad_producto ;
+    private Integer cantidad_producto ;
 
     public desPedidoDAO(desPedidoVO desVO) {
         
