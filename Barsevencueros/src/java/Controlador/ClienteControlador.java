@@ -47,11 +47,11 @@ public class ClienteControlador extends HttpServlet {
         
             case 1://Registrar CLiente
                 if(cliDAO.agregarRegistro()){
-                    request.setAttribute("mensajeExito", "el cliente se registro correctamente");
+                    request.setAttribute("mensajeExito", "!!Cliente Registrado¡¡");
                 }else{
-                    request.setAttribute("mensajeExito", "el cliente NO se registro correctamente");
+                    request.setAttribute("mensajeExito", "el cliente NO se pudo registrar");
                 }
-                request.getRequestDispatcher("listarCliente.jsp").forward(request, response);
+                request.getRequestDispatcher("cliente.jsp").forward(request, response);
                 break;
             case 2://Actualizar Cliente
                     if(cliDAO.actualizarRegistro()){

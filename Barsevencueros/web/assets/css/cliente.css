@@ -28,10 +28,10 @@ and open the template in the editor.
     flex-direction: column;
     box-shadow: 1px 1px 10px #000; 
 }
+
 #group_input {
     display: flex;
     justify-content: center;
-  
     flex-direction: column; 
 }
 
@@ -44,26 +44,40 @@ and open the template in the editor.
     margin-bottom: 5%;
 }
 .container-family h2{
-    font-size: 160%;
+   font-size: 1.5em;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 #group_input input{
   width: 95%;
-  height: 2.2em;
-   
+  height: 2.5em; 
 }
 .boton{
     display: flex;
     justify-content: center;
     align-content: center;
 }
-.btn-enviar{
+.btn-enviar {
     font-size: 100%;
     width: 50%;
     height: 3em;
-    background-color: burlywood;
-    border: 1px solid ;
+    background-color: black;
+    color: white;
+    border: 1px solid;
     border-radius: 8px;
-   
+}
+option{
+    font-size: 1.2em;
+}
+.btn-enviar:hover{
+    color:black;
+    background-color: white;
+    transition: 1s;
+}
+#error{
+    text-align: center;
+    font-size: 1.3em;
+    margin-top: 3%;
 }
 .container-family a{
     font-size: 150%;
@@ -71,12 +85,13 @@ and open the template in the editor.
     color: black;
     height: 1em;
 }
+
 #terminos{
  margin: 7%;
 }
 .container-family select{
-    width: 99%;
-    height: 2.3em;  
+    width: 97%;
+    height: 3em;  
 }
 #f_fecNa{
     width: 104%;
@@ -129,8 +144,3 @@ and open the template in the editor.
     visibility: visible;
     opacity: 1;
 }
-
-
-
-
-

@@ -27,19 +27,18 @@
                     <form action="Usuario" method="POST">
                         <h1>Iniciar sesión</h1>
                         <div id="input">
-                            <div id="label">
+                            <div id="labe">
                                 <label>Usuario:</label>
                             </div>
                             <input type="text" name="usuario_nombre" required="">
                         </div>
                         <div id="input">
-                            <div id="label">
+                            <div id="labe">
                                 <label>Contraseña:</label>
                             </div>
                             <input type="password" name="usuario_password" required="">
                         </div>
                         <div id="input">
-
                             <button>Ingresar</button>
                             <input type="hidden" value="1" name="valor" >
                         </div>
