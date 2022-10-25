@@ -35,14 +35,6 @@
 
     %>
     <body>
-
-
-        <body>
-
-
-        <div>
-            <h1 style="color: crimson;text-align: right;">Bienvenido <%= usuario%></h1>
-        </div>
         <form method="post" action="Sesiones">
             <input type="submit" value="CerrarSesion">
         </form>

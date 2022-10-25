@@ -6,6 +6,7 @@
 <%@page import="ModeloVO.ClienteVO"%>
 <%@page import="Controlador.ClienteControlador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Sesiones.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>

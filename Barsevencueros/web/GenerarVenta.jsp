@@ -2,6 +2,7 @@
 <%@page import="ModeloVO.ProductoVO"%>
 <%@page import="ModeloVO.ClienteVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Sesiones.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
