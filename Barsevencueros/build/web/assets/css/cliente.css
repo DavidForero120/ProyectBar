@@ -1,0 +1,146 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Author     : HOGAR
+*/
+
+*{
+    margin: 0%;
+}
+
+.container-family{
+    background-color: rgba(240, 248, 255, 0.843);
+    
+    height: 100vh;
+}
+
+.formulario-family{
+   background-color: rgba(237, 237, 237, 0.923);
+    margin: auto;
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 1px 1px 10px #000; 
+}
+
+#group_input {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+}
+
+#f_terminos{
+    display: flex;
+}
+.container-family h1{
+   
+    font-size: 280%;
+    margin-bottom: 5%;
+}
+.container-family h2{
+   font-size: 1.5em;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+#group_input input{
+  width: 95%;
+  height: 2.5em; 
+}
+.boton{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.btn-enviar {
+    font-size: 100%;
+    width: 50%;
+    height: 3em;
+    background-color: black;
+    color: white;
+    border: 1px solid;
+    border-radius: 8px;
+}
+option{
+    font-size: 1.2em;
+}
+.btn-enviar:hover{
+    color:black;
+    background-color: white;
+    transition: 1s;
+}
+#error{
+    text-align: center;
+    font-size: 1.3em;
+    margin-top: 3%;
+}
+.container-family a{
+    font-size: 150%;
+    text-decoration: none;
+    color: black;
+    height: 1em;
+}
+
+#terminos{
+ margin: 7%;
+}
+.container-family select{
+    width: 97%;
+    height: 3em;  
+}
+#f_fecNa{
+    width: 104%;
+
+}
+/**/
+.msg_error{
+    color: #f50000;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 95%;
+    margin-bottom: 2%;
+}
+
+.msg_error_visible{
+    visibility: visible;
+    opacity: 1;
+}
+
+/*iconos*/
+.group_input{
+    position: relative;
+}
+.frm-icon{
+    position: absolute;
+    z-index: 100;
+    font-size: 16px;
+}
+
+/*Validacion de iconos*/
+.success .frm-icono{
+    color: lime;
+    opacity: 1;
+}
+
+.error .frm-icono{
+    color: red;
+    opacity: 1;
+}
+
+/*Estilos de formulario no enviado por errores*/
+.frm-no-enviado{
+    background: red;
+    padding: 15px;
+    border-radius: 3px;
+    visibility: hidden;
+    opacity: 0;
+}
+.frm-no-enviado-activo{
+    visibility: visible;
+    opacity: 1;
+}

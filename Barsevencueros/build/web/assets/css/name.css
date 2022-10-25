@@ -1,0 +1,74 @@
+
+/* 
+    Created on : 18/08/2022, 03:01:14 PM
+    Author     : David
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+/*ESTILOS PARA UN TAMAÑO MEDIO, TABLET*/
+/*620px a 1024px*/
+*{
+    margin: 0%;
+}
+#container-grid{
+    background: radial-gradient(circle, rgba(107,1,1,1) 0%, rgba(4,0,0,1) 100%);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+.welcome{
+    grid-column: 1/11;
+    grid-row: 5/7;
+}
+.texto a{
+    font-family: 'Outfit', sans-serif;
+    text-decoration: none;
+    color: white;
+    font-size: 5em;
+}
+.texto{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto a {
+  position: relative;
+  display: block;
+  padding: 5px;
+}
+/*linea debajo del texto*/
+.texto a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(0deg, rgba(93,5,4,0.94) 27%, rgba(255,17,0,0.94) 92%);
+  z-index: 1;
+  transform: scaleX(0);
+  transition: transform 2s ease-in-out;
+}
+
+.texto a:hover::before {
+  transform: scaleX(1);
+}
+/*fin de la instruccion para la linea*/
+
+/*resolucuiones pequeñas*/
+@media screen and (min-width:320px) and (max-width:730px){
+    .texto a{
+    font-size: 4em;
+    text-align: center;
+}   
+}
+/*resolucuiones grande*/
+@media screen and (min-width:1300px){
+    .texto a{
+   font-size: 8em;  
+}   
+}

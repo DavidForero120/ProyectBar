@@ -1,0 +1,160 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/10/2022, 09:41:17 PM
+    Author     : Leider
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+*{
+    font-family: 'Inter', sans-serif;
+    margin: 0%
+}
+
+#container-img{
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.title-main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 3em;
+    color: white;
+    padding: 0.8em;
+}
+.form-mesa {
+    width: 95%;
+    margin-top: 7%;
+    margin-left: 3%;
+}
+
+#hr {
+    background-color: #246355;
+    height: 3px;
+    border: #246355;
+}
+.query-mesa {
+    display: flex;
+    justify-content: center;
+    color: black;
+        margin-top: 6%;
+}
+.title-reg {
+    font-style: italic;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+label{
+    color: black;
+}
+
+select {
+    padding: 6.5px;
+    display: flex;
+    margin-top: -15.8%;
+    margin-left: 80%;
+    border-radius: 8px;
+    font-size: 32px;
+}
+
+#button{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+
+.number {
+    font-style: italic;
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    font-weight: bold;
+}
+.error2 {
+    text-align: center;
+    font-size: 1em;
+    margin-bottom: 7%;
+}
+.shows-registers {
+    background-color: white;
+    margin-top: 10%;
+    padding: 2%;
+    border: #000;
+    width: 100vw;
+    margin: 1;
+}
+h3 {
+    text-align: center;
+    font-size: 1.5em;
+    color: black;
+    width: 100vw;
+}
+.mesas-register {
+    border-color: #000;
+    width: 100%;
+}
+td {
+    padding: 10px;
+}
+.mesa-n{
+    background-color: #246355;
+    border-bottom: solid 5px;
+    color: white;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+} 
+
+.error {
+    font-size: 1em;
+    margin-top: 1%;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+#titulo_{
+    font-weight: bold;
+}
+
+#tabla_{
+    margin-top: 5%;
+}
+@media screen and (min-width:1024px)
+{
+    div#titulo_ {
+    margin-top: -9%;
+    margin-bottom: -2%;
+}
+.form-mesa {
+    margin-top: 0%;
+}
+h2.title-reg {
+    margin-bottom: 1.5%;
+}
+div#button {
+    margin-left: -3%;
+    margin-bottom: 0%;
+    margin-top: 2%;
+}
+.shows-registers {
+    width: 98vw;
+    font-weight: bold;
+}
+div#titulo_ {
+    margin-left: -2%;
+}
+h3 {
+    font-weight: bold;
+}
+}
