@@ -40,8 +40,9 @@ public class Pedido extends HttpServlet
    List<PedidoVO>lista = new ArrayList<>();
     int item = 0;
     String id_Producto, nombre_Producto;
-    double precio, subtotal;
+    double precio, subtotal, totalPagar=0;
     int cantidad_producto;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
@@ -49,6 +50,8 @@ public class Pedido extends HttpServlet
         
         String accion = request.getParameter("accion");
         String menu = request.getParameter("menu");
+        
+        
         
         
         if(menu.equals("NuevaVenta"))
@@ -71,21 +74,32 @@ public class Pedido extends HttpServlet
                     break;
                 
                 case "AgregarQ":
+                    String traer =request.getParameter("cantidad");
                     item=item+1;
                     id_Producto=prodVO.getId_producto();
                     nombre_Producto = prodVO.getProducto_nombre();
                     precio = prodVO.getProducto_precio();
                     cantidad_producto = Integer.parseInt(request.getParameter("cantidad"));
-                    subtotal= precio;
+                    subtotal= precio * cantidad_producto ;
+                    
+                    
+                    
+                    
                     pedVO=new PedidoVO();
                     pedVO.setItem(item);
                     pedVO.setId_producto(id_Producto);
                     pedVO.setNombre_Producto(nombre_Producto);
                     pedVO.setPrecio(precio);
-                    //pedVO.setCantidad_producto(cantidad_producto);
+                    pedVO.setCantidad_producto(cantidad_producto);
                     pedVO.setSubtotal(subtotal);
                     
                     lista.add(pedVO);
+
+                    for (int i = 1; i < lista.size(); i++) {
+                        totalPagar = totalPagar + lista.get(i).getSubtotal();
+                    }
+                    request.setAttribute("totalPagar", totalPagar);
+                    
                     request.setAttribute("lista", lista);
                     request.setAttribute("cliente", cliVO);
                  break;
