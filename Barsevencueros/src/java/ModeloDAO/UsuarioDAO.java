@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -64,7 +65,7 @@ public class UsuarioDAO extends ConexionBd implements Crud{
             sql = "CALL newUser(?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, usuario_nombre);
-            puente.setString(2, usuario_apellido);
+            puente.setString(2, usuario_apellido);                     
             puente.setString(3, usuario_password);
             puente.setString(4, usuario_estado);
             puente.setString(5, id_rolFK);
@@ -164,7 +165,7 @@ public class UsuarioDAO extends ConexionBd implements Crud{
        
        try {
            conexion = this.obtenerConexion();
-           sql="call listarUsuario";
+           sql="select * from Usuario";
            puente = conexion.prepareStatement(sql);
            mensajero = puente.executeQuery();
            while (mensajero.next()) {                    
@@ -184,5 +185,47 @@ public class UsuarioDAO extends ConexionBd implements Crud{
         }
        return listarUsuario;
    }
+   
+
+
+        
+
+        /*public String ecnode(String SecretKey) {
+            String encriptado = "";
+            try {
+                MessageDigest md5 = MessageDigest.getInstance("MD5");
+                byte[] llavePassword = md5.digest(SecretKey.getBytes("utf-8"));
+                byte[] BytesKey = Arrays.copyOf(llavePassword, 24);
+                SecretKey key = new SecretKeySpec(BytesKey, "DEsede");
+                Cipher cifrado = Cipher.getInstance("DEsede");
+                cifrado.init(Cipher.ENCRYPT_MODE, key);
+                byte[] plainTextBytes = array.getBytes("utf-8");
+                byte[] buf = cifrado.doFinal(plainTextBytes);
+                byte[] base64bytes = Base64.encodeBase64(buf);
+                encriptado = new String(base64bytes);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "algo salio mal");
+            }
+            return encriptado;
+        }
+
+        public String desecnode(String SecretKey, String arrayEncrypt) {
+            String desencriptacion = "";
+            try {
+                byte[] message = Base64.decodeBase64(arrayEncrypt.getBytes("utf-8"));
+                MessageDigest md5 = MessageDigest.getInstance("MD5");
+                byte[] digestOfPassword = md5.digest(SecretKey.getBytes("utf-8"));
+                byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+                SecretKey key = new SecretKeySpec(keyBytes, "DEsede");
+                Cipher decipher = Cipher.getInstance("DEsede");
+                decipher.init(Cipher.ENCRYPT_MODE, key);
+                byte[] plainText = decipher.doFinal(message);
+                desencriptacion = new String(plainText, "UTF-8");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "algo salio mal");
+            }
+            return desencriptacion;
+        }*/
+    }
     
-}
+
