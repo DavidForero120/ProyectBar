@@ -26,6 +26,16 @@
                 <div id="hamb__">
                     <i id="menu" class="fa-solid fa-bars"></i>
                 </div>
+                <div id="options2" class="options2">
+
+                <ul> 
+                    <li id="li2"><a href="cliente.jsp">Registrar cliente</a></li>
+                    <li id="li2"><a href="listarCliente.jsp">Ver clientes</a></li>
+                    <li id="li2"><a href="#">Ver productos</a></li>
+                    <li id="li2"><a id="vent" href="Pedido?menu=NuevaVenta&accion=default" target="myFrame">Tomar pedido</a></li>
+
+                </ul>
+            </div>
 
             </nav>
             <hr id="hr">
