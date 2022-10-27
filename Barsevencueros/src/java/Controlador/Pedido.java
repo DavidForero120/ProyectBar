@@ -40,7 +40,7 @@ public class Pedido extends HttpServlet
    List<PedidoVO>lista = new ArrayList<>();
     int item = 0;
     String id_Producto, nombre_Producto;
-    double precio, subtotal, totalPagar=0;
+    double precio, subtotal, total;
     int cantidad_producto;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -74,7 +74,6 @@ public class Pedido extends HttpServlet
                     break;
                 
                 case "AgregarQ":
-                    String traer =request.getParameter("cantidad");
                     item=item+1;
                     id_Producto=prodVO.getId_producto();
                     nombre_Producto = prodVO.getProducto_nombre();
@@ -94,11 +93,11 @@ public class Pedido extends HttpServlet
                     pedVO.setSubtotal(subtotal);
                     
                     lista.add(pedVO);
-
-                    for (int i = 1; i < lista.size(); i++) {
-                        totalPagar = totalPagar + lista.get(i).getSubtotal();
+                 
+                    for (int i = 0; i < lista.size(); i++) {
+                        total = total + lista.get(i).getSubtotal();
                     }
-                    request.setAttribute("totalPagar", totalPagar);
+                    request.setAttribute("totalPaga", total);
                     
                     request.setAttribute("lista", lista);
                     request.setAttribute("cliente", cliVO);

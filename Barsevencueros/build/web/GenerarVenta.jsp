@@ -97,7 +97,7 @@
                                     </tr>
                                 </pedVO:forEach>
                                     <tr>
-                            <input type="number" value="${totalPagar}" disabled="disabled">
+                            <input value="${totalPaga}" disabled="disabled">
                                     </tr>
                             </tbody>
                         </table>

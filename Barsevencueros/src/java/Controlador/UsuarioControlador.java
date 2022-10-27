@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
@@ -41,7 +42,7 @@ public class UsuarioControlador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String usuario_nombre = request.getParameter("usuario_nombre");
         String usuario_password = request.getParameter("usuario_password");
-        byte[] encript=DigestUtils.sha256(usuario_password);
+        byte[] encript=DigestUtils.sha256("usuario_password");
         String clavecifrada=String.valueOf(encript);
         String usuario_apellido = request.getParameter("usuario_apellido");
         String usuario_estado = request.getParameter("usuario_estado");
