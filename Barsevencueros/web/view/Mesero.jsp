@@ -51,7 +51,7 @@
             </div>
 
             <div>
-                <iframe name="myFrame" style="height: 600px; width: 100vw; border: none">
+                <iframe name="myFrame" style="height: 100vh; width: 100vw; border: none">
 
                 </iframe>
             </div>

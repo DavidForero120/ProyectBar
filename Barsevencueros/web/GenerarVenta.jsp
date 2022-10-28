@@ -106,9 +106,7 @@
                                     ArrayList<MetodoPagoVO> listarMetodoPago = MetodoPagoDAO.listar();
                                     for (int i = 0; i < listarMetodoPago.size(); i++) {
                                         MetodoPagoVO = listarMetodoPago.get(i);
-
                                         if (MetodoPagoVO.getMetodo() == 1) {
-
                                             String date = "Efectivo";
                                 %>
                                 <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date%></option>
@@ -117,7 +115,6 @@
                                 %>
                                 <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date1%></option>
                                 <%}
-
                                     }%>
                             </select>
                             <hr id="hr">
@@ -153,6 +150,7 @@
                                         <td>${list.getCantidad_producto()}</td>
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getSubtotal()}</td>
+                                        <td><button class="btn btn-success" id="agre__">Agregar</button><button class="btn btn-danger">Eliminar</button></td>
                                     </tr>
                                 </pedVO:forEach>
 
