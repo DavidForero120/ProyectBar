@@ -1,14 +1,19 @@
+<%@page import="ModeloDAO.MetodoPagoDAO"%>
+<%@page import="ModeloVO.MetodoPagoVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="ModeloDAO.MesaDAO"%>
+<%@page import="ModeloVO.MesaVO"%>
 <%@ taglib prefix="pedVO" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="ModeloVO.ProductoVO"%>
 <%@page import="ModeloVO.ClienteVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="Sesiones.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link href="assets/css/Pedido.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="d-flex">
@@ -29,8 +34,11 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text" value="${cliente.getCliente_nombre()} ${cliente.getCliente_apellido()}" class="form-control" disabled="disabled">
+
                                 </div>
                             </div>
+
+                            <hr id="hr">
                             <!--producto-->
                             <div class="form-group">
                                 <label>Datos Producto</label>
@@ -47,25 +55,76 @@
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="precioProd" value="$${pr.getProducto_precio()}" class="form-control" disabled="disabled">
+                                    <label class="input-group-text">Valor unitario</label>
+                                    <input type="text" id="pre_" name="precioProd" value="$${pr.getProducto_precio()}" class="form-control" disabled="disabled">
 
                                 </div>
-                                
-                                <div class="col-sm-3 d-flex">
-                                    <input type="text" name="stock" value="${pr.getProducto_cantidad()}" disabled="disabled">
-                                </div>
-                            </div>
-
+                            </div>                       
                         </form>
-                        <form action="Pedido?menu=NuevaVenta" method="POST">
-                            <div class="col-sm-2 d-flex">
-                                    <input type="number" name="cantidad" value="1" class="form-control">
+                        <!--ID-CLIENTE -->
+                        <input type="hidden" name="idCliente" value="${cliente.getId_cliente()}">
+
+
+                        <form action="Pedido?menu=NuevaVenta" method="POST">                  
+                            <div class="input-group flex-nowrap" id="can__">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Cantidad producto</span>
                                 </div>
-                            <div class="form-group">
-                                <input type="submit" name="accion" value="AgregarQ"> 
+                                <input id="cantidad" type="number" name="cantidad" value="1" class="form-control">
+                            </div> 
+
+
+
+
+                            <!-- MESA-->
+                            <hr id="hr">
+                            <label >Seleccione una mesa: </label>
+                            <select id="mesa_" lass="form-control form-control-lg" name="mesaFK">
+                                <%
+                                    MesaVO mesaVO = new MesaVO();
+                                    MesaDAO mesaDAO = new MesaDAO();
+
+                                    ArrayList<MesaVO> listarMesa = mesaDAO.listar();
+
+                                    for (int i = 0; i < listarMesa.size(); i++) {
+                                        mesaVO = listarMesa.get(i);
+                                %>
+                                <option value="<%=mesaVO.getId_mesa()%>"><%=mesaVO.getMesa_numero()%></option>
+                                <%}%>
+                            </select >
+
+
+
+                            <!-- METODO DE PAGO-->
+                            <hr id="hr">
+                            <label>Metodo de pago:</label>
+                            <select id="mesa_" lass="form-control form-control-lg" name="mesa">
+                                <%
+                                    MetodoPagoVO MetodoPagoVO = new MetodoPagoVO();
+                                    MetodoPagoDAO MetodoPagoDAO = new MetodoPagoDAO();
+
+                                    ArrayList<MetodoPagoVO> listarMetodoPago = MetodoPagoDAO.listar();
+                                    for (int i = 0; i < listarMetodoPago.size(); i++) {
+                                        MetodoPagoVO = listarMetodoPago.get(i);
+
+                                        if (MetodoPagoVO.getMetodo() == 1) {
+
+                                            String date = "Efectivo";
+                                %>
+                                <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date%></option>
+                                <%} else {
+                                    String date1 = "Tarjeta";
+                                %>
+                                <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date1%></option>
+                                <%}
+
+                                    }%>
+                            </select>
+                            <hr id="hr">
+                            <div class="form-group" id="agr">
+                                <input id="agP" type="submit" name="accion" value="AgregarQ" class="btn btn-success"> 
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -82,7 +141,7 @@
                                     <th>Cantidad</th>
                                     <th>Precio</th>
                                     <th>Subtotal</th>
-                                    <th>Total a Pagar</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -96,12 +155,15 @@
                                         <td>${list.getSubtotal()}</td>
                                     </tr>
                                 </pedVO:forEach>
-                                    <tr>
-                            <input value="${totalPaga}" disabled="disabled">
-                                    </tr>
+
+
                             </tbody>
                         </table>
 
+                    </div>
+                    <div class="input-group" id="tot_">
+                        <label  class="input-group-text">Total a pagar:</label>
+                        <input class="form-control" name="total" type="text"  value="${totalPaga}" disabled="disabled">
                     </div>
                     <div class="card-footer d-flex">
                         <div class="col-sm-6">

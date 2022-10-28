@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.codec.digest.DigestUtils;
+//import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -42,8 +42,8 @@ public class UsuarioControlador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String usuario_nombre = request.getParameter("usuario_nombre");
         String usuario_password = request.getParameter("usuario_password");
-        byte[] encript=DigestUtils.sha256("usuario_password");
-        String clavecifrada=String.valueOf(encript);
+        //byte[] encript=DigestUtils.sha256("usuario_password");
+        //String clavecifrada=String.valueOf(encript);
         String usuario_apellido = request.getParameter("usuario_apellido");
         String usuario_estado = request.getParameter("usuario_estado");
         String id_usuario = request.getParameter("id_usuario");
@@ -51,7 +51,7 @@ public class UsuarioControlador extends HttpServlet {
 
         int valor = Integer.parseInt(request.getParameter("valor"));
 
-        UsuarioVO usuVO = new UsuarioVO(id_usuario, usuario_nombre, usuario_apellido, clavecifrada, usuario_estado, id_rolFK);
+        UsuarioVO usuVO = new UsuarioVO(id_usuario, usuario_nombre, usuario_apellido,usuario_password /*, clavecifrada*/, usuario_estado, id_rolFK);
 
         UsuarioDAO usuDAO = new UsuarioDAO(usuVO);
 

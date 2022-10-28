@@ -71,6 +71,8 @@ public class Pedido extends HttpServlet
                     request.setAttribute("cliente", cliVO);
                     request.setAttribute("pr", prodVO);
                     request.setAttribute("lista", lista);
+                    request.setAttribute("totalPaga", total);
+                    
                     break;
                 
                 case "AgregarQ":
@@ -90,15 +92,12 @@ public class Pedido extends HttpServlet
                     pedVO.setNombre_Producto(nombre_Producto);
                     pedVO.setPrecio(precio);
                     pedVO.setCantidad_producto(cantidad_producto);
-                    pedVO.setSubtotal(subtotal);
-                    
-                    lista.add(pedVO);
-                 
+                    pedVO.setSubtotal(subtotal);   
+                    lista.add(pedVO);       
                     for (int i = 0; i < lista.size(); i++) {
                         total = total + lista.get(i).getSubtotal();
                     }
-                    request.setAttribute("totalPaga", total);
-                    
+                    request.setAttribute("totalPaga", total);  
                     request.setAttribute("lista", lista);
                     request.setAttribute("cliente", cliVO);
                  break;
