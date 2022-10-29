@@ -98,15 +98,20 @@ public class Pedido extends HttpServlet {
                     request.setAttribute("lista", lista);
                     request.setAttribute("cliente", cliVO);
                     break;
-
+                case "GenenerarPedido":
+                    
+                        
+                    
+                break;
                 default:
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
 
             }
             request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
         }
-
+            
     }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

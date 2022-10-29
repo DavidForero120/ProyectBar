@@ -165,8 +165,11 @@
                     </div>
                     <div class="card-footer d-flex">
                         <div class="col-sm-6">
-                            <a href="Controlador?menu=NuevaVenta&accion=GenerarVenta" class="btn btn-success">Generar Pedido</a>
+                            <form action="Pedido?menu=NuevaVenta" method="POST">
+                            <button class="btn btn-success">Generar Pedido</button>
+                            <input type="hidden" name="accion" value="GenenerarPedido" class="btn btn-danger">
                             <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
+                            </form>
                         </div>
                     </div>
                 </div>

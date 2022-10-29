@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  * @author David
  */
 
-public class PedidoDAO extends ConexionBd {
+public class PedidoDAO extends ConexionBd implements Crud{
 
     private Connection conexion;
     private PreparedStatement puente;
@@ -57,12 +57,64 @@ public class PedidoDAO extends ConexionBd {
         } catch (Exception e) {
             Logger.getLogger(desPedidoDAO.class.getName()).log(Level.SEVERE, null, e);
         }
-        
-        
-        
+               
+    }
+  
+    public PedidoDAO() {
     }
 
-    public PedidoDAO() {
+    @Override
+    public boolean agregarRegistro() {
+        try 
+        {
+            conexion = this.obtenerConexion();
+            sql = "INSERT INTO pedido (id_pedido, id_usuarioFK, clienteFK, mesaFK, sub_total, pedido_estado, Metodo_pago, fecha) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            puente = conexion.prepareStatement(sql);
+            puente.setInt(1, pedVO.getId_Pedido());
+            puente.setString(2, pedVO.getId_usuarioFK());
+            puente.setString(3, pedVO.getId_Cliente());
+            puente.setString(4, pedVO.getMesaFK());
+            puente.setDouble(5, pedVO.getSubtotal());
+            puente.setString(6, pedVO.getEstado());
+            puente.setInt(7, pedVO.getMetodo_pago());
+            puente.setString(8, pedVO.getFecha());
+            puente.executeUpdate();
+            operacion = true;
+        } 
+        catch (Exception e) 
+        {
+            Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } 
+        return operacion;
+    }
+    public boolean Agregardespedido(){
+        try 
+        {
+            conexion = this.obtenerConexion();
+            sql = "INSERT INTO des_pedido (id_productoFK, pedidoFK, cantidad_producto, total) VALUES (?, ?, ?, ?);";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, pedVO.getId_producto());
+            puente.setInt(2, pedVO.getId_Pedido());
+            puente.setInt(3, pedVO.getCantidad_producto());
+             puente.setDouble(4, pedVO.getSubtotal());
+            puente.executeUpdate();
+            operacion = true;
+        } 
+        catch (Exception e) 
+        {
+            Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } 
+        return operacion;
+    }
+
+    @Override
+    public boolean actualizarRegistro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean eliminarRegistro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
 
