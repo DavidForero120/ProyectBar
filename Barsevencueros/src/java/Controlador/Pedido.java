@@ -98,7 +98,7 @@ public class Pedido extends HttpServlet {
                     request.setAttribute("lista", lista);
                     request.setAttribute("cliente", cliVO);
                     break;
-                        case "GenerarPedido":
+                    case "GenerarPedido":
                     //Guardar Pedido Cabecero
                         String id_usu = request.getParameter("id_usuario");
                         String idCliente = request.getParameter("idCliente");
@@ -113,7 +113,7 @@ public class Pedido extends HttpServlet {
                         pedVO.setMetodo_pago(metodoPago);
                         pedDAO.guardarVenta(pedVO);
                         //Guardar Pedido Lineas
-                        /*
+                        
                         int idPedido = pedDAO.idPedido();
                         for (int i = 0; i < lista.size(); i++)
                         {
@@ -124,7 +124,8 @@ public class Pedido extends HttpServlet {
                             pedVO.setTotal(total);
                             pedDAO.Agregardespedido(pedVO);
                         }
-                        */
+                        
+                        request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
                 break;
                         
                     

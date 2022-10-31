@@ -187,7 +187,7 @@
                                 <%}%>
                             </select >
                                 <button class="btn btn-success">Generar</button>
-                                <input type="hidden" value="GenerarPedido" name="accion">
+                                <input type="hidden"  name="accion" value="GenerarPedido">
                             </form>
                             <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
                         </div>

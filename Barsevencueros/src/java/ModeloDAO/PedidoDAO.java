@@ -30,7 +30,7 @@ public class PedidoDAO extends ConexionBd implements Crud{
 
     private String  id_usuarioFK = "",clienteFK = "",mesaFK="",fecha="", pedido_estado = "";
     private Double sub_total, precio, total;
-    private Integer metodo_pago, cantidad_producto, id_pedido, r;
+    private Integer metodo_pago, cantidad_producto, id_pedido, r=0;
     
     PedidoVO pedVO = new PedidoVO();
     
