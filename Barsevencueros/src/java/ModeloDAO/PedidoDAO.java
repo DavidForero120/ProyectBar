@@ -30,7 +30,7 @@ public class PedidoDAO extends ConexionBd implements Crud{
 
     private String  id_usuarioFK = "",clienteFK = "",mesaFK="",fecha="", pedido_estado = "";
     private Double sub_total, precio, total;
-    private Integer metodo_pago, cantidad_producto, id_pedido;
+    private Integer metodo_pago, cantidad_producto, id_pedido, r;
     
     PedidoVO pedVO = new PedidoVO();
     
@@ -64,11 +64,11 @@ public class PedidoDAO extends ConexionBd implements Crud{
     }
 
     @Override
-    public boolean agregarRegistro() {
+    public boolean agregarRegistro() {///Agregar Pedido
         try 
         {
             conexion = this.obtenerConexion();
-            sql = "INSERT INTO pedido (id_pedido, id_usuarioFK, clienteFK, mesaFK, sub_total, pedido_estado, Metodo_pago, fecha) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            sql = "INSERT INTO pedido (id_usuarioFK, clienteFK, mesaFK, sub_total, pedido_estado, Metodo_pago, fecha) VALUES (?, ?, ?, ?, ?, ?, NOW());";
             puente = conexion.prepareStatement(sql);
             puente.setInt(1, pedVO.getId_Pedido());
             puente.setString(2, pedVO.getId_usuarioFK());
@@ -87,7 +87,46 @@ public class PedidoDAO extends ConexionBd implements Crud{
         } 
         return operacion;
     }
-    public boolean Agregardespedido(){
+    public int idPedido() 
+    {
+        int idPedido=0;
+        try 
+        {
+            conexion = this.obtenerConexion();
+            sql = "SELECT MAX(id_pedido) FROM PEDIDO";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) 
+            {
+                idPedido = mensajero.getInt(1);
+            }
+        } catch (Exception e) {
+            Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } 
+        return idPedido;
+    }
+    public int guardarVenta(PedidoVO pedVO)
+    {
+        try 
+        {
+            conexion = this.obtenerConexion();
+            sql = "INSERT INTO pedido (id_usuarioFK, clienteFK, mesaFK, sub_total, pedido_estado, Metodo_pago, fecha) VALUES (?, ?, ?, ?, ?, ?, NOW());";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, pedVO.getId_usuarioFK());
+            puente.setString(2, pedVO.getId_Cliente());
+            puente.setString(3, pedVO.getMesaFK());
+            puente.setDouble(4, pedVO.getSubtotal());
+            puente.setString(5, pedVO.getEstado());
+            puente.setInt(6, pedVO.getMetodo_pago());
+            puente.executeUpdate();
+        } 
+        catch (Exception e) 
+        {
+            Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } 
+        return r;
+    }
+    public int Agregardespedido(PedidoVO pedVO){
         try 
         {
             conexion = this.obtenerConexion();
@@ -98,13 +137,12 @@ public class PedidoDAO extends ConexionBd implements Crud{
             puente.setInt(3, pedVO.getCantidad_producto());
              puente.setDouble(4, pedVO.getSubtotal());
             puente.executeUpdate();
-            operacion = true;
         } 
         catch (Exception e) 
         {
             Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
         } 
-        return operacion;
+        return r;
     }
 
     @Override

@@ -74,7 +74,7 @@ public class RolDAO extends ConexionBd{
         ArrayList<RolVO> listaRol = new ArrayList<>();
             try {
                 conexion = this.obtenerConexion();
-                sql =  "SELECT usuario.usuario_nombre, rol.tipo_rol FROM rol INNER JOIN usuario ON usuario.id_rolFK = rol.id_rol WHERE usuario.usuario_nombre=?";
+                sql =  "SELECT usuario.id_usuario, rol.tipo_rol FROM rol INNER JOIN usuario ON usuario.id_rolFK = rol.id_rol WHERE usuario.usuario_nombre=?";
                 puente = conexion.prepareStatement(sql);
                 puente.setString(1, usuario_nombre);
                 mensajero = puente.executeQuery();

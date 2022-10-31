@@ -1,3 +1,5 @@
+<%@page import="ModeloDAO.RolDAO"%>
+<%@page import="ModeloVO.RolVO"%>
 <%@page import="ModeloDAO.MetodoPagoDAO"%>
 <%@page import="ModeloVO.MetodoPagoVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -7,6 +9,7 @@
 <%@page import="ModeloVO.ProductoVO"%>
 <%@page import="ModeloVO.ClienteVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="Sesiones.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,7 +65,6 @@
                             </div>                       
                         </form>
                         <!--ID-CLIENTE -->
-                        <input type="hidden" name="idCliente" value="${cliente.getId_cliente()}">
 
 
                         <form action="Pedido?menu=NuevaVenta" method="POST">                  
@@ -79,44 +81,25 @@
                             <!-- MESA-->
                             <hr id="hr">
                             <label >Seleccione una mesa: </label>
-                            <select id="mesa_" lass="form-control form-control-lg" name="mesaFK">
-                                <%
-                                    MesaVO mesaVO = new MesaVO();
-                                    MesaDAO mesaDAO = new MesaDAO();
-
-                                    ArrayList<MesaVO> listarMesa = mesaDAO.listar();
-
-                                    for (int i = 0; i < listarMesa.size(); i++) {
-                                        mesaVO = listarMesa.get(i);
-                                %>
-                                <option value="<%=mesaVO.getId_mesa()%>"><%=mesaVO.getMesa_numero()%></option>
-                                <%}%>
-                            </select >
+                            
 
 
 
                             <!-- METODO DE PAGO-->
                             <hr id="hr">
                             <label>Metodo de pago:</label>
-                            <select id="mesa_" lass="form-control form-control-lg" name="mesa">
-                                <%
-                                    MetodoPagoVO MetodoPagoVO = new MetodoPagoVO();
-                                    MetodoPagoDAO MetodoPagoDAO = new MetodoPagoDAO();
+                            
+                            <% 
+                            RolVO rolVO = new RolVO();
+                            RolDAO rolDAO = new RolDAO();
+                            ArrayList<RolVO> listaRoles = rolDAO.listar(usuario);
 
-                                    ArrayList<MetodoPagoVO> listarMetodoPago = MetodoPagoDAO.listar();
-                                    for (int i = 0; i < listarMetodoPago.size(); i++) {
-                                        MetodoPagoVO = listarMetodoPago.get(i);
-                                        if (MetodoPagoVO.getMetodo() == 1) {
-                                            String date = "Efectivo";
-                                %>
-                                <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date%></option>
-                                <%} else {
-                                    String date1 = "Tarjeta";
-                                %>
-                                <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date1%></option>
-                                <%}
-                                    }%>
-                            </select>
+                            for (int i = 0; i < listaRoles.size(); i++) 
+                            {
+                                rolVO = listaRoles.get(i);
+                                
+                            }
+                        %> 
                             <hr id="hr">
                             <div class="form-group" id="agr">
                                 <input id="agP" type="submit" name="accion" value="AgregarQ" class="btn btn-success"> 
@@ -130,6 +113,7 @@
                     <div class="card-body">
                         <br>
                         <table class="table table-hover" >
+                            form
                             <thead>                           
                                 <tr>
                                     <th>Nro</th>
@@ -158,18 +142,54 @@
                             </tbody>
                         </table>
 
-                    </div>
+                    </div
+                    
                     <div class="input-group" id="tot_">
                         <label  class="input-group-text">Total a pagar:</label>
                         <input class="form-control" name="total" type="text"  value="${totalPaga}" disabled="disabled">
                     </div>
+                    
                     <div class="card-footer d-flex">
                         <div class="col-sm-6">
-                            <form action="Pedido?menu=NuevaVenta" method="POST">
-                            <button class="btn btn-success">Generar Pedido</button>
-                            <input type="hidden" name="accion" value="GenenerarPedido" class="btn btn-danger">
-                            <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
+                            <form method="POST" action="Pedido?menu=NuevaVenta">
+                                <input type="hidden" name="id_usuario" value="<%=rolVO.getId_rol()%>">
+                                <input type="hidden" name="idCliente" value="${cliente.getId_cliente()}">
+                                <select id="mesa_" lass="form-control form-control-lg" name="metodoPago">
+                                <%
+                                    MetodoPagoVO MetodoPagoVO = new MetodoPagoVO();
+                                    MetodoPagoDAO MetodoPagoDAO = new MetodoPagoDAO();
+
+                                    ArrayList<MetodoPagoVO> listarMetodoPago = MetodoPagoDAO.listar();
+                                    for (int i = 0; i < listarMetodoPago.size(); i++) {
+                                        MetodoPagoVO = listarMetodoPago.get(i);
+                                        if (MetodoPagoVO.getMetodo() == 1) {
+                                            String date = "Efectivo";
+                                %>
+                                <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date%></option>
+                                <%} else {
+                                    String date1 = "Tarjeta";
+                                %>
+                                <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date1%></option>
+                                <%}
+                                    }%>
+                            </select>
+                            <select id="mesa_" lass="form-control form-control-lg" name="mesaFK">
+                                <%
+                                    MesaVO mesaVO = new MesaVO();
+                                    MesaDAO mesaDAO = new MesaDAO();
+
+                                    ArrayList<MesaVO> listarMesa = mesaDAO.listar();
+
+                                    for (int i = 0; i < listarMesa.size(); i++) {
+                                        mesaVO = listarMesa.get(i);
+                                %>
+                                <option value="<%=mesaVO.getId_mesa()%>"><%=mesaVO.getMesa_numero()%></option>
+                                <%}%>
+                            </select >
+                                <button class="btn btn-success">Generar</button>
+                                <input type="hidden" value="GenerarPedido" name="accion">
                             </form>
+                            <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
                         </div>
                     </div>
                 </div>
