@@ -112,8 +112,9 @@
                 <div class="card">
                     <div class="card-body">
                         <br>
+                        <form action="Pedido?menu=NuevaVenta" method="POST">
                         <table class="table table-hover" >
-                            form
+                            
                             <thead>                           
                                 <tr>
                                     <th>Nro</th>
@@ -134,14 +135,15 @@
                                         <td>${list.getCantidad_producto()}</td>
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getSubtotal()}</td>
-                                        <td><button class="btn btn-success" id="agre__">Agregar</button><button class="btn btn-danger">Eliminar</button></td>
+                                        <td><input class="btn btn-success" type="submit" name="accion" value="Agregar"></input>
+                                            <input class="btn btn-danger" type="submit" name="accion" value="Eliminar"></input></td>                              
                                     </tr>
                                 </pedVO:forEach>
 
 
                             </tbody>
                         </table>
-
+                        </form>
                     </div
                     
                     <div class="input-group" id="tot_">

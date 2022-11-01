@@ -15,7 +15,7 @@
         <link href="assets/css/ViewMesero.css" rel="stylesheet" >
         <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
 
-        <title>MWelcome</title>
+        <title>Welcome</title>
     </head>
     <body>
         <section id="mesero__">

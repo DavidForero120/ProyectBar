@@ -72,7 +72,7 @@ public class Pedido extends HttpServlet {
                     break;
 
                 case "AgregarQ":
-                    total=0.0;
+                    total = 0.0;
                     item = item + 1;
                     id_Producto = prodVO.getId_producto();
                     nombre_Producto = prodVO.getProducto_nombre();
@@ -89,46 +89,59 @@ public class Pedido extends HttpServlet {
                     pedVO.setSubtotal(subtotal);
                     lista.add(pedVO);
                     for (int i = 0; i < lista.size(); i++) {
-                        total = total + lista.get(i).getSubtotal();         
+                        total = total + lista.get(i).getSubtotal();
                         System.out.println(total);
-                        
+
                     }
 
                     request.setAttribute("totalPaga", total);
                     request.setAttribute("lista", lista);
                     request.setAttribute("cliente", cliVO);
                     break;
-                    case "GenerarPedido":
+                case "GenerarPedido":
                     //Guardar Pedido Cabecero
-                        String id_usu = request.getParameter("id_usuario");
-                        String idCliente = request.getParameter("idCliente");
-                        String mesaFK = request.getParameter("mesaFK");
-                        int metodoPago = Integer.parseInt(request.getParameter("metodoPago"));
-                        
-                        pedVO.setId_usuarioFK(id_usu);
-                        pedVO.setId_Cliente(idCliente);
-                        pedVO.setMesaFK(mesaFK);
-                        pedVO.setSubtotal(subtotal);
-                        pedVO.setEstado("1");
-                        pedVO.setMetodo_pago(metodoPago);
-                        pedDAO.guardarVenta(pedVO);
-                        //Guardar Pedido Lineas
-                        
-                        int idPedido = pedDAO.idPedido();
-                        for (int i = 0; i < lista.size(); i++)
-                        {
-                            pedVO = new PedidoVO();
-                            pedVO.setId_Pedido(idPedido);
-                            pedVO.setId_producto(lista.get(i).getId_producto());
-                            pedVO.setCantidad_producto(lista.get(i).getCantidad_producto());
-                            pedVO.setTotal(total);
-                            pedDAO.Agregardespedido(pedVO);
-                        }
-                        
-                        request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
-                break;
-                        
-                    
+                    String id_usu = request.getParameter("id_usuario");
+                    String idCliente = request.getParameter("idCliente");
+                    String mesaFK = request.getParameter("mesaFK");
+                    int metodoPago = Integer.parseInt(request.getParameter("metodoPago"));
+
+                    pedVO.setId_usuarioFK(id_usu);
+                    pedVO.setId_Cliente(idCliente);
+                    pedVO.setMesaFK(mesaFK);
+                    pedVO.setSubtotal(subtotal);
+                    pedVO.setEstado("1");
+                    pedVO.setMetodo_pago(metodoPago);
+                    pedDAO.guardarVenta(pedVO);
+                    //Guardar Pedido Lineas
+
+                    int idPedido = pedDAO.idPedido();
+                    for (int i = 0; i < lista.size(); i++) {
+                        pedVO = new PedidoVO();
+                        pedVO.setId_Pedido(idPedido);
+                        pedVO.setId_producto(lista.get(i).getId_producto());
+                        pedVO.setCantidad_producto(lista.get(i).getCantidad_producto());
+                        pedVO.setTotal(total);
+                        pedDAO.Agregardespedido(pedVO);
+                    }
+
+                    request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
+                    break;
+                case "Eliminar":
+                    pedVO = new PedidoVO();
+                    String id_producto = pedVO.getId_producto();
+                    for (int i = 0; i < lista.size(); i++) {
+                        id_producto = lista.get(i).getId_producto();
+                    }                   
+                    pedDAO.eliminarRegister(id_producto);
+
+                    if (prodVO != null) {
+                        request.setAttribute("mensajeExito", "Se ha eliminado correctamente");
+
+                    } else {
+                        request.setAttribute("mensajeError", "No se ha eliminado correctamente");
+                    }
+                    request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
+                    break;
 
                 default:
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
@@ -136,9 +149,8 @@ public class Pedido extends HttpServlet {
             }
             request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
         }
-            
-    }
 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
