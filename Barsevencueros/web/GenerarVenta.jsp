@@ -22,7 +22,7 @@
         <div class="d-flex">
             <div class="col-sm-5">
                 <div class="card">
-                    <div class="card-body"> 
+                    <div class="card-body">
                         <form action="Pedido?menu=NuevaVenta" method="POST">
                             <!--Cliente-->
                             <div class="form-group">
@@ -62,7 +62,7 @@
                                     <input type="text" id="pre_" name="precioProd" value="$${pr.getProducto_precio()}" class="form-control" disabled="disabled">
 
                                 </div>
-                            </div>                       
+                            </div>                      
                         </form>
                         <!--ID-CLIENTE -->
 
@@ -73,7 +73,7 @@
                                     <span class="input-group-text" id="addon-wrapping">Cantidad producto</span>
                                 </div>
                                 <input id="cantidad" type="number" name="cantidad" value="1" class="form-control">
-                            </div> 
+                            </div>
 
 
 
@@ -81,28 +81,26 @@
                             <!-- MESA-->
                             <hr id="hr">
                             <label >Seleccione una mesa: </label>
-                            
+
 
 
 
                             <!-- METODO DE PAGO-->
                             <hr id="hr">
                             <label>Metodo de pago:</label>
-                            
-                            <% 
-                            RolVO rolVO = new RolVO();
-                            RolDAO rolDAO = new RolDAO();
-                            ArrayList<RolVO> listaRoles = rolDAO.listar(usuario);
 
-                            for (int i = 0; i < listaRoles.size(); i++) 
-                            {
-                                rolVO = listaRoles.get(i);
-                                
-                            }
-                        %> 
+                            <%                                RolVO rolVO = new RolVO();
+                                RolDAO rolDAO = new RolDAO();
+                                ArrayList<RolVO> listaRoles = rolDAO.listar(usuario);
+
+                                for (int i = 0; i < listaRoles.size(); i++) {
+                                    rolVO = listaRoles.get(i);
+
+                                }
+                            %>
                             <hr id="hr">
                             <div class="form-group" id="agr">
-                                <input id="agP" type="submit" name="accion" value="AgregarQ" class="btn btn-success"> 
+                                <input id="agP" type="submit" name="accion" value="AgregarQ" class="btn btn-success">
                             </div>
                         </form>
                     </div>
@@ -112,10 +110,9 @@
                 <div class="card">
                     <div class="card-body">
                         <br>
-                        <form action="Pedido?menu=NuevaVenta" method="POST">
                         <table class="table table-hover" >
-                            
-                            <thead>                           
+                            form
+                            <thead>                          
                                 <tr>
                                     <th>Nro</th>
                                     <th>id_producto</th>
@@ -135,62 +132,63 @@
                                         <td>${list.getCantidad_producto()}</td>
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getSubtotal()}</td>
-                                        <td><input class="btn btn-success" type="submit" name="accion" value="Agregar"></input>
-                                            <input class="btn btn-danger" type="submit" name="accion" value="Eliminar"></input></td>                              
+                                        <td><button class="btn btn-success" id="agre__">Agregar</button><button class="btn btn-danger">Eliminar</button></td>
                                     </tr>
                                 </pedVO:forEach>
 
 
                             </tbody>
                         </table>
-                        </form>
+
                     </div
-                    
+
                     <div class="input-group" id="tot_">
                         <label  class="input-group-text">Total a pagar:</label>
                         <input class="form-control" name="total" type="text"  value="${totalPaga}" disabled="disabled">
                     </div>
-                    
+
                     <div class="card-footer d-flex">
                         <div class="col-sm-6">
                             <form method="POST" action="Pedido?menu=NuevaVenta">
                                 <input type="hidden" name="id_usuario" value="<%=rolVO.getId_rol()%>">
                                 <input type="hidden" name="idCliente" value="${cliente.getId_cliente()}">
                                 <select id="mesa_" lass="form-control form-control-lg" name="metodoPago">
-                                <%
-                                    MetodoPagoVO MetodoPagoVO = new MetodoPagoVO();
-                                    MetodoPagoDAO MetodoPagoDAO = new MetodoPagoDAO();
+                                    <%
+                                        MetodoPagoVO MetodoPagoVO = new MetodoPagoVO();
+                                        MetodoPagoDAO MetodoPagoDAO = new MetodoPagoDAO();
 
-                                    ArrayList<MetodoPagoVO> listarMetodoPago = MetodoPagoDAO.listar();
-                                    for (int i = 0; i < listarMetodoPago.size(); i++) {
-                                        MetodoPagoVO = listarMetodoPago.get(i);
-                                        if (MetodoPagoVO.getMetodo() == 1) {
-                                            String date = "Efectivo";
-                                %>
-                                <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date%></option>
-                                <%} else {
-                                    String date1 = "Tarjeta";
-                                %>
-                                <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date1%></option>
-                                <%}
+                                        ArrayList<MetodoPagoVO> listarMetodoPago = MetodoPagoDAO.listar();
+                                        for (int i = 0; i < listarMetodoPago.size(); i++) {
+                                            MetodoPagoVO = listarMetodoPago.get(i);
+                                            if (MetodoPagoVO.getMetodo() == 1) {
+                                                String date = "Efectivo";
+                                    %>
+                                    <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date%></option>
+                                    <%} else {
+                                        String date1 = "Tarjeta";
+                                    %>
+                                    <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date1%></option>
+                                    <%}
                                     }%>
-                            </select>
-                            <select id="mesa_" lass="form-control form-control-lg" name="mesaFK">
-                                <%
-                                    MesaVO mesaVO = new MesaVO();
-                                    MesaDAO mesaDAO = new MesaDAO();
+                                </select>
+                                <select id="mesa_" lass="form-control form-control-lg" name="mesaFK">
+                                    <%
+                                        MesaVO mesaVO = new MesaVO();
+                                        MesaDAO mesaDAO = new MesaDAO();
 
-                                    ArrayList<MesaVO> listarMesa = mesaDAO.listar();
+                                        ArrayList<MesaVO> listarMesa = mesaDAO.listar();
 
-                                    for (int i = 0; i < listarMesa.size(); i++) {
-                                        mesaVO = listarMesa.get(i);
-                                %>
-                                <option value="<%=mesaVO.getId_mesa()%>"><%=mesaVO.getMesa_numero()%></option>
-                                <%}%>
-                            </select >
+                                        for (int i = 0; i < listarMesa.size(); i++) {
+                                            mesaVO = listarMesa.get(i);
+                                    %>
+                                    <option value="<%=mesaVO.getId_mesa()%>"><%=mesaVO.getMesa_numero()%></option>
+                                    <%}%>
+                                </select >
+                                
                                 <button class="btn btn-success">Generar</button>
                                 <input type="hidden"  name="accion" value="GenerarPedido">
                             </form>
+                               <!-- <a href="Pedido?menu=NuevaVenta&accion=GenerarPedido" class="btn btn-success">Generar Pedido</a>-->
                             <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
                         </div>
                     </div>

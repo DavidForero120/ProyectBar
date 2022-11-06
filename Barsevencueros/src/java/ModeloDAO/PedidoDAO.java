@@ -61,7 +61,7 @@ public class PedidoDAO extends ConexionBd implements Crud {
     }
 
     @Override
-    public boolean agregarRegistro() {///Agregar Pedido
+    public boolean agregarRegistro() {
         try {
             conexion = this.obtenerConexion();
             sql = "INSERT INTO pedido (id_usuarioFK, clienteFK, mesaFK, sub_total, pedido_estado, Metodo_pago, fecha) VALUES (?, ?, ?, ?, ?, ?, NOW());";
@@ -99,16 +99,16 @@ public class PedidoDAO extends ConexionBd implements Crud {
     }
 
     public int guardarVenta(PedidoVO pedVO) {
+        ///RESGIRTRAR PEDIDO
         try {
             conexion = this.obtenerConexion();
-            sql = "INSERT INTO pedido (id_usuarioFK, clienteFK, mesaFK, sub_total, pedido_estado, Metodo_pago, fecha) VALUES (?, ?, ?, ?, ?, ?, NOW());";
+            sql = "INSERT INTO pedido (id_usuarioFK, clienteFK, mesaFK, pedido_estado, Metodo_pago, fecha) VALUES (?, ?, ?, ?, ?, NOW());";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, pedVO.getId_usuarioFK());
             puente.setString(2, pedVO.getId_Cliente());
             puente.setString(3, pedVO.getMesaFK());
-            puente.setDouble(4, pedVO.getSubtotal());
-            puente.setString(5, pedVO.getEstado());
-            puente.setInt(6, pedVO.getMetodo_pago());
+            puente.setString(4, pedVO.getEstado());
+            puente.setInt(5, pedVO.getMetodo_pago());
             puente.executeUpdate();
         } catch (Exception e) {
             Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -117,14 +117,16 @@ public class PedidoDAO extends ConexionBd implements Crud {
     }
 
     public int Agregardespedido(PedidoVO pedVO) {
+       //REGISTRO DES_PEDIDO
         try {
             conexion = this.obtenerConexion();
-            sql = "INSERT INTO des_pedido (id_productoFK, pedidoFK, cantidad_producto, total) VALUES (?, ?, ?, ?);";
+            sql = "INSERT INTO des_pedido (id_productoFK, pedidoFK, cantidad_producto, sub_total, total) VALUES (?, ?, ?, ?,?);";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, pedVO.getId_producto());
             puente.setInt(2, pedVO.getId_Pedido());
             puente.setInt(3, pedVO.getCantidad_producto());
             puente.setDouble(4, pedVO.getSubtotal());
+            puente.setDouble(5, pedVO.getTotal());
             puente.executeUpdate();
         } catch (Exception e) {
             Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
