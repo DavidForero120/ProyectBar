@@ -65,8 +65,6 @@
                             </div>                      
                         </form>
                         <!--ID-CLIENTE -->
-
-
                         <form action="Pedido?menu=NuevaVenta" method="POST">                  
                             <div class="input-group flex-nowrap" id="can__">
                                 <div class="input-group-prepend">
@@ -74,21 +72,6 @@
                                 </div>
                                 <input id="cantidad" type="number" name="cantidad" value="1" class="form-control">
                             </div>
-
-
-
-
-                            <!-- MESA-->
-                            <hr id="hr">
-                            <label >Seleccione una mesa: </label>
-
-
-
-
-                            <!-- METODO DE PAGO-->
-                            <hr id="hr">
-                            <label>Metodo de pago:</label>
-
                             <%                                RolVO rolVO = new RolVO();
                                 RolDAO rolDAO = new RolDAO();
                                 ArrayList<RolVO> listaRoles = rolDAO.listar(usuario);
@@ -100,7 +83,8 @@
                             %>
                             <hr id="hr">
                             <div class="form-group" id="agr">
-                                <input id="agP" type="submit" name="accion" value="AgregarQ" class="btn btn-success">
+                                <button class="btn btn-success">Agregar Producto</button>
+                                <input id="agP" type="hidden" name="accion" value="AgregarQ" >
                             </div>
                         </form>
                     </div>
@@ -111,7 +95,6 @@
                     <div class="card-body">
                         <br>
                         <table class="table table-hover" >
-                            form
                             <thead>                          
                                 <tr>
                                     <th>Nro</th>
@@ -140,18 +123,23 @@
                             </tbody>
                         </table>
 
-                    </div
-
-                    <div class="input-group" id="tot_">
-                        <label  class="input-group-text">Total a pagar:</label>
-                        <input class="form-control" name="total" type="text"  value="${totalPaga}" disabled="disabled">
                     </div>
+                    <div class="form-group d-flex" id="totalP">
+                        <div class="col-sm-6 d-flex">
+                            <label  class="input-group-text">Total a pagar:</label>
+                        <input class="form-control" name="total" type="text"  value="${totalPaga}" disabled="disabled">
 
-                    <div class="card-footer d-flex">
-                        <div class="col-sm-6">
+                        </div>
+                    </div>   
+
+                    <div class="agregar">
+                        <div >
                             <form method="POST" action="Pedido?menu=NuevaVenta">
                                 <input type="hidden" name="id_usuario" value="<%=rolVO.getId_rol()%>">
                                 <input type="hidden" name="idCliente" value="${cliente.getId_cliente()}">
+                                <!-- METODO DE PAGO-->
+                                <hr id="hr">
+                                <label>Metodo de pago:</label>
                                 <select id="mesa_" lass="form-control form-control-lg" name="metodoPago">
                                     <%
                                         MetodoPagoVO MetodoPagoVO = new MetodoPagoVO();
@@ -169,8 +157,11 @@
                                     %>
                                     <option value="<%=MetodoPagoVO.getId_metodoPago()%>"><%=date1%></option>
                                     <%}
-                                    }%>
+                                        }%>
                                 </select>
+                                <!-- MESA-->
+                                <hr id="hr">
+                                <label >Seleccione una mesa: </label>
                                 <select id="mesa_" lass="form-control form-control-lg" name="mesaFK">
                                     <%
                                         MesaVO mesaVO = new MesaVO();
@@ -184,12 +175,14 @@
                                     <option value="<%=mesaVO.getId_mesa()%>"><%=mesaVO.getMesa_numero()%></option>
                                     <%}%>
                                 </select >
-                                
-                                <button class="btn btn-success">Generar</button>
+                                <div>
+                                    <button class="btn btn-success">Generar</button>
                                 <input type="hidden"  name="accion" value="GenerarPedido">
+                                <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
+                                </div>
                             </form>
-                               <!-- <a href="Pedido?menu=NuevaVenta&accion=GenerarPedido" class="btn btn-success">Generar Pedido</a>-->
-                            <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
+                            <!-- <a href="Pedido?menu=NuevaVenta&accion=GenerarPedido" class="btn btn-success">Generar Pedido</a>-->
+                            
                         </div>
                     </div>
                 </div>

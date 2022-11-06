@@ -122,7 +122,7 @@ public class Pedido extends HttpServlet {
                             pedVO.setTotal(total);
                             pedDAO.Agregardespedido(pedVO);
                         }
-                       
+                 
                         request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
                 break;                     
                 default:

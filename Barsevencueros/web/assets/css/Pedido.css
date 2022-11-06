@@ -38,3 +38,10 @@ and open the template in the editor.
 #agre__{
     margin-right: 3%;
 }
+.agregar{
+    width: 100% !important;
+    padding: 1% !important;
+}
+#totalP{
+    padding: 2% !important;
+}
