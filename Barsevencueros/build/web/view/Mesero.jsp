@@ -2,7 +2,7 @@
 <%-- 
     Document   : Mesero
     Created on : 23/07/2022, 05:07:47 PM
-    Author     : 57314
+    Author     : David
 --%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
         <link href="assets/css/ViewMesero.css" rel="stylesheet" >
         <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
 
-        <title>Welcome</title>
+        <title>Bar 7 cueros</title>
     </head>
     <body>
         <section id="mesero__">

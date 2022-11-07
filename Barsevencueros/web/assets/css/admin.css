@@ -7,45 +7,133 @@ and open the template in the editor.
     Created on : 25/10/2022, 11:32:45 PM
     Author     : David
 */
-
-
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100&family=Hind+Madurai:wght@500&display=swap');
 body{
-      margin:0%;
-}
-#admin__{
-      width: 100%;
+      margin: 0%;
       height: 100vh;
 }
-#opcion{
-      position: fixed;
-      width: 40%;
-      background-color: rgba(2, 2, 2, 0.822);
+.container_admin{
+      width: 100%;
       height: 100vh;
       display: flex;
+      max-width: 1700px;
+}
+.nav_admin{
+      width: 20%;
+      height: 100%;
+      display: flex;
       flex-direction: column;
-}a{
-      text-decoration: none;
-      color: white;
+      padding: 1%;
+      background-color: rgb(129, 128, 128);
+      -webkit-box-shadow: 14px -6px 31px -17px rgba(10,10,9,1);
+      -moz-box-shadow: 14px -6px 31px -17px rgba(10,10,9,1);
+      box-shadow: 14px -6px 31px -17px rgba(10,10,9,1);
 }
-#opcion button{
-      display: none;
-}
-#logo{
-      width: 100%;
+.logo_admin{
+      height: 20%;
+      margin: 5%;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 10%;
-      margin-bottom: 10%;
 }
-#logo img{
-      width: 265px;
+.log_a{
+    width: 100%;
 }
-.op__{
-      height: 80%;
-    display: flex;
-    flex-direction: column;
+.opcion_a{
+      height: 70%;
+      margin: 5%;
+      display: flex;
+      flex-direction: column;
 }
-form{
-    display: none;
+.option_{
+      width: 100%;
+      height: 10%;
+      
+}
+i{
+      color: rgb(5, 2, 0);
+      font-size: 1.3em;
+      width: 1.5em;
+}
+a{
+      font-family: 'Hind Madurai', sans-serif;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      font-size:1.2em;
+      color: white;
+      margin-left: 3%;
+}
+.option_:hover{
+      background-color: white;
+      transition: 1s;
+      border-radius: 5px;
+}
+a:hover{
+      color: black;
+      transition: 0.5s;
+}
+
+.ver_t{
+      display: none;
+}
+.trabajador{
+      display: flex;
+      width: 100%;
+      padding: 2%;
+}
+/*registrar trabajador*/
+.reg_t{
+      display: none;
+}
+.trabajadorR{
+      display: flex;
+      width: 100%;
+      padding: 2%;
+}
+/*ver mesas*/
+.ver_m{
+      display: none;
+}
+.mesaV{
+      display: flex;
+      width: 100%;
+      padding: 2%;
+}
+/*registrar mesas*/
+.reg_m{
+      display: none;
+}
+.mesaR{
+      display: flex;
+      width: 100%;
+      padding: 2%;
+}
+/*ver productos*/
+.ver_p{
+      display: none;
+}
+.productoV{
+      display: flex;
+      width: 100%;
+      padding: 2%; 
+}
+/*registrar producto*/
+.reg_p{
+      display: none;
+}
+.productoR{
+      display: flex;
+      width: 100%;
+      padding: 2%; 
+}
+/*reporte ventas*/
+.report{
+      display: none;
+}
+.reportV{
+      display: flex;
+      width: 100%;
+      padding: 2%; 
 }

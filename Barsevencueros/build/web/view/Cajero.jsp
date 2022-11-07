@@ -1,7 +1,7 @@
 <%-- 
     Document   : Cajero
     Created on : 23/07/2022, 05:07:28 PM
-    Author     : 57314
+    Author     : David
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Bar 7 cueros</title>
     </head>
     <body>
         <h1>Cajero</h1>

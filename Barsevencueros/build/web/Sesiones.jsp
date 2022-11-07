@@ -35,9 +35,11 @@
 
     %>
     <body>
+        <!--
         <form method="post" action="Sesiones">
             <input type="submit" value="CerrarSesion">
         </form>
+        -->
 
     </body>
         

@@ -44,12 +44,12 @@
                     </form>
                     <div class="error">
                     <%
-                if (request.getAttribute("Error") != null) {%>
-                ${Error}
-                <%} else {%>
-                ${Exito}
-                <%}
-                %>
+                        if (request.getAttribute("Error") != null) {%>
+                        ${Error}
+                        <%} else {%>
+                        ${Exito}
+                        <%}
+                    %>
                     </div>
                 </div>
                 
