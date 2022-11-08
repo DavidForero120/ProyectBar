@@ -28,7 +28,21 @@
                 </div>
             </div>
             <div class="ver_t" id="ver_t">
-                trabajador
+                <h1 id="worker">Trabajadores</h1>
+                <div class="cards_">
+                    <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
+                        <div class="card-header">
+                            <h3>name</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">h</p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                        <ul class="text-end">
+                            <button class="btn btn-outline-light bu">Editar</button>
+                        </ul>                    
+                    </div>
+                </div> 
             </div>
             <div class="reg_t" id="reg_t">
                 <div class="user_r">
@@ -63,7 +77,7 @@
                                 <option value="3" >Mesero</option>
                             </select>
                         </div>
-                        
+
                         <div id="button">
                             <button class="btn btn-outline-success">Registrar</button><br>
                             <input type="hidden" value="2" name="valor">

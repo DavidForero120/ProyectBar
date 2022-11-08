@@ -82,6 +82,8 @@ a:hover{
 }
 .trabajador{
       display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
       padding: 2%;
 }
@@ -183,4 +185,23 @@ p{
 }
 #err{
       color: white;
+}
+/*listar user*/
+.cards_{
+      width: 100%;
+      margin-left: 5%;
+      margin-top: 3%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3%;
+      margin-bottom: 3%;
+}
+.card{
+      margin-bottom: 3% !important;
+}
+.bu{
+      margin: 6px !important;
+}
+#worker{
+      margin: 5px;
 }
