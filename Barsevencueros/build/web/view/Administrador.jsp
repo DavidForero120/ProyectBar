@@ -1,3 +1,9 @@
+<%@page import="ModeloDAO.MesaDAO"%>
+<%@page import="ModeloVO.MesaVO"%>
+<%@page import="ModeloDAO.RolDAO"%>
+<%@page import="ModeloVO.RolVO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="ModeloDAO.UsuarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../Sesiones.jsp" %>
 <!DOCTYPE html>
@@ -30,19 +36,46 @@
             <div class="ver_t" id="ver_t">
                 <h1 id="worker">Trabajadores</h1>
                 <div class="cards_">
-                    <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                        <div class="card-header">
-                            <h3>name</h3>
+                <%                    UsuarioVO usuVO = new UsuarioVO();
+                    UsuarioDAO usuDAO = new UsuarioDAO();
+
+                    ArrayList<UsuarioVO> listarUsuario = usuDAO.listar();
+
+                    for (int i = 0; i < listarUsuario.size(); i++) {
+                        usuVO = listarUsuario.get(i);
+
+                %>          
+                <div>  
+                        <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
+                            <div class="card-header">
+                                <input type="hidden" value="<%=usuVO.getId_usuario()%>">
+                                <h3><%=usuVO.getUsuario_nombre()%> <%=usuVO.getUsuario_apellido()%></h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Rol:</p>
+                              <%
+                                    if(usuVO.getId_rolFK().equals("1")){
+                                        String admin = "Administrador";
+                                        %>                                   
+                                <p class="card-text"><%=admin%></p>   
+                                <%}else if(usuVO.getId_rolFK().equals("2")){
+                                    String caje = "Cajero";
+                                %>
+                                <p class="card-text"><%=caje%></p>  
+                               <%}else{
+                                    String mese = "Mesero";
+                                %>
+                                <p class="card-text"><%=mese%></p>  
+                                <%}%>
+                            </div>
+                            <ul class="text-end">
+                                <button class="btn btn-outline-light bu">Editar</button>
+                            </ul>                    
                         </div>
-                        <div class="card-body">
-                            <p class="card-text">h</p>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="text-end">
-                            <button class="btn btn-outline-light bu">Editar</button>
-                        </ul>                    
-                    </div>
+                   
                 </div> 
+                <%}%>
+                </div>
             </div>
             <div class="reg_t" id="reg_t">
                 <div class="user_r">
@@ -58,7 +91,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Contraseña:</span>
-                            <input type="password" name="usuario_password" class="form-control">
+                            <input type="password" name="usuario_password" class="form-control" id="password">
                         </div>
                         <input type="hidden" name="usuario_estado" value="1">
                         <div class="input-group mb-3">
@@ -95,7 +128,44 @@
                 </div>
             </div>
             <div class="ver_m" id="ver_m">
-                mesas
+                <h1 id="worker">Mesas</h1>
+                <div class="cards_">
+                <%
+                MesaVO mesaVO = new MesaVO();
+                MesaDAO mesaDAO = new MesaDAO();
+
+                ArrayList<MesaVO> listarMesa = mesaDAO.listar();
+
+                for (int i = 0; i < listarMesa.size(); i++) {
+                    mesaVO = listarMesa.get(i);
+                %>         
+                <div>  
+                        <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
+                            <div class="card-header">
+                                <input type="hidden" value="<%=mesaVO.getId_mesa()%>">
+                                <h3>Número mesa: <%=mesaVO.getMesa_numero()%></h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Estado:</p>
+                              <%
+                                    if(mesaVO.getMesa_estado().equals("1")){
+                                        String act = "Activa";
+                                        %>                                   
+                                <p class="card-text"><%=act%></p>   
+                                <%}else if(mesaVO.getMesa_estado().equals("2")){
+                                    String act = "Inactivo";
+                                %>
+                                <p class="card-text"><%=act%></p>  
+                               <%}%>
+                            </div>
+                            <ul class="text-end">
+                                <button class="btn btn-outline-light bu">Editar</button>
+                            </ul>                    
+                        </div>
+                   
+                </div> 
+                <%}%>
+                </div>
             </div>
             <div class="reg_m" id="reg_m">
                 r mesas

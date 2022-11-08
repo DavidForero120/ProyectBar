@@ -165,7 +165,7 @@ public class UsuarioDAO extends ConexionBd implements Crud{
        
        try {
            conexion = this.obtenerConexion();
-           sql="select * from Usuario";
+           sql="select * from Usuario WHERE usuario_estado = 1";
            puente = conexion.prepareStatement(sql);
            mensajero = puente.executeQuery();
            while (mensajero.next()) {                    
