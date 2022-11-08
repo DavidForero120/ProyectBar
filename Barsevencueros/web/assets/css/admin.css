@@ -8,6 +8,8 @@ and open the template in the editor.
     Author     : David
 */
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100&family=Hind+Madurai:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Teko:wght@300&display=swap');
+
 body{
       margin: 0%;
       height: 100vh;
@@ -19,7 +21,7 @@ body{
       max-width: 1700px;
 }
 .nav_admin{
-      width: 20%;
+      width: 25%;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -37,7 +39,7 @@ body{
       align-items: center;
 }
 .log_a{
-    width: 100%;
+    width: 70%;
 }
 .opcion_a{
       height: 70%;
@@ -91,6 +93,7 @@ a:hover{
       display: flex;
       width: 100%;
       padding: 2%;
+      align-items: center;
 }
 /*ver mesas*/
 .ver_m{
@@ -136,4 +139,48 @@ a:hover{
       display: flex;
       width: 100%;
       padding: 2%; 
+}
+.user_r{
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      align-items: center;
+      padding: 7%;
+}
+h1{
+      font-family: 'Bitter', serif !important;
+      font-family: 'Teko', sans-serif  !important;
+      font-weight: bold;
+}
+.form{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-top: 5%;
+      width: 55%;
+}
+button{
+      width: 50%;
+}
+#button{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+}
+.incorrecta{
+      display: none;
+}
+.act{
+      background-color: red;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 3%;
+      border-radius: 5px;
+}
+p{
+      margin: 0 !important;
+}
+#err{
+      color: white;
 }

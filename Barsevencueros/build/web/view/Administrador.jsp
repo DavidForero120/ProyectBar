@@ -6,42 +6,91 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="assets/css/admin.css" rel="stylesheet" type="text/css"/>
         <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <title>Bar 7 cueros</title>
     </head>
     <body>
-        
+
         <div class="container_admin">
             <div class="nav_admin">
                 <div class="logo_admin">
-                  <img src="assets/img/logocolor.png" alt="logo" class="log_a"/>
+                    <img src="assets/img/logocolor.png" alt="logo" class="log_a"/>
                 </div>
                 <div class="opcion_a">
-                        <div class="option_"><a id="v_t"><i class="fa-solid fa-user"></i>Ver trabajadores</a></div>
-                        <div class="option_"><a id="r_t"><i class="fa-solid fa-address-book"></i>Registrar trabajadores</a></div>
-                        <div class="option_"><a id="v_m"><i class="fa-solid fa-table"></i>Ver mesas</a></div>
-                        <div class="option_"><a id="r_m"><i class="fa-solid fa-table"></i>Agregar mesa</a></div>
-                        <div class="option_"><a id="v_p"><i class="fa-solid fa-wine-glass"></i>Ver productos</a></div>
-                        <div class="option_"><a id="r_p"><i class="fa-solid fa-wine-bottle"></i>Registrar productos</a></div>
-                        <div class="option_"><a id="reporte"><i class="fa-solid fa-book"></i>Reporte de ventas</a></div>
+                    <div class="option_"><a id="v_t"><i class="fa-solid fa-user"></i>Ver trabajadores</a></div>
+                    <div class="option_"><a id="r_t"><i class="fa-solid fa-address-book"></i>Registrar trabajadores</a></div>
+                    <div class="option_"><a id="v_m"><i class="fa-solid fa-table"></i>Ver mesas</a></div>
+                    <div class="option_"><a id="r_m"><i class="fa-solid fa-table"></i>Agregar mesa</a></div>
+                    <div class="option_"><a id="v_p"><i class="fa-solid fa-wine-glass"></i>Ver productos</a></div>
+                    <div class="option_"><a id="r_p"><i class="fa-solid fa-wine-bottle"></i>Registrar productos</a></div>
+                    <div class="option_"><a id="reporte"><i class="fa-solid fa-book"></i>Reporte de ventas</a></div>
                 </div>
             </div>
             <div class="ver_t" id="ver_t">
                 trabajador
             </div>
             <div class="reg_t" id="reg_t">
-                trabajadorr
+                <div class="user_r">
+                    <h1>Registrar nuevo usuario</h1>
+                    <form action="Usuario" method="post" class="form" id="usuario">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Nombre:</span>
+                            <input type="text" name="usuario_nombre" class="form-control"  >
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Apellido:</span>
+                            <input type="text" name="usuario_apellido" class="form-control" >
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Contraseña:</span>
+                            <input type="password" name="usuario_password" class="form-control">
+                        </div>
+                        <input type="hidden" name="usuario_estado" value="1">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Confirmar contraseña:</span>
+                            <input type="password" name="password2"  class="form-control" id="password2" aria-describedby="basic-addon3">
+                        </div>
+
+                        <div id="incorrecta" class="incorrecta">
+                            <p><i class="fa-solid fa-triangle-exclamation" id="err"></i> Las contraseñas deben ser iguales</p>
+                        </div>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupSelect01">Rol:</label>
+                            <select name="rol" class="form-select" id="inputGroupSelect01">
+                                <option value="1" >Administrador</option>
+                                <option value="2" >Cajero</option>
+                                <option value="3" >Mesero</option>
+                            </select>
+                        </div>
+                        
+                        <div id="button">
+                            <button class="btn btn-outline-success">Registrar</button><br>
+                            <input type="hidden" value="2" name="valor">
+                        </div>
+
+                    </form>
+                    <div id="MError">
+                        <%                                if (request.getAttribute("Error") != null) { %>
+                        ${Error}
+
+                        <%} else {%>
+                        ${Exito}        
+                        <%}%>
+                    </div>
+                </div>
             </div>
             <div class="ver_m" id="ver_m">
                 mesas
             </div>
             <div class="reg_m" id="reg_m">
-                 r mesas
+                r mesas
             </div>
             <div class="ver_p" id="ver_p">
                 productos
-           </div>
-           <div class="reg_p" id="reg_p">
-            r productos
+            </div>
+            <div class="reg_p" id="reg_p">
+                r productos
             </div>
             <div class="report" id="report">
                 reporte

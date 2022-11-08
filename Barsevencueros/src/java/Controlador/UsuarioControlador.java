@@ -93,7 +93,7 @@ public class UsuarioControlador extends HttpServlet {
                 } else {
                     request.setAttribute("Error", "El usuario NO se registro correctamente");
                 }
-                request.getRequestDispatcher("newUser.jsp").forward(request, response);
+                request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;
                 
                 case 3: //Agregar Registro
@@ -103,7 +103,7 @@ public class UsuarioControlador extends HttpServlet {
                 } else {
                     request.setAttribute("Error", "El usuario NO se registro correctamente");
                 }
-                request.getRequestDispatcher("newUser.jsp").forward(request, response);
+                request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;
         }
     }

@@ -88,3 +88,32 @@ repor.addEventListener('click',()=>{
       modal6.classList.replace('productoR','reg_p');
 })
 
+
+/*validacion*/
+const formulario = document.getElementById('usuario');
+const inputs = document.querySelectorAll('#usuario input');
+
+const validar = (e)=>{
+      switch (e.target.name) {
+            case "password2":
+                        validarP();
+                  break;
+      
+            default:
+                  break;
+      }
+}
+const validarP = ()=>{
+      const pass = document.getElementById('password');
+      const pass2 = document.getElementById('password2');
+      const mensaje = document.getElementById('incorrecta');
+      if(pass.value == pass2.value){
+          mensaje.classList.replace('act','incorrecta');
+      }else{
+            mensaje.classList.replace('incorrecta','act');
+      }
+}
+inputs.forEach((input)=>{
+      input.addEventListener('keyup', validar);
+      input.addEventListener('blur', validar);  
+});

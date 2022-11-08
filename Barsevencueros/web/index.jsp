@@ -13,6 +13,7 @@
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="assets/css/index.css" rel="stylesheet" type="text/css"/>
         <title>Ingresar</title>

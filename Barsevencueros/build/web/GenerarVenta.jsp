@@ -94,7 +94,8 @@
                 <div class="card">
                     <div class="card-body">
                         <br>
-                        <table class="table table-hover" >
+                        <table class="table table-hover" id="cvTable">
+                            <caption id="cvTotalTitulos" class="mt-3">Total de registros</caption>
                             <thead>                          
                                 <tr>
                                     <th>Nro</th>
@@ -106,7 +107,7 @@
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="cvTableBody">
                                 <pedVO:forEach var="list" items="${lista}">
                                     <tr>
                                         <td>${list.getItem()}</td>
@@ -115,11 +116,9 @@
                                         <td>${list.getCantidad_producto()}</td>
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getSubtotal()}</td>
-                                        <td><button class="btn btn-success" id="agre__">Agregar</button><button class="btn btn-danger">Eliminar</button></td>
+                                        <td><button class="btn btn-success" id="agre__">Agregar</button><button class="btn btn-danger eliminarRow">Eliminar</button></td>
                                     </tr>
                                 </pedVO:forEach>
-
-
                             </tbody>
                         </table>
 
@@ -188,6 +187,7 @@
                 </div>
             </div>
         </div>
+        <script src="assets/js/borrarFila.js" type="text/javascript"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
