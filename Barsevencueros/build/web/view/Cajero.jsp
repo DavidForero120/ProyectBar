@@ -23,8 +23,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/cajero.css">
-
+    <link href="assets/css/cajero.css" rel="stylesheet" type="text/css"/>
     <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -38,7 +37,7 @@
             <h1>Cajero</h1>
         </div>
         <div class="image" id="image">
-            <img id="im" class="im" src="../assets/img/logocolor.png" alt=""/>
+            <img id="im" class="im" src="assets/img/logocolor.png" alt=""/>
 
         </div>    
         <div class="butoon" id="butoon">
@@ -205,6 +204,6 @@
 
 
     </section>
-    <script src="js/cajero.js"></script>
+    <script src="assets/js/cajero.js" type="text/javascript"></script>
 </body>
 </html>

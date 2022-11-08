@@ -31,6 +31,11 @@
                     <div class="option_"><a id="v_p"><i class="fa-solid fa-wine-glass"></i>Ver productos</a></div>
                     <div class="option_"><a id="r_p"><i class="fa-solid fa-wine-bottle"></i>Registrar productos</a></div>
                     <div class="option_"><a id="reporte"><i class="fa-solid fa-book"></i>Reporte de ventas</a></div>
+                    <div class="option2_">
+                    <form method="post" action="Sesiones" id="out_">
+                        <button type="submit" value="CerrarSesion" class="btn btn-outline-light" ><i class="fa-solid fa-right-from-bracket" id="salir_"></i>SALIR</button>
+                     </form>
+                    </div>
                 </div>
             </div>
             <div class="ver_t" id="ver_t">
