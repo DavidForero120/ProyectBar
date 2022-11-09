@@ -81,6 +81,10 @@ public class ClienteControlador extends HttpServlet {
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
                 }
                 break;
+           case 5://Consultar por Documento
+               
+                    request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
+              
             
         }
         

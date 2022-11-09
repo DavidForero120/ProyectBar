@@ -126,7 +126,7 @@ public class ClienteDAO extends ConexionBd implements Crud{
         ArrayList<ClienteVO> listaCliente = new ArrayList<>();
             try {
                 conexion = this.obtenerConexion();
-                sql =  "Call ListarCliente()";
+                sql =  "select * from cliente where cliente_estado = 1";
                 puente = conexion.prepareStatement(sql);
                 mensajero = puente.executeQuery();
                 while (mensajero.next()) {                    

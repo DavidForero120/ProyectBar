@@ -96,6 +96,7 @@ public class Pedido extends HttpServlet {
                     request.setAttribute("lista", lista);
                     request.setAttribute("cliente", cliVO);
                     break;
+                    
                     case "GenerarPedido":
                     //Guardar Pedido 
                         String id_usu = request.getParameter("id_usuario");
@@ -124,7 +125,14 @@ public class Pedido extends HttpServlet {
                         }
                  
                         request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
-                break;                     
+                break;       
+                case "Cancelar":
+                       for (int i = 0; i < lista.size(); i++)
+                        {
+                            lista.remove(pedVO);
+                        }
+                    lista.remove(pedVO);
+                    break;
                 default:
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
 

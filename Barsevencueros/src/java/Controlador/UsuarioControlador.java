@@ -118,6 +118,9 @@ public class UsuarioControlador extends HttpServlet {
                     }
                     
                     break;
+                case 5:
+                    request.getRequestDispatcher("view/Mesero.jsp").forward(request, response);
+                    break;
         }
     }
 

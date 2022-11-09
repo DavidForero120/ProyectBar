@@ -13,68 +13,73 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+        <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Ver clientes</title>
+        <link href="assets/css/admin.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/cliente.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Clientes</h1>
-        <%
-            if (request.getAttribute("mensajeError") != null) { %>
-        ${mensajeError}
+     
+        <div class="clien_">
+            <form action="Usuario" method="post">
+                <button class="btn btn-dark"><a href="Usuario?valor=5">Volver</a></button>
+                
+            </form>
+            <h1>Clientes</h1>
+            <div id="list_c">
+                <%                if (request.getAttribute("mensajeError") != null) { %>
+                ${mensajeError}
 
-        <%} else {%>
-        ${mensajeExito}        
-        <%}%>
-        <button> <a href="../BarSevenCueros/cliente.jsp">Registrar Clientes</a></button>
-        <table class="table table-striped-columns">
-            <tr>
-                <td>ID</td>
-                <td>Documento</td>
-                <td>Nombre</td>
-                <td>Apellido</td>
-                <td>Estado</td>
-                <td>Correo</td>
-                <td>Fecha Nacimiento</td>
-                <td>Tipo Documento</td>
-            </tr>
-            <%
+                <%} else {%>
+                ${mensajeExito}        
+                <%}%>
+
+
+                <%
                     ClienteVO cliVO = new ClienteVO();
                     ClienteDAO cliDAO = new ClienteDAO();
-                    
+
                     ArrayList<ClienteVO> listaCliente = cliDAO.listar();
-                    for(int i = 0; i<listaCliente.size();i++){
+                    for (int i = 0; i < listaCliente.size(); i++) {
                         cliVO = listaCliente.get(i);
                 %>
-                
-                <tr>
-                    <td><%=cliVO.getId_cliente()%></td>
-                    <td><%=cliVO.getNumero_documento()%></td>
-                    <td><%=cliVO.getCliente_nombre()%></td>
-                    <td><%=cliVO.getCliente_apellido()%></td>
-                    <td><%=cliVO.getCliente_estado()%></td>
-                    <td><%=cliVO.getCliente_correo()%></td>
-                    <td><%=cliVO.getFecha_nacimiento()%></td>
-                    <td><%=cliVO.getTipo_documento()%></td>
-                </tr>
+                <div class="cards_">
+                    <form>
+                        <div>  
+                            <div class="card text-bg-dark mb-3" style="width: 22rem; height: 18rem !important;" >
+                                <div class="card-header text-center">
+                                    <input type="hidden" value="<%=cliVO.getId_cliente()%>">
+                                    <h2><%=cliVO.getCliente_nombre()%> <%=cliVO.getCliente_apellido()%></h2>
+                                </div>
+                                <div class="card-body ">
+                                    <h3>Documento: <%=cliVO.getNumero_documento()%></h3>
+                                    <h3>Correo: <%=cliVO.getCliente_correo()%></h3>
+                                    <h3>Nacimiento: <%=cliVO.getFecha_nacimiento()%></h3>
+                                    <%
+                                        if (cliVO.getCliente_estado().equals("1")) {
+                                            String estate = "Activo";
+
+                                    %>    
+
+                                    <h3><%=estate%></h3>
+
+                                    <%}%>
+                                </div>
+                                <ul class="text-end">
+                                    <button class="btn btn-outline-light bu">editar</button>
+                                </ul>                    
+                            </div>
+                        </div> 
+                    </form>
+                </div>
+
                 <%}%>
-        </table>
-        <form method="post" action="Cliente" class="table table-striped-columns">
-            <table>
-                <tr>
-                    <th> 
-                        <h5>Consultar Cliente</h5>
-                        <div class="input-group mb-3">
-                        <input type="text" name="cliente_id" class="form-control">
-                        <button class="btn btn-outline-secundarry" >Consultar</button>
-                        <input type="hidden" value="3" name="valor">
-                        </div>
-                        
-                        
-                    </th>
-                </tr>
-            </table>        
-        </form>
+            </div>
+        </div>
+
+
     </body>
 </html>

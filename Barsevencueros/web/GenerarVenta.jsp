@@ -93,6 +93,7 @@
             <div class="col-sm-7">
                 <div class="card">
                     <div class="card-body">
+                        <form action="Pedido?menu=NuevaVenta" method="POST">
                         <br>
                         <table class="table table-hover" id="cvTable">
                             <caption id="cvTotalTitulos" class="mt-3">Total de registros</caption>
@@ -116,12 +117,12 @@
                                         <td>${list.getCantidad_producto()}</td>
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getSubtotal()}</td>
-                                        <td><button class="btn btn-success" id="agre__">Agregar</button><button class="btn btn-danger eliminarRow">Eliminar</button></td>
+                                        <td><button class="btn btn-success" id="agre__">Agregar</button><div><button class="btn btn-danger eliminarRow">Eliminar</button><input type="hidden" name="accion" value="Cancelar" class="btn btn-danger"></div></td>
                                     </tr>
                                 </pedVO:forEach>
                             </tbody>
                         </table>
-
+                    </form>
                     </div>
                     <div class="form-group d-flex" id="totalP">
                         <div class="col-sm-6 d-flex">
@@ -177,7 +178,8 @@
                                 <div>
                                     <button class="btn btn-success">Generar</button>
                                 <input type="hidden"  name="accion" value="GenerarPedido">
-                                <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
+                                <button class="btn btn-danger">Cancelar</button>
+                                <input type="hidden" name="accion" value="Cancelar" >
                                 </div>
                             </form>
                             <!-- <a href="Pedido?menu=NuevaVenta&accion=GenerarPedido" class="btn btn-success">Generar Pedido</a>-->

@@ -144,3 +144,24 @@ option{
     visibility: visible;
     opacity: 1;
 }
+#list_c{
+    width: 100%;
+    display: flex;
+
+}
+.cards_{
+    width: 20%
+}
+h2{
+    font-size: 1.7em !important;
+}
+h3{
+    font-size: 1.3em !important;
+}
+.clien_ {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
