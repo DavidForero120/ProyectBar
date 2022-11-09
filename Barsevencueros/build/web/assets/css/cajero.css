@@ -1,0 +1,204 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8/11/2022, 09:02:20 AM
+    Author     : 57314
+*/
+
+body{
+    margin: 0%;
+    height: 100vh; 
+}
+.content_family{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    max-width: 1900px;
+}
+.partizq{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    background-color: rgb(129, 128, 128);
+    -webkit-box-shadow: 14px -6px 31px -17px rgba(10,10,9,1);
+    -moz-box-shadow: 14px -6px 31px -17px rgba(10,10,9,1);
+    box-shadow: 14px -6px 31px -17px rgba(10,10,9,1);
+}
+.titulo{
+    margin-top: -5%;
+    display: flex;
+    justify-content: center;
+    font-size: 150%;
+}
+.image{
+    margin-top: 0%;
+    margin-bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.im{
+    height: 14em;
+}
+.butoon{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40vh;
+}
+
+.salr{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 20vh;
+}
+.kik{
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 4.3em; 
+    color: white;  
+}
+i{
+    color: rgb(5, 2, 0);
+    font-size: 1.3em;
+    width: 1.5em;
+}
+.salr a{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+a{
+    text-decoration: none;
+    font-family: 'Hind Madurai', sans-serif;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size:1.6em;
+    color: white;
+    margin-left: 3%;
+}
+.kik:hover{
+    background-color: white;
+    color: black;
+    transition: 0.2s;
+    border-radius: 5px;
+}
+.salr a:hover{
+    color: black;
+    transition: 0.5s;
+}
+a:hover{
+    color: black;
+    transition: 0.5s;
+}
+
+/* Producto */
+.ve_p{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.5%;
+}
+.ve_p_show{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.5%;
+}
+.ve_p_show h1{
+    display: flex;
+    justify-content: center;
+    font-size: 270%;
+    margin-bottom: 2%;
+}
+.partder{
+    width: 100%;
+}
+.formm{
+    display: flex;
+    margin-bottom: 2%; 
+}
+.formm input, .formm select{
+    height: 2.3em;
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 12px;
+}.formm h3{
+    font-size: 120%;
+}.formm button{
+    margin-left: 1%;
+    height: 2.3em;
+    width: 15%;
+    border-radius: 12px;
+    border: none;
+}.formm button:hover{
+    transition: 1s;
+    background-color: aliceblue;
+    border: 1px solid black;
+}
+.formm select{
+    width: 20%;
+}
+
+/* Pedido */
+.ve_pe{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.5%;
+}
+.ve_pe_show{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.5%;
+}
+
+/* Mesa */
+.ve_me{
+    display: none;
+    flex-direction: column;
+    width: 81vw;
+    padding: 1.5%;
+}
+.ve_me_show{
+    display: flex;
+    flex-direction: column;
+    width: 81vw;
+    padding: 1.5%;
+}
+
+.formmm{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-left: 10%;
+}
+.title-reg{
+    display: flex;
+    justify-content: center;
+    font-size: 250%;
+}
+#boyo{
+    height: 2.5em;
+    margin-bottom: 2%;
+}
+#titulo_ h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 200%;
+}
