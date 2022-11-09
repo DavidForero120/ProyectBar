@@ -25,13 +25,19 @@
             if(mesaVO!=null){
         %>
         <form method="post" action="Mesa">
+            <input type="hidden" name="id" value="<%=mesaVO.getId_mesa()%>">
             <table>
                 <tr>
                     <th>
+                        
                         Numero Mesa<br>
-                        <input type="text" name="numero" value="<%=mesaVO.getMesa_numero()%>"><br><br>
+                        <input type="text" name="numero" placeholder="<%=mesaVO.getMesa_numero()%>"><br><br>
                         Estado<br>
-                        <input type="text" name="estado" value="<%=mesaVO.getMesa_estado()%>"><br><br>
+                        <select name="estado">
+                            <option value="1">Activo</option>
+                            <option value="2">Inactivo</option>
+                        </select>
+                        
                     </th>
                 </tr>
             </table>

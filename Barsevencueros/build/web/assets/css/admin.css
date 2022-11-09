@@ -131,8 +131,11 @@ a:hover{
 }
 .mesaR{
       display: flex;
-      width: 100%;
-      padding: 2%;
+    flex-direction: column;
+    width: 100%;
+    padding: 2%;
+    align-items: center;
+    justify-content: center
 }
 /*ver productos*/
 .ver_p{
@@ -225,4 +228,11 @@ p{
 #worker{
       margin: 8px;
       font-size: 3em;
+}
+#num_{
+        font-size: 1.2em !important;
+}
+#end_{
+    margin-bottom: 3%;
+    margin-right:  5%;
 }

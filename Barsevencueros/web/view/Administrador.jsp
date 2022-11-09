@@ -37,6 +37,7 @@
                         </form>
                     </div>
                 </div>
+
             </div>
             <div class="ver_t" id="ver_t">
                 <h1 id="worker">Trabajadores</h1>
@@ -54,7 +55,8 @@
                         <div>  
                             <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
                                 <div class="card-header">
-                                    <input type="hidden" value="<%=usuVO.getId_usuario()%>">
+                                    <input type="hidden" name="id_usuario" value="<%=usuVO.getId_usuario()%>">
+
                                     <h3><%=usuVO.getUsuario_nombre()%> <%=usuVO.getUsuario_apellido()%></h3>
                                 </div>
                                 <div class="card-body">
@@ -75,7 +77,7 @@
                                     <%}%>
                                 </div>
                                 <ul class="text-end">
-                                    <input type="hidden" name="id_usuario" value="<%=usuVO.getId_usuario()%>">
+
                                     <button class="btn btn-outline-light bu">Editar</button>
                                     <input type="hidden" name="valor" value="4">
                                 </ul>                    
@@ -85,7 +87,7 @@
                         <%}%>
                     </div>
                     <%
-                    if (request.getAttribute("Error") != null) { %>
+                        if (request.getAttribute("Error") != null) { %>
                     ${Error}
 
                     <%} else {%>
@@ -188,9 +190,53 @@
                         <%}%>
                     </div>
                 </form>
+                <div id="MError">
+                    <%                                if (request.getAttribute("menssegeError") != null) { %>
+                    ${menssegeError}
+
+                    <%} else {%>
+                    ${menssegeExito}        
+                    <%}%>
+                </div>
+
             </div>
             <div class="reg_m" id="reg_m">
-                r mesas
+                
+                <form method="POST" action="Mesa">
+                    <div>  
+                        <div class="card text-bg-dark mb-3" style="width: 20rem; height: 18rem !important;" >
+                            <div class="card-header text-center">
+                                <h1>Nueva mesa</h1>
+                                <label id="num_">Numero de Mesa: </label>
+                                <input type="text" name="numero" class="form-control" >    
+                            </div>
+                            <div class="card-body">
+                                <select name="estado" class="form-select form-select-sm" >
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>           
+                                </select>
+                            </div>
+                            <div class="text-end" id="end_">
+                               
+                                    <button class="btn btn-outline-light bu" >Registrar</button>
+                                    <input type="hidden" value="1" name="valor">
+                                
+                            </div>                    
+                        </div>
+
+                    </div>
+                 
+                </form>
+                <div class="error">
+                    <%            if (request.getAttribute("mensajeError") != null) { %>
+                    ${mensajeError}
+
+                    <%} else {%>
+                    ${mensajeExito}        
+                    <%}%>     
+                </div>
+
+
             </div>
             <div class="ver_p" id="ver_p">
                 productos

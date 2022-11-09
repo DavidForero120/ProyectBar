@@ -77,11 +77,10 @@ public class MesaDAO extends ConexionBd implements Crud{
     @Override
     public boolean actualizarRegistro() {
             try {
-            sql = "Call UpdateMesa(?,?,?)";
+            sql = "update mesa set mesa_numero=?, mesa_estado=? where id_mesa=?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, mesa_numero);
             puente.setString(2, mesa_estado);
-            puente.setString(3, id_mesa);
             puente.executeUpdate();
             operacion = true;
         } catch (SQLException e) {

@@ -103,7 +103,7 @@ public class UsuarioControlador extends HttpServlet {
                 } else {
                     request.setAttribute("Error", "El usuario NO se registro correctamente");
                 }
-                request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
+                request.getRequestDispatcher("actualizarUsuario.jsp").forward(request, response);
                 break;
                 
                 case 4:
@@ -114,7 +114,7 @@ public class UsuarioControlador extends HttpServlet {
                         request.getRequestDispatcher("actualizarUsuario.jsp").forward(request, response);
                     } else {
                         request.setAttribute("msError", "El usuario no se pudo encontrar");
-                        request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
+                        request.getRequestDispatcher("actualizarUsuario.jsp").forward(request, response);
                     }
                     
                     break;

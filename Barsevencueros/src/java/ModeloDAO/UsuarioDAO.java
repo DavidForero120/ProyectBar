@@ -93,7 +93,7 @@ public class UsuarioDAO extends ConexionBd implements Crud{
             puente = conexion.prepareStatement(sql);
             puente.setString(1, usuario_nombre);
             puente.setString(2, usuario_password);
-            puente.setString(3, id_rolFK);
+            
             puente.executeUpdate();
             operacion = true;
 

@@ -49,17 +49,18 @@ public class MesaControlador extends HttpServlet {
                     if(mesaDAO.agregarRegistro()){
                         request.setAttribute("mensajeExito", "La mesa se registro correctamente");
                     }else{
-                        request.setAttribute("mensajeError", "La mesa no se registro correctamente");
+                        request.setAttribute("mensajeError", "La mesa no se registro correctamente, puede que ya exista.");
                     }
-                    request.getRequestDispatcher("registroMesa.jsp").forward(request, response);
+                    request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;
             case 2://Actualizar Mesa
+                
                     if(mesaDAO.actualizarRegistro()){
-                        request.setAttribute("mensajeExito", "La mesa se actualizo correctamente");
+                        request.setAttribute("menssegeExito", "La mesa se actualizo correctamente");
                     }else{
-                        request.setAttribute("mensajeError", "La mesa NO se actualizo correctamente");
+                        request.setAttribute("menssegeError", "La mesa NO se actualizo correctamente");
                     }
-                    request.getRequestDispatcher("registroMesa.jsp").forward(request, response);
+                    request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;
             case 3://Consultar Mesa
                     mesaVO = mesaDAO.consultarMesa(id_mesa);

@@ -98,7 +98,7 @@ const validar = (e)=>{
             case "password2":
                         validarP();
                   break;
-      
+           
             default:
                   break;
       }
