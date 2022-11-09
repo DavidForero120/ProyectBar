@@ -32,55 +32,66 @@
                     <div class="option_"><a id="r_p"><i class="fa-solid fa-wine-bottle"></i>Registrar productos</a></div>
                     <div class="option_"><a id="reporte"><i class="fa-solid fa-book"></i>Reporte de ventas</a></div>
                     <div class="option2_">
-                    <form method="post" action="Sesiones" id="out_">
-                        <button type="submit" value="CerrarSesion" class="btn btn-outline-light" ><i class="fa-solid fa-right-from-bracket" id="salir_"></i>SALIR</button>
-                     </form>
+                        <form method="post" action="Sesiones" id="out_">
+                            <button type="submit" value="CerrarSesion" class="btn btn-outline-light" ><i class="fa-solid fa-right-from-bracket" id="salir_"></i>SALIR</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="ver_t" id="ver_t">
                 <h1 id="worker">Trabajadores</h1>
-                <div class="cards_">
-                <%                    UsuarioVO usuVO = new UsuarioVO();
-                    UsuarioDAO usuDAO = new UsuarioDAO();
+                <form method="post" action="Usuario">
+                    <div class="cards_">
+                        <%                    UsuarioVO usuVO = new UsuarioVO();
+                            UsuarioDAO usuDAO = new UsuarioDAO();
 
-                    ArrayList<UsuarioVO> listarUsuario = usuDAO.listar();
+                            ArrayList<UsuarioVO> listarUsuario = usuDAO.listar();
 
-                    for (int i = 0; i < listarUsuario.size(); i++) {
-                        usuVO = listarUsuario.get(i);
+                            for (int i = 0; i < listarUsuario.size(); i++) {
+                                usuVO = listarUsuario.get(i);
 
-                %>          
-                <div>  
-                        <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                            <div class="card-header">
-                                <input type="hidden" value="<%=usuVO.getId_usuario()%>">
-                                <h3><%=usuVO.getUsuario_nombre()%> <%=usuVO.getUsuario_apellido()%></h3>
+                        %>          
+                        <div>  
+                            <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
+                                <div class="card-header">
+                                    <input type="hidden" value="<%=usuVO.getId_usuario()%>">
+                                    <h3><%=usuVO.getUsuario_nombre()%> <%=usuVO.getUsuario_apellido()%></h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Rol:</p>
+                                    <%
+                                        if (usuVO.getId_rolFK().equals("1")) {
+                                            String admin = "Administrador";
+                                    %>                                   
+                                    <p class="card-text"><%=admin%></p>   
+                                    <%} else if (usuVO.getId_rolFK().equals("2")) {
+                                        String caje = "Cajero";
+                                    %>
+                                    <p class="card-text"><%=caje%></p>  
+                                    <%} else {
+                                        String mese = "Mesero";
+                                    %>
+                                    <p class="card-text"><%=mese%></p>  
+                                    <%}%>
+                                </div>
+                                <ul class="text-end">
+                                    <input type="hidden" name="id_usuario" value="<%=usuVO.getId_usuario()%>">
+                                    <button class="btn btn-outline-light bu">Editar</button>
+                                    <input type="hidden" name="valor" value="4">
+                                </ul>                    
                             </div>
-                            <div class="card-body">
-                                <p class="card-text">Rol:</p>
-                              <%
-                                    if(usuVO.getId_rolFK().equals("1")){
-                                        String admin = "Administrador";
-                                        %>                                   
-                                <p class="card-text"><%=admin%></p>   
-                                <%}else if(usuVO.getId_rolFK().equals("2")){
-                                    String caje = "Cajero";
-                                %>
-                                <p class="card-text"><%=caje%></p>  
-                               <%}else{
-                                    String mese = "Mesero";
-                                %>
-                                <p class="card-text"><%=mese%></p>  
-                                <%}%>
-                            </div>
-                            <ul class="text-end">
-                                <button class="btn btn-outline-light bu">Editar</button>
-                            </ul>                    
-                        </div>
-                   
-                </div> 
-                <%}%>
-                </div>
+
+                        </div> 
+                        <%}%>
+                    </div>
+                    <%
+                    if (request.getAttribute("Error") != null) { %>
+                    ${Error}
+
+                    <%} else {%>
+                    ${Exito}        
+                    <%}%>
+                </form>
             </div>
             <div class="reg_t" id="reg_t">
                 <div class="user_r">
@@ -134,43 +145,49 @@
             </div>
             <div class="ver_m" id="ver_m">
                 <h1 id="worker">Mesas</h1>
-                <div class="cards_">
-                <%
-                MesaVO mesaVO = new MesaVO();
-                MesaDAO mesaDAO = new MesaDAO();
+                <form method="post" action="Mesa">
 
-                ArrayList<MesaVO> listarMesa = mesaDAO.listar();
 
-                for (int i = 0; i < listarMesa.size(); i++) {
-                    mesaVO = listarMesa.get(i);
-                %>         
-                <div>  
-                        <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                            <div class="card-header">
-                                <input type="hidden" value="<%=mesaVO.getId_mesa()%>">
-                                <h3>Número mesa: <%=mesaVO.getMesa_numero()%></h3>
+                    <div class="cards_">
+                        <%
+                            MesaVO mesaVO = new MesaVO();
+                            MesaDAO mesaDAO = new MesaDAO();
+
+                            ArrayList<MesaVO> listarMesa = mesaDAO.listar();
+
+                            for (int i = 0; i < listarMesa.size(); i++) {
+                                mesaVO = listarMesa.get(i);
+                        %>         
+                        <div>  
+                            <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
+                                <div class="card-header">
+                                    <input type="hidden" value="<%=mesaVO.getId_mesa()%>">
+                                    <h3>Número mesa: <%=mesaVO.getMesa_numero()%></h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Estado:</p>
+                                    <%
+                                        if (mesaVO.getMesa_estado().equals("1")) {
+                                            String act = "Activa";
+                                    %>                                   
+                                    <p class="card-text"><%=act%></p>   
+                                    <%} else if (mesaVO.getMesa_estado().equals("2")) {
+                                        String act = "Inactivo";
+                                    %>
+                                    <p class="card-text"><%=act%></p>  
+                                    <%}%>
+                                </div>
+                                <ul class="text-end">
+                                    <input type="hidden" name="id" value="<%=mesaVO.getId_mesa()%>">
+                                    <button class="btn btn-outline-light bu">Editar</button>
+                                    <input type="hidden"  name="valor" value="3">
+                                </ul>                    
                             </div>
-                            <div class="card-body">
-                                <p class="card-text">Estado:</p>
-                              <%
-                                    if(mesaVO.getMesa_estado().equals("1")){
-                                        String act = "Activa";
-                                        %>                                   
-                                <p class="card-text"><%=act%></p>   
-                                <%}else if(mesaVO.getMesa_estado().equals("2")){
-                                    String act = "Inactivo";
-                                %>
-                                <p class="card-text"><%=act%></p>  
-                               <%}%>
-                            </div>
-                            <ul class="text-end">
-                                <button class="btn btn-outline-light bu">Editar</button>
-                            </ul>                    
-                        </div>
-                   
-                </div> 
-                <%}%>
-                </div>
+
+                        </div> 
+                        <%}%>
+                    </div>
+                </form>
             </div>
             <div class="reg_m" id="reg_m">
                 r mesas

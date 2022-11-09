@@ -185,6 +185,30 @@ public class UsuarioDAO extends ConexionBd implements Crud{
         }
        return listarUsuario;
    }
+   public UsuarioVO consultarUsuario(String usuario){
+       UsuarioVO usuVO = null;
+       try {
+           conexion = this.obtenerConexion();
+           sql="select * from usuario where id_usuario=?";
+           puente = conexion.prepareStatement(sql);
+           puente.setString(1, usuario);
+           mensajero = puente.executeQuery();
+           
+           while(mensajero.next()){
+               usuVO = new UsuarioVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3),mensajero.getString(4), mensajero.getString(5), mensajero.getString(6));
+           }
+       } catch (SQLException e) {
+           Logger.getLogger(MesaDAO.class.getName()).log(Level.SEVERE, null, e);
+       }finally{
+           try {
+               this.deneterConexion();
+           } catch (SQLException e) {
+               Logger.getLogger(MesaDAO.class.getName()).log(Level.SEVERE, null, e);
+           }
+       }
+       
+       return usuVO;
+   }
    
 
 
