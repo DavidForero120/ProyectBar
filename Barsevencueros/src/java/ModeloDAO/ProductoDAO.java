@@ -99,7 +99,7 @@ public class ProductoDAO extends ConexionBd implements Crud {
             mensajero = puente.executeQuery();
             while (mensajero.next()) {                    
                     ProductoVO prodVO = new ProductoVO(mensajero.getString(1), mensajero.getString(2),
-                            mensajero.getString(3),mensajero.getDouble(4),mensajero.getInt(5));
+                            mensajero.getDouble(3),mensajero.getString(4),mensajero.getInt(5));
                     listaProducto.add(prodVO);
                 }
         } catch (SQLException e) {

@@ -14,7 +14,7 @@ public class ProductoVO {
     private Double producto_precio;
     private int producto_cantidad;
 
-    public ProductoVO(String id_producto, String producto_nombre, String producto_estado, Double producto_precio, int producto_cantidad) {
+    public ProductoVO(String id_producto, String producto_nombre, Double producto_precio, String producto_estado, int producto_cantidad) {
         this.id_producto = id_producto;
         this.producto_nombre = producto_nombre;
         this.producto_estado = producto_estado;
