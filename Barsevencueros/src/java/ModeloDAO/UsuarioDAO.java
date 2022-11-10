@@ -62,7 +62,7 @@ public class UsuarioDAO extends ConexionBd implements Crud{
     public boolean agregarRegistro() {
 
         try {
-            sql = "CALL newUser(?,?,?,?,?)";
+            sql = "insert into usuario(usuario_nombre,usuario_apellido, usuario_password, usuario_estado, id_rolFK) VALUES(?, ?, ?, ?, ?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, usuario_nombre);
             puente.setString(2, usuario_apellido);                     
@@ -89,11 +89,12 @@ public class UsuarioDAO extends ConexionBd implements Crud{
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "update usuario set usuario_nombre=?, usuario_password=? where id_usuario=?";
+            sql = "update usuario set usuario_nombre=?, usuario_password=?, usuario_estado=? where id_usuario=?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, usuario_nombre);
             puente.setString(2, usuario_password);
-            
+            puente.setString(3, usuario_estado);
+            puente.setString(4, id_usuario);
             puente.executeUpdate();
             operacion = true;
 

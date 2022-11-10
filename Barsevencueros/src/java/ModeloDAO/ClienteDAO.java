@@ -64,7 +64,7 @@ public class ClienteDAO extends ConexionBd implements Crud{
     public boolean agregarRegistro() {
          try {
             
-            sql="CALL Registrar_Cliente(?, ?, ?, ?, ?, ?, ?);";
+            sql="inser into cliente(numero_documento, cliente_nombre, cliente_apellido, cliente_estado, cliente_correo, fecha_nacimiento, tipo_documento)(?, ?, ?, ?, ?, ?, ?);";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, numero_documento);
             puente.setString(2, cliente_nombre);

@@ -41,7 +41,21 @@
             </div>
             <div class="ver_t" id="ver_t">
                 <h1 id="worker">Trabajadores</h1>
+                
                 <form method="post" action="Usuario">
+                    <% 
+                        if (request.getAttribute("Error") != null) { %>
+                        <div class="alert alert-success" role="alert">
+                            ${Error}
+                        </div>
+                        
+
+                        <%} else {%>
+                        
+                        <div class="alert alert-success" role="alert">
+                            ${Exito}
+                        </div>
+                        <%}%>
                     <div class="cards_">
                         <%                    UsuarioVO usuVO = new UsuarioVO();
                             UsuarioDAO usuDAO = new UsuarioDAO();
@@ -86,13 +100,7 @@
                         </div> 
                         <%}%>
                     </div>
-                    <%
-                        if (request.getAttribute("Error") != null) { %>
-                    ${Error}
-
-                    <%} else {%>
-                    ${Exito}        
-                    <%}%>
+                    
                 </form>
             </div>
             <div class="reg_t" id="reg_t">
@@ -136,11 +144,18 @@
 
                     </form>
                     <div id="MError">
-                        <%                                if (request.getAttribute("Error") != null) { %>
-                        ${Error}
+                        <% 
+                        if (request.getAttribute("Error") != null) { %>
+                        <div class="alert alert-success" role="alert">
+                            ${Error}
+                        </div>
+                        
 
                         <%} else {%>
-                        ${Exito}        
+                        
+                        <div class="alert alert-success" role="alert">
+                            ${Exito}
+                        </div>
                         <%}%>
                     </div>
                 </div>
@@ -148,7 +163,21 @@
             <div class="ver_m" id="ver_m">
                 <h1 id="worker">Mesas</h1>
                 <form method="post" action="Mesa">
+                    <div id="MError">
+                    <% 
+                        if (request.getAttribute("menssegeError") != null) { %>
+                        <div class="alert alert-success" role="alert">
+                            ${menssegeError}
+                        </div>
+                        
 
+                        <%} else {%>
+                        
+                        <div class="alert alert-success" role="alert">
+                            ${menssegeExito}
+                        </div>
+                        <%}%>
+                </div>
 
                     <div class="cards_">
                         <%
@@ -190,14 +219,7 @@
                         <%}%>
                     </div>
                 </form>
-                <div id="MError">
-                    <%                                if (request.getAttribute("menssegeError") != null) { %>
-                    ${menssegeError}
-
-                    <%} else {%>
-                    ${menssegeExito}        
-                    <%}%>
-                </div>
+                
 
             </div>
             <div class="reg_m" id="reg_m">
@@ -234,6 +256,7 @@
                     <%} else {%>
                     ${mensajeExito}        
                     <%}%>     
+                    
                 </div>
 
 

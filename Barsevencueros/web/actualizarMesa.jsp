@@ -7,6 +7,8 @@
 <%@page import="ModeloVO.MesaVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="Sesiones.jsp" %>
+<!-- CSS only -->
+        
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 <!DOCTYPE html>
@@ -24,27 +26,37 @@
             
             if(mesaVO!=null){
         %>
-        <form method="post" action="Mesa">
-            <input type="hidden" name="id" value="<%=mesaVO.getId_mesa()%>">
-            <table>
-                <tr>
-                    <th>
+        <div class="reg_t" id="reg_t">
+            <div class="user_r">
+                    <form method="post" action="Mesa" class="form">
                         
-                        Numero Mesa<br>
-                        <input type="text" name="numero" placeholder="<%=mesaVO.getMesa_numero()%>"><br><br>
-                        Estado<br>
-                        <select name="estado">
-                            <option value="1">Activo</option>
-                            <option value="2">Inactivo</option>
-                        </select>
+                        <input type="hidden" name="id" value="<%=mesaVO.getId_mesa()%>">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon3">Numero Mesa</span>
+                            <input type="text" class="form-control" name="numero" placeholder="<%=mesaVO.getMesa_numero()%>">
+                        </div>
                         
-                    </th>
-                </tr>
-            </table>
-            <button>Actualizar</button><br>
-            <input type="hidden" value="2" name="valor">
-        </form>
+                        <div class="input-group mb-3">
+                            <label class="input-group-text">Estado Mesa</label>
+                            <select name="estado" class="form-select">
+                                <option value="1">Activo</option>
+                                <option value="2">Inactivo</option>
+                            </select>
+                        </div>
+                        
+                        <div id="button">
+                            <button class="btn btn-outline-success">Actualizar</button>
+                            <input type="hidden" value="2" name="valor">
+                        </div>
+                    </form>
+
+                    <%}%>
+            </div>
             
-        <%}%>
+        </div>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -54,7 +54,7 @@ public class MesaDAO extends ConexionBd implements Crud{
     public boolean agregarRegistro() {
         
         try {
-            sql = "Call RegistroMesa(?,?)";
+            sql = "insert into mesa(mesa_numero, mesa_numero) values(?, ?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, mesa_numero);
             puente.setString(2, mesa_estado);
@@ -81,6 +81,7 @@ public class MesaDAO extends ConexionBd implements Crud{
             puente = conexion.prepareStatement(sql);
             puente.setString(1, mesa_numero);
             puente.setString(2, mesa_estado);
+            puente.setString(3, id_mesa);
             puente.executeUpdate();
             operacion = true;
         } catch (SQLException e) {
