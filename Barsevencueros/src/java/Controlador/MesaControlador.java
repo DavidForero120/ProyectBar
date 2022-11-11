@@ -58,7 +58,7 @@ public class MesaControlador extends HttpServlet {
                     if(mesaDAO.actualizarRegistro()){
                         request.setAttribute("menssegeExito", "La mesa se actualizo correctamente");
                     }else{
-                        request.setAttribute("menssegeError", "La mesa NO se actualizo correctamente");
+                        request.setAttribute("menssegeError", "La mesa no se actualizo, esa mesa ya existe");
                     }
                     request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;

@@ -41,34 +41,30 @@
             </div>
             <div class="ver_t" id="ver_t">
                 <h1 id="worker">Trabajadores</h1>
-                
-                <form method="post" action="Usuario">
-                    <% 
-                        if (request.getAttribute("Error") != null) { %>
-                        <div class="alert alert-success" role="alert">
-                            ${Error}
-                        </div>
-                        
+                <%                    if (request.getAttribute("Error") != null) { %>
+                <div class="alert alert-success" role="alert">
+                    ${Error}
+                </div>
+                <%} else {%>
+                <div class="alert alert-success" role="alert">
+                    ${Exito}
+                </div>
+                <%}%>
+                <div class="cards_">
 
-                        <%} else {%>
-                        
-                        <div class="alert alert-success" role="alert">
-                            ${Exito}
-                        </div>
-                        <%}%>
-                    <div class="cards_">
-                        <%                    UsuarioVO usuVO = new UsuarioVO();
-                            UsuarioDAO usuDAO = new UsuarioDAO();
+                    <%                    UsuarioVO usuVO = new UsuarioVO();
+                        UsuarioDAO usuDAO = new UsuarioDAO();
 
-                            ArrayList<UsuarioVO> listarUsuario = usuDAO.listar();
+                        ArrayList<UsuarioVO> listarUsuario = usuDAO.listar();
 
-                            for (int i = 0; i < listarUsuario.size(); i++) {
-                                usuVO = listarUsuario.get(i);
+                        for (int i = 0; i < listarUsuario.size(); i++) {
+                            usuVO = listarUsuario.get(i);
 
-                        %>          
-                        <div>  
+                    %>          
+                    <div>  
+                        <form method="post" action="Usuario">
                             <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                                <div class="card-header">
+                                <div class="card-header border-light mb-3">
                                     <input type="hidden" name="id_usuario" value="<%=usuVO.getId_usuario()%>">
 
                                     <h3><%=usuVO.getUsuario_nombre()%> <%=usuVO.getUsuario_apellido()%></h3>
@@ -91,33 +87,43 @@
                                     <%}%>
                                 </div>
                                 <ul class="text-end">
-
                                     <button class="btn btn-outline-light bu">Editar</button>
                                     <input type="hidden" name="valor" value="4">
                                 </ul>                    
                             </div>
+                        </form>
+                    </div> 
+                    <%}%>
 
-                        </div> 
-                        <%}%>
-                    </div>
-                    
-                </form>
+                </div>
+
+
             </div>
             <div class="reg_t" id="reg_t">
                 <div class="user_r">
-                    <h1>Registrar nuevo usuario</h1>
+                    <h1>Registrar nuevo trabajador</h1>
                     <form action="Usuario" method="post" class="form" id="usuario">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Nombre:</span>
                             <input type="text" name="usuario_nombre" class="form-control"  >
+
+                        </div>
+                        <div id="name_i" class="name_i">
+                            <p><i class="fa-solid fa-triangle-exclamation" id="err"></i>¡¡El campo solo acepta letras, minimo 4 letras!! </p>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Apellido:</span>
                             <input type="text" name="usuario_apellido" class="form-control" >
                         </div>
+                        <div id="ape_e" class="ape_e">
+                            <p><i class="fa-solid fa-triangle-exclamation" id="err"></i>¡¡El campo solo acepta letras, minimo 5 letras!!</p>
+                        </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Contraseña:</span>
                             <input type="password" name="usuario_password" class="form-control" id="password">
+                        </div>
+                        <div id="contra" class="contra">
+                            <p><i class="fa-solid fa-triangle-exclamation" id="err"></i>¡¡Minimo 5 caracteres y puede contener puntos!!</p>
                         </div>
                         <input type="hidden" name="usuario_estado" value="1">
                         <div class="input-group mb-3">
@@ -126,10 +132,10 @@
                         </div>
 
                         <div id="incorrecta" class="incorrecta">
-                            <p><i class="fa-solid fa-triangle-exclamation" id="err"></i> Las contraseñas deben ser iguales</p>
+                            <p><i class="fa-solid fa-triangle-exclamation" id="err"></i>¡¡Las contraseñas deben ser iguales!!</p>
                         </div>
                         <div class="input-group mb-3">
-                            <label class="input-group-text" for="inputGroupSelect01">Rol:</label>
+                            <label class="input-group-text" for="inputGroupSelect01">Elegir tipo de trabajador:</label>
                             <select name="rol" class="form-select" id="inputGroupSelect01">
                                 <option value="1" >Administrador</option>
                                 <option value="2" >Cajero</option>
@@ -144,15 +150,15 @@
 
                     </form>
                     <div id="MError">
-                        <% 
-                        if (request.getAttribute("Error") != null) { %>
+                        <%
+                            if (request.getAttribute("Error") != null) { %>
                         <div class="alert alert-success" role="alert">
                             ${Error}
                         </div>
-                        
+
 
                         <%} else {%>
-                        
+
                         <div class="alert alert-success" role="alert">
                             ${Exito}
                         </div>
@@ -162,22 +168,23 @@
             </div>
             <div class="ver_m" id="ver_m">
                 <h1 id="worker">Mesas</h1>
-                <form method="post" action="Mesa">
-                    <div id="MError">
-                    <% 
-                        if (request.getAttribute("menssegeError") != null) { %>
+                <div id="MError">
+                        <%
+                            if (request.getAttribute("menssegeError") != null) { %>
                         <div class="alert alert-success" role="alert">
                             ${menssegeError}
                         </div>
-                        
+
 
                         <%} else {%>
-                        
+
                         <div class="alert alert-success" role="alert">
                             ${menssegeExito}
                         </div>
                         <%}%>
-                </div>
+                    </div>
+                <form method="post" action="Mesa" >
+                    
 
                     <div class="cards_">
                         <%
@@ -191,7 +198,7 @@
                         %>         
                         <div>  
                             <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                                <div class="card-header">
+                                <div class="card-header border-light mb-3" >
                                     <input type="hidden" value="<%=mesaVO.getId_mesa()%>">
                                     <h3>Número mesa: <%=mesaVO.getMesa_numero()%></h3>
                                 </div>
@@ -219,35 +226,35 @@
                         <%}%>
                     </div>
                 </form>
-                
+
 
             </div>
             <div class="reg_m" id="reg_m">
-                
-                <form method="POST" action="Mesa">
-                    <div>  
-                        <div class="card text-bg-dark mb-3" style="width: 20rem; height: 18rem !important;" >
-                            <div class="card-header text-center">
+
+                <form method="POST" action="Mesa" id="mesa" >
+                    <div class="me">  
+                        <div class="card text-bg-dark mb-3" style="width: 20rem; height: 18rem !important;" id="card_mesa" >
+                            <div class="card-header text-center border-light mb-3">
                                 <h1>Nueva mesa</h1>
-                                <label id="num_">Numero de Mesa: </label>
-                                <input type="text" name="numero" class="form-control" >    
                             </div>
-                            <div class="card-body">
-                                <select name="estado" class="form-select form-select-sm" >
-                                    <option value="1">Activo</option>
-                                    <option value="2">Inactivo</option>           
-                                </select>
+                            <div class="card-header text-left ">             
+                                <label id="num_">Numero de Mesa:</label>
+                                <input type="text" name="numero" class="form-control" id="mesa_n" >                  
+                                <div id="mesa_i" class="mesa_i">
+                                    <p>¡solo digitar numeros, debe contener minimo un número!</p>
+                                </div>
                             </div>
+                            <input type="hidden" name="estado" value="1"> 
                             <div class="text-end" id="end_">
-                               
-                                    <button class="btn btn-outline-light bu" >Registrar</button>
-                                    <input type="hidden" value="1" name="valor">
-                                
+
+                                <button class="btn btn-outline-light bu" >Registrar</button>
+                                <input type="hidden" value="1" name="valor">
+
                             </div>                    
                         </div>
 
                     </div>
-                 
+
                 </form>
                 <div class="error">
                     <%            if (request.getAttribute("mensajeError") != null) { %>
@@ -256,13 +263,32 @@
                     <%} else {%>
                     ${mensajeExito}        
                     <%}%>     
-                    
+
                 </div>
 
 
             </div>
             <div class="ver_p" id="ver_p">
-                productos
+                <div class="product_list">
+                    <div id="titlep">
+                        <h1>Productos</h1>
+                    </div>
+                    <div class="ver_p1" id="ver_p1">
+                        <div class="card text-white bg-dark mb-3 " style="width: 15rem; max-height: 15em; ">
+                            <input type="hidden" name="" value="id">
+                            <div class="card-header border-light mb-3 text-center"><h3>name prug</h3></div>
+                            <div class="card-body">
+                                <h5 class="card-title border-light mb-3">precio</h5>
+                                <p class="card-text border-light mb-3">Estado</p>
+                            </div>
+                            <ul class="text-center">
+
+                                <button class="btn btn-outline-light ">Editar</button>
+
+                            </ul>  
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="reg_p" id="reg_p">
                 r productos
@@ -271,6 +297,7 @@
                 reporte
             </div>
         </div>
+
         <script src="assets/js/admin.js" type="text/javascript"></script>
     </body>
 </html>

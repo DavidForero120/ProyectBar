@@ -86,23 +86,64 @@ repor.addEventListener('click',()=>{
       modal4.classList.replace('mesaR', 'reg_m');
       modal5.classList.replace('productoV','ver_p');
       modal6.classList.replace('productoR','reg_p');
-})
-
+});
 
 /*validacion*/
 const formulario = document.getElementById('usuario');
 const inputs = document.querySelectorAll('#usuario input');
+
+
+const Validaciones = {
+      documento: /^[0-9]{3,11}$/,
+      nombre: /^[A-Za-z\s]{4,40}$/,
+      apellido: /^[A-Za-z\s]{5,40}$/,
+      correo: /[a-z0-9!#$%&’*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&’*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+      contrasena:/^[A-Za-z0-9 .]{5,20}$/,   
+      mesa: /^[0-9]{1,30}$/
+  }
 
 const validar = (e)=>{
       switch (e.target.name) {
             case "password2":
                         validarP();
                   break;
-           
+            case "usuario_nombre":
+                  const Nerros = document.getElementById('name_i');
+                        if(Validaciones.nombre.test(e.target.value)){
+                              Nerros.classList.replace('nameE','name_i');
+                        }else{
+                              Nerros.classList.replace('name_i','nameE');
+                        }   
+            break;
+            case "usuario_apellido":
+                  const apelli = document.getElementById('ape_e')
+                  if(Validaciones.apellido.test(e.target.value)){
+                        apelli.classList.replace('ape_a','ape_e');
+                  }else{
+                        apelli.classList.replace('ape_e','ape_a');
+                  }  
+            break;
+            case "usuario_password":
+                  const pass1 = document.getElementById('contra')
+                  if(Validaciones.contrasena.test(e.target.value)){
+                        pass1.classList.replace('conA','contra');
+                  }else{
+                        pass1.classList.replace('contra','conA');
+                  }  
+            break;
+            case "numero":
+                  const mesaN = document.getElementById('mesa_n')
+                  if(Validaciones.mesa.test(e.target.value)){
+                        mesaN.classList.replace('mesaA','mesa_i');
+                  }else{
+                        mesaN.classList.replace('mesa_i','mesaA');
+                  }       
+            break;
+      
             default:
                   break;
       }
-}
+};
 const validarP = ()=>{
       const pass = document.getElementById('password');
       const pass2 = document.getElementById('password2');
@@ -112,8 +153,34 @@ const validarP = ()=>{
       }else{
             mensaje.classList.replace('incorrecta','act');
       }
-}
+};
 inputs.forEach((input)=>{
       input.addEventListener('keyup', validar);
       input.addEventListener('blur', validar);  
+});
+
+/*validacion mesa */
+const formulario2 = document.getElementById('mesa');
+const inputs2 = document.querySelectorAll('#mesa input');
+const validar2 = (e)=>{
+      switch (e.target.name) {
+            case "numero":
+                  const cardm = document.getElementById('card_mesa');
+                  const mesaL = document.getElementById('mesa_i');
+                  if(Validaciones.mesa.test(e.target.value)) {
+                        mesaL.classList.replace('mesaA','mesa_i');
+                        cardm.style.width = "22em";
+                        cardm.style.height = "18em";
+                  }else{
+                        mesaL.classList.replace('mesa_i','mesaA');
+                        cardm.style.width = "22em";
+                        cardm.style.height = "23em";
+                  }
+            break;
+      }
+}
+
+inputs2.forEach((input)=>{
+      input.addEventListener('keyup', validar2);
+      input.addEventListener('blur', validar2);  
 });

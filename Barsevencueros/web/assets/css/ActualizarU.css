@@ -1,0 +1,150 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11/11/2022, 09:13:55 AM
+    Author     : David
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+body{
+      margin: 0;
+      height: 100vh;
+      font-family: 'Kanit', sans-serif !important;
+}
+.nav_admin{
+      width: 100%;
+      background-color: black;
+      height: 5em;
+     position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+   
+.logo_admin{
+      height: 100%;
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.logo_admin img{
+    width: 40%;
+    height: 100%;
+
+}
+#cancel{
+    margin: 1%;
+    width: 7%;
+    display: flex;
+
+}
+.actualizar{
+      padding: 4%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+h1{
+      margin-bottom: 2%;
+}
+#actualizarU{
+      display: flex;
+      flex-direction: column;
+}
+.opt_a{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      gap: 10%;
+      margin-top: 10%;
+}
+.input-group{
+      margin-bottom: 12% !important;
+}
+label{
+      font-size: 1.5em;
+}
+.error1{
+      margin-top: -10%;
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      width: 25rem;
+      padding: 3%;
+      margin-bottom: 2%;
+}
+.errorM{
+      display: none;
+}
+p{
+      margin-bottom: 0% !important;
+      width: 100%;
+}
+#err{
+      margin-right: 2%;
+}
+.act{
+      display: none;
+}
+.incorrecta{
+      margin-top: -10%;
+      background-color: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      width: 25rem;
+      padding: 3%;
+      margin-bottom: 2%;
+}
+.namea{
+      display: none;
+}
+.nameC{
+      margin-top: -10%;
+      background-color: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      width: 25rem;
+      padding: 3%;
+      margin-bottom: 2%; 
+}
+.passd{
+      display: none;
+}
+.passM{
+      margin-top: -10%;
+      background-color: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      width: 25rem;
+      padding: 3%;
+      margin-bottom: 2%; 
+}
+.formE{
+      display: none;
+}
+.formA{
+      margin-top: 2%;
+      margin-bottom: -5% !important;
+      background-color: rgb(253, 0, 0);
+      color: white;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      width: 25rem;
+      padding: 3%;
+      margin-bottom: 2%; 
+}

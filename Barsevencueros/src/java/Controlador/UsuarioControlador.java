@@ -99,9 +99,9 @@ public class UsuarioControlador extends HttpServlet {
                 case 3: //Actualizar Registro
                  
                 if (usuDAO.actualizarRegistro()) {
-                    request.setAttribute("Exito", "El usuario se registro correctamente");
+                    request.setAttribute("Exito", "El usuario se actualizo correctamente");
                 } else {
-                    request.setAttribute("Error", "El usuario NO se registro correctamente");
+                    request.setAttribute("Error", "El usuario no se pudo actualizar");
                 }
                 request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;
@@ -120,6 +120,9 @@ public class UsuarioControlador extends HttpServlet {
                     break;
                 case 5:
                     request.getRequestDispatcher("view/Mesero.jsp").forward(request, response);
+                    break;
+                case 6:
+                     request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                     break;
         }
     }
