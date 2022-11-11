@@ -49,7 +49,7 @@ public class ClienteControlador extends HttpServlet {
                 if(cliDAO.agregarRegistro()){
                     request.setAttribute("mensajeExito", "!!Cliente Registrado¡¡");
                 }else{
-                    request.setAttribute("mensajeExito", "el cliente NO se pudo registrar");
+                    request.setAttribute("mensajeError", "el cliente NO se pudo registrar");
                 }
                 request.getRequestDispatcher("cliente.jsp").forward(request, response);
                 break;

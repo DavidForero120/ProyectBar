@@ -100,11 +100,16 @@
                         <button class="btn-enviar" type="submit">Registar Cliente</button>
                         <input type="hidden" value="1" name="valor">
                     </div>
-
+                    
                 </form>
+                <form action="Usuario" method="post">
+                        <div class="boton" id="boton">
+                        <button class="btn-enviarr">Volver</button>
+                        <input type="hidden" value="5" name="valor">
+                    </div>
+                    </form>
                 <div id="error">
-                    <%
-                        if (request.getAttribute("mensajeError") != null) { %>
+                    <%                        if (request.getAttribute("mensajeError") != null) { %>
                     ${mensajeError}
 
                     <%} else {%>
@@ -116,6 +121,6 @@
 
         </section>
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-        <%-- <script src="assets/js/validacionCliente.js" type="text/javascript"></script>--%>
+        <script src="assets/js/validacionCliente.js" type="text/javascript"></script>
     </body>
 </html>

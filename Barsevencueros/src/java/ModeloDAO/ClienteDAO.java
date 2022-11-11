@@ -27,7 +27,6 @@ public class ClienteDAO extends ConexionBd implements Crud{
     private ResultSet mensajero;
     private boolean operacion = false;
     private String sql;
-    
     private String id_cliente="", numero_documento="", cliente_nombre="", cliente_apellido="", cliente_estado="", cliente_correo="", fecha_nacimiento="", tipo_documento="";
 
     public ClienteDAO() {
@@ -64,7 +63,7 @@ public class ClienteDAO extends ConexionBd implements Crud{
     public boolean agregarRegistro() {
          try {
             
-            sql="inser into cliente(numero_documento, cliente_nombre, cliente_apellido, cliente_estado, cliente_correo, fecha_nacimiento, tipo_documento)(?, ?, ?, ?, ?, ?, ?);";
+            sql="insert into cliente(numero_documento, cliente_nombre, cliente_apellido, cliente_estado, cliente_correo, fecha_nacimiento, tipo_documento) VALUES(?, ?, ?, ?, ?, ?, ?);";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, numero_documento);
             puente.setString(2, cliente_nombre);

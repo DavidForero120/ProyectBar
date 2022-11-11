@@ -14,21 +14,25 @@ and open the template in the editor.
 .container-family{
     background-color: rgba(240, 248, 255, 0.843);
     
-    height: 100vh;
+    height: 109vh;
 }
 
 .formulario-family{
    background-color: rgba(237, 237, 237, 0.923);
     margin: auto;
     width: 40%;
-    height: 100vh;
+    height: 109vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 1px 1px 10px #000; 
+    box-shadow: 0px 0px 30px #000;
+    border-radius: 16px;
+    font-family: sans-serif;
 }
-
+form{
+    width: 75%;
+}
 #group_input {
     display: flex;
     justify-content: center;
@@ -39,32 +43,53 @@ and open the template in the editor.
     display: flex;
 }
 .container-family h1{
-   
-    font-size: 280%;
+   font-size: 250%;
     margin-bottom: 5%;
+    margin-top: -22%;
 }
 .container-family h2{
    font-size: 1.5em;
     margin-bottom: 2%;
-    margin-top: 2%;
+    margin-top: 0%;
 }
 #group_input input{
-  width: 95%;
-  height: 2.5em; 
+    width: 98%;
+    height: 2.2em;
+    margin-bottom: 1%; 
 }
 .boton{
     display: flex;
     justify-content: center;
     align-content: center;
 }
-.btn-enviar {
+.boton a{
+    color: white;
+}
+.btn-enviarr{
     font-size: 100%;
-    width: 50%;
+    width: 45%;
     height: 3em;
     background-color: black;
     color: white;
     border: 1px solid;
     border-radius: 8px;
+    margin-bottom: 2%;
+}
+.btn-enviarr:hover{
+    color:black;
+    background-color: white;
+    transition: 1s;
+}
+.btn-enviar {
+    font-size: 100%;
+    width: 45%;
+    height: 3em;
+    background-color: black;
+    color: white;
+    border: 1px solid;
+    border-radius: 8px;
+    margin-top: -5%;
+    margin-bottom: 2%;
 }
 option{
     font-size: 1.2em;
@@ -80,9 +105,9 @@ option{
     margin-top: 3%;
 }
 .container-family a{
-    font-size: 150%;
+    font-size: 140%;
     text-decoration: none;
-    color: black;
+    color: white;
     height: 1em;
 }
 
@@ -90,8 +115,9 @@ option{
  margin: 7%;
 }
 .container-family select{
-    width: 97%;
-    height: 3em;  
+    width: 99%;
+    height: 2.8em;
+    margin-bottom: 1%
 }
 #f_fecNa{
     width: 104%;
@@ -99,16 +125,22 @@ option{
 }
 /**/
 .msg_error{
-    color: #f50000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
     visibility: hidden;
     opacity: 0;
-    font-size: 95%;
-    margin-bottom: 2%;
+    font-size: 100%;
+    margin-bottom: 1%;
+    background-color: red;
+    height: 0rem;
 }
 
 .msg_error_visible{
     visibility: visible;
     opacity: 1;
+    height: 2.2em;
 }
 
 /*iconos*/
@@ -153,7 +185,7 @@ option{
     width: 20%
 }
 h2{
-    font-size: 1.7em !important;
+    font-size: 1.5em !important;
 }
 h3{
     font-size: 1.3em !important;

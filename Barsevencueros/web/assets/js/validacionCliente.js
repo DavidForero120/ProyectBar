@@ -103,19 +103,5 @@ campos.forEach((campo)=>{
     campo.addEventListener('blur', validarcampos)
 })
 
-form.addEventListener('submit' ,e =>{
 
-    e.preventDefault(); //evitar que se envie el formulario para que se pueda validar los campos antes
-
-    if(inputs.cliente_documento && inputs.cliente_nombre && inputs.cliente_apellido && inputs.cliente_correo){
-        alert("El usuario ha sido registrado exitosamente");
-        form.reset();//limpiar el formulario
-
-        document.querySelectorAll('.success').forEach((icono) => {
-            icono.classList.remove('success');
-        });
-    } else{
-        document.getElementById('frm-no-enviado').classList.add('frm-no-enviado-activo');
-    }
-})
 
