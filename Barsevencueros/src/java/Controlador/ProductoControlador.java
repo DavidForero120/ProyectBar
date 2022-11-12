@@ -67,6 +67,27 @@ public class ProductoControlador extends HttpServlet {
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
                 }
                 break;
+                 case 3://Consultar Mesa
+                    prodVO = prodDAO.consultarProducto(id_producto);
+
+                if (prodVO != null){
+                    request.setAttribute("datosProducto", prodVO);
+                    request.getRequestDispatcher("actualizarProducto.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("msError", "El producto no se pudo encontrar");
+                    request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
+                }
+                break;
+                 case 4: //actualizar producto
+                 if(prodDAO.actualizarRegistro()){
+                      
+                      request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
+                 }else{
+                      request.getRequestDispatcher("actualizarProducto.jsp").forward(request, response);
+                      request.setAttribute("mensajeError", "el producto no se actualizo correctamente");
+                 }
+                 break;
+                
         }
         
         

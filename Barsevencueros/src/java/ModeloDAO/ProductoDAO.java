@@ -81,7 +81,26 @@ public class ProductoDAO extends ConexionBd implements Crud {
 
     @Override
     public boolean actualizarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            sql = "update producto set producto_nombre=?, producto_precio=?, producto_estado=?, producto_cantidad=? where id_producto=?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, producto_nombre);
+            puente.setDouble(2, producto_precio);
+            puente.setString(3, producto_estado);
+            puente.setInt(4, producto_cantidad);
+            puente.setString(5, id_producto);
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally{
+                try {
+                    this.deneterConexion();
+                } catch (Exception e) {
+                    Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, e);
+                }
+            }
+            return operacion;
     }
 
     @Override
@@ -94,7 +113,7 @@ public class ProductoDAO extends ConexionBd implements Crud {
         
         try {
             conexion = this.obtenerConexion();
-            sql="call listarProducto";
+            sql="select * from producto where producto_estado=1";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {                    
@@ -113,6 +132,31 @@ public class ProductoDAO extends ConexionBd implements Crud {
         }
         return listaProducto;
     }
+     public ProductoVO consultarProducto(String id_producto) {
+        ProductoVO prodVO = null;
+        try {
+            conexion = this.obtenerConexion();
+            sql = "select * from producto where id_producto=?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, id_producto);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+
+               prodVO  = new ProductoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getDouble(3), mensajero.getString(4), mensajero.getInt(5));
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(MesaDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.deneterConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(MesaDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return prodVO;
+    }
+    
         public ProductoVO buscarQ(String id_producto)
         {
         

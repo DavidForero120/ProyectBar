@@ -1,3 +1,5 @@
+<%@page import="ModeloDAO.ProductoDAO"%>
+<%@page import="ModeloVO.ProductoVO"%>
 <%@page import="ModeloDAO.MesaDAO"%>
 <%@page import="ModeloVO.MesaVO"%>
 <%@page import="ModeloDAO.RolDAO"%>
@@ -169,22 +171,22 @@
             <div class="ver_m" id="ver_m">
                 <h1 id="worker">Mesas</h1>
                 <div id="MError">
-                        <%
+                    <%
                             if (request.getAttribute("menssegeError") != null) { %>
-                        <div class="alert alert-success" role="alert">
-                            ${menssegeError}
-                        </div>
-
-
-                        <%} else {%>
-
-                        <div class="alert alert-success" role="alert">
-                            ${menssegeExito}
-                        </div>
-                        <%}%>
+                    <div class="alert alert-success" role="alert">
+                        ${menssegeError}
                     </div>
+
+
+                    <%} else {%>
+
+                    <div class="alert alert-success" role="alert">
+                        ${menssegeExito}
+                    </div>
+                    <%}%>
+                </div>
                 <form method="post" action="Mesa" >
-                    
+
 
                     <div class="cards_">
                         <%
@@ -273,20 +275,41 @@
                     <div id="titlep">
                         <h1>Productos</h1>
                     </div>
+                    <div id="cards_">
+                        <%
+                        ProductoVO prodVO = new ProductoVO();
+                        ProductoDAO prodDAO = new ProductoDAO();
+                        ArrayList<ProductoVO> listarProducto = prodDAO.listar();
+
+                        for (int i = 0; i < listarProducto.size(); i++) {
+                            prodVO = listarProducto.get(i);
+                            
+                            %>
+                       
                     <div class="ver_p1" id="ver_p1">
-                        <div class="card text-white bg-dark mb-3 " style="width: 15rem; max-height: 15em; ">
-                            <input type="hidden" name="" value="id">
-                            <div class="card-header border-light mb-3 text-center"><h3>name prug</h3></div>
+                        <div class="card text-white bg-dark mb-3 " style="width: 15rem; max-height: 18em; ">
+                            <form method="post" action="Producto">
+                            <input type="hidden" name="prod_id" value="<%=prodVO.getId_producto()%>">
+                            <div class="card-header border-light mb-3 text-center"><h3><%=prodVO.getProducto_nombre()%></h3></div>
                             <div class="card-body">
-                                <h5 class="card-title border-light mb-3">precio</h5>
-                                <p class="card-text border-light mb-3">Estado</p>
+                                <h5 class="card-title border-light mb-3"><%=prodVO.getProducto_precio()%></h5>
+                                <%
+                                if(prodVO.getProducto_estado().equals("1")){
+                                    String act = "Activo";
+                                %>  
+                                <p class="card-text border-light mb-3"><%=act%></p>
+                                 <%}%>
                             </div>
                             <ul class="text-center">
 
                                 <button class="btn btn-outline-light ">Editar</button>
+                                <input type="hidden" name="valor" value="3">
 
                             </ul>  
+                            </form>
                         </div>
+                    </div>
+                           <%}%>
                     </div>
                 </div>
             </div>
