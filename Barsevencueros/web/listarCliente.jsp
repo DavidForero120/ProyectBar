@@ -22,11 +22,13 @@
         <link href="assets/css/cliente.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-     
+
         <div class="clien_">
             <form action="Usuario" method="post">
-                <button class="btn btn-dark"><a href="Usuario?valor=5">Volver</a></button>
-                
+                <div class="boton" id="boton">
+                    <button class="btn-enviarr">Volver</button>
+                    <input type="hidden" value="5" name="valor">
+                </div>
             </form>
             <h1>Clientes</h1>
             <div id="list_c">
