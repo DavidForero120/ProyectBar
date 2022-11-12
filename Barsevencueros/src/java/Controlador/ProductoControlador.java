@@ -31,7 +31,7 @@ public class ProductoControlador extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
@@ -80,14 +80,14 @@ public class ProductoControlador extends HttpServlet {
                 break;
                  case 4: //actualizar producto
                  if(prodDAO.actualizarRegistro()){
-                      
+
                       request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                  }else{
                       request.getRequestDispatcher("actualizarProducto.jsp").forward(request, response);
                       request.setAttribute("mensajeError", "el producto no se actualizo correctamente");
                  }
                  break;
-                
+
         }
         
         
