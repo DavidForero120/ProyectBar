@@ -33,10 +33,15 @@
                     <li id="li2"><a href="listarCliente.jsp">Ver clientes</a></li>
                     <li id="li2"><a href="#">Ver productos</a></li>
                     <li id="li2"><a id="vent" href="Pedido?menu=NuevaVenta&accion=default" target="myFrame">Tomar pedido</a></li>
-
                 </ul>
             </div>
-
+                
+                <form method="post" action="Sesiones" id="out_">
+                    <div class="salr" id="salr">
+                        <button type="submit" value="CerrarSesion" class="btn btn-outline-light" id="kik" ><i class="fa-solid fa-right-from-bracket" id="salir_"></i>SALIR</button>
+                    </div>    
+                </form>
+                
             </nav>
             <hr id="hr">
             <div id="options" class="options">

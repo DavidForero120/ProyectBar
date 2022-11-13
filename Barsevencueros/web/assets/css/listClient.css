@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12/11/2022, 02:47:54 PM
+    Author     : HOGAR
+*/
+*{
+ margin: 0%;
+ font-family: sans-serif;
+}
+.boton {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.btn-enviarr {
+    font-size: 100%;
+    width: 10%;
+    height: 3em;
+    background-color: black;
+    color: white;
+    border: 1px solid;
+    border-radius: 8px;
+}
+.btn-enviarr:hover{
+    color:black;
+    background-color: white;
+    transition: 0.5s;
+}
+.Titgene{
+    display: flex;
+    justify-content: center;
+    font-size: 300%;
+    font-family: sans-serif;
+    margin-bottom: 0.5%;
+}
+#consu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    width: 35%;
+    margin: auto;
+}
+
+

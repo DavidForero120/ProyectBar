@@ -36,6 +36,7 @@ public class ClienteControlador extends HttpServlet {
         String cliente_correo = request.getParameter("cliente_correo");
         String fecha_nacimiento = request.getParameter("cliente_nacimiento");
         String tipo_documento = request.getParameter("cliente_tipo");
+        String id_Client = request.getParameter("datos");
      
         int valor = Integer.parseInt(request.getParameter("valor"));
         
@@ -62,7 +63,8 @@ public class ClienteControlador extends HttpServlet {
                     request.getRequestDispatcher("listarCliente.jsp").forward(request, response);
                 break;
             case 3://Consultar Cliente
-                    cliVO = cliDAO.consultarCliente(id_cliente);
+                    
+                    cliVO = cliDAO.consultarCliente(id_Client); 
                 if (cliVO != null){
                     request.setAttribute("datosConsultados", cliVO);
                     request.getRequestDispatcher("actualizarCliente.jsp").forward(request, response);
@@ -81,10 +83,21 @@ public class ClienteControlador extends HttpServlet {
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
                 }
                 break;
-           case 5://Consultar por Documento
-               
+           case 5://Consultar por Documento         
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
-              
+              break;
+           case 6: //CONSULTAR POR NUMERO DE DOCUMENTO 
+               
+               cliVO = cliDAO.consultarNumero(numero_documento);
+                if (cliVO != null){
+                    request.setAttribute("datosConsultados", cliVO);
+                    request.getRequestDispatcher("actualizarCliente.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("mensajeError", "el cliente no se pudo encontrar");
+                    request.getRequestDispatcher("listarCliente.jsp").forward(request, response);
+                }
+                break;
+
             
         }
         

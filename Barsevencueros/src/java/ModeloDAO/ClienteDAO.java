@@ -115,6 +115,10 @@ public class ClienteDAO extends ConexionBd implements Crud{
             }
             return operacion;
     }
+    
+   
+    
+    
 
     @Override
     public boolean eliminarRegistro() {
@@ -125,7 +129,7 @@ public class ClienteDAO extends ConexionBd implements Crud{
         ArrayList<ClienteVO> listaCliente = new ArrayList<>();
             try {
                 conexion = this.obtenerConexion();
-                sql =  "select * from cliente where cliente_estado = 1";
+                sql =  "select * from cliente";
                 puente = conexion.prepareStatement(sql);
                 mensajero = puente.executeQuery();
                 while (mensajero.next()) {                    
@@ -171,12 +175,41 @@ public class ClienteDAO extends ConexionBd implements Crud{
         return cliVO;
     }
     
+    public ClienteVO consultarNumero(String documento) {
+        ClienteVO cliVO = null;
+        try {
+            conexion = this.obtenerConexion();
+            sql = "select * from Cliente where numero_documento = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, documento);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+
+            cliVO = new ClienteVO(mensajero.getString(1), mensajero.getString(2),mensajero.getString(3),mensajero.getString(4),mensajero.getString(5),
+             mensajero.getString(6),mensajero.getString(7),mensajero.getString(8));
+ 
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.deneterConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return cliVO;
+    }
+    
+    
+    
     public ClienteVO buscar(String documento){
         
         ClienteVO cliVO = new ClienteVO();
         try {
             conexion = this.obtenerConexion();
-            sql ="select * from cliente where numero_documento=?";
+            sql ="select * from cliente where numero_documento = ?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, documento);
             mensajero = puente.executeQuery();
@@ -195,6 +228,12 @@ public class ClienteDAO extends ConexionBd implements Crud{
         catch (SQLException e) 
         {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.deneterConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
         }
         return cliVO;
     }

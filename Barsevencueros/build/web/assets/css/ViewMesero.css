@@ -76,6 +76,12 @@ hr {
 #log__ img{
     width: 85px;
 }
+.salr{
+    diplay: flex;
+    justify-content: flex-end;
+        align-items: center;
+        height: 2em;
+}
 
 @media screen and (min-width: 700px){
     #li{

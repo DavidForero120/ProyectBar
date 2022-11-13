@@ -65,6 +65,46 @@ form{
 .boton a{
     color: white;
 }
+
+
+/*Actualizar */
+
+.btn-enviarrr{
+    font-size: 100%;
+    width: 335%;
+    margin-left: -117%;
+    height: 2.1em;
+    background-color: black;
+    color: white;
+    border: 1px solid;
+    border-radius: 8px;
+    margin-bottom: 2%;
+}
+
+.btn-enviarrr:hover{
+    color:black;
+    background-color: white;
+    transition: 1s;
+}
+.btn-enviarrrr {
+    font-size: 120%;
+    width: 45%;
+    height: 2.5em;
+    background-color: black;
+    color: white;
+    border: 1px solid;
+    border-radius: 8px;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}.btn-enviarrrr:hover{
+    color:black;
+    background-color: white;
+    transition: 1s;
+}
+
+/* ----------- */
+
+
 .btn-enviarr{
     font-size: 100%;
     width: 45%;
