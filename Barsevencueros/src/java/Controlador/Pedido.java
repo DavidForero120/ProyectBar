@@ -82,10 +82,7 @@ public class Pedido extends HttpServlet {
                     pedVO.setPrecio(precio);
                     pedVO.setCantidad_producto(cantidad_producto);
                     pedVO.setSubtotal(subtotal);
-                    boolean cancelarPedido = false;
-                    
-                    while(cancelarPedido== false){
-                        lista.add(pedVO);
+                    lista.add(pedVO);
                         for (int i = 0; i < lista.size(); i++) {
                             total = total + lista.get(i).getSubtotal();        
                             System.out.println(total);
@@ -95,19 +92,7 @@ public class Pedido extends HttpServlet {
                         request.setAttribute("totalPaga", total);
                         request.setAttribute("lista", lista);
                         request.setAttribute("cliente", cliVO);
-                    }
                     
-                        lista.remove(pedVO);
-                        request.setAttribute("totalPaga", total);
-                        request.setAttribute("lista", lista);
-                        request.setAttribute("cliente", cliVO);
-                    
-                    
-                case "Cancelar":
-                    for (int j =0; j<lista.size();j++) {
-                        lista.remove(j);
-                    }
-                    request.setAttribute("lista", lista);
                     break;
                     
                     

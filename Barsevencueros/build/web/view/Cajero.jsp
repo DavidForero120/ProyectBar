@@ -192,19 +192,25 @@
 
                         <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
                             <form action="" method="post">
-                            <div class="card-header">
-                                <input type="hidden" value="<%=pagVO.getId_pedido()%>">
-                                <h3 ><%=pagVO.getClienteFK()%></h3>
-                            </div>
-                            <div class="card-body" id="cardsi">                            
-                                <p class="card-text"><%=pagVO.getFecha()%><p>  
-                                <p class="card-text"><%=pagVO.getPedido_estado()%></p>
-                            </div>
-                            <ul class="text-end">
-                             
-                                <button class="btn btn-outline-light bu">Pagar</button>
-                                <input type="hidden"  name="valor" value="1">
-                            </ul>  
+                                <div class="card-header">
+                                    <input type="hidden" value="<%=pagVO.getId_pedido()%>">
+                                    <h3 ><%=pagVO.getClienteFK()%></h3>
+                                </div>
+                                <div class="card-body" id="cardsi">                            
+                                    <p class="card-text"><%=pagVO.getFecha()%><p>  
+                                        <%
+                                            if (pagVO.getPedido_estado().equals("1")) {
+                                                String estate = "Por pagar";
+                                        %>
+
+                                    <p class="card-text"><%=estate%></p>
+                                    <%}%>
+                                    <ul class="text-end">
+                                        <button class="btn btn-outline-light bu">Pagar</button>
+                                        <input type="hidden"  name="valor" value="1">
+                                    </ul>  
+                                </div>
+
                             </form>
                         </div>
                         <%}%>  
