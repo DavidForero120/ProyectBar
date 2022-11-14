@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -114,6 +116,13 @@ public class PedidoDAO extends ConexionBd implements Crud {
             Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
         }
         return r;
+    }
+    public PedidoVO quitarLista(PedidoVO pedVO){
+        List<PedidoVO> lista = new ArrayList<>();    
+        
+        lista.remove(pedVO);
+        
+        return pedVO;
     }
 
     public int Agregardespedido(PedidoVO pedVO) {

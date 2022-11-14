@@ -82,6 +82,7 @@ public class ProductoDAO extends ConexionBd implements Crud {
     @Override
     public boolean actualizarRegistro() {
         try {
+            conexion = this.obtenerConexion();
             sql = "update producto set producto_nombre=?, producto_precio=?, producto_estado=?, producto_cantidad=? where id_producto=?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, producto_nombre);
@@ -96,7 +97,7 @@ public class ProductoDAO extends ConexionBd implements Crud {
         }finally{
                 try {
                     this.deneterConexion();
-                } catch (Exception e) {
+                } catch (SQLException e) {
                     Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, e);
                 }
             }

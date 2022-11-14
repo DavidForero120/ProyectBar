@@ -6,8 +6,7 @@ and open the template in the editor.
 /* 
     Created on : 8/11/2022, 09:02:20 AM
     Author     : David
-*/
-body{
+*/body{
     margin: 0%;
     height: 100vh;
 }
@@ -262,4 +261,23 @@ a:hover{
 #cardsi p{
     margin-bottom: 0.5rem;
     display: flex;
+}
+
+.pagar{
+    display: none
+}
+.activeP{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.cards_p{
+    width: 100%;
+    margin-left: 48%;
+    margin-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    margin-bottom: 3%;
 }

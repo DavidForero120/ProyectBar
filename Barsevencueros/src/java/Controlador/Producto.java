@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author alrod
  */
-@WebServlet(name = "ProductoControlador", urlPatterns = {"/Producto"})
-public class ProductoControlador extends HttpServlet {
+@WebServlet(name = "Producto", urlPatterns = {"/ProductoAcciones"})
+public class Producto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,66 +31,55 @@ public class ProductoControlador extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String id_producto = request.getParameter("prod_id");
-        String producto_nombre = request.getParameter("prod_nombre");
-        String producto_precio = request.getParameter("prod_precio");
-        String producto_estado = request.getParameter("prod_estado");
-        String producto_cantidad = request.getParameter("prod_cant");
+        String id_producto = request.getParameter("id");
+        String producto_nombre = request.getParameter("nombre");
+        double producto_precio = Double.parseDouble(request.getParameter("precio"));
+        
+        String producto_estado = request.getParameter("estado");
+        int producto_cantidad = Integer.parseInt(request.getParameter("cantidad"));
         int valor = Integer.parseInt(request.getParameter("valor"));
         
         ProductoVO prodVO = new ProductoVO();
         ProductoDAO prodDAO = new ProductoDAO();
         
         
+        
+        
         switch(valor){
-            case 1: //Registrar Producto
+            case 1://Registrar Producto
                 if(prodDAO.agregarRegistro()){
                     request.setAttribute("mensajeExito", "el producto se registro correctamente");
                 
-                }else{
+                }else{ 
                     request.setAttribute("mensajeError", "el producto NO se registro correctamente");
                 }
                 request.getRequestDispatcher("producto.jsp").forward(request, response);
                 break;
-            case 2://Consultar por Nombre
-                
-                prodVO = prodDAO.buscarQ(producto_nombre);
-                if (prodVO != null){
-                    request.setAttribute("consultaNombre", prodVO);
-                    request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
-                } else {
-                    request.setAttribute("mensajeError", "el producto no se pudo encontrar");
-                    request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
+            case 2://Actualizar Registro
+                if(prodDAO.actualizarRegistro()){
+                    request.setAttribute("mensajeExito", "el producto se registro correctamente");
+                }else{
+                    request.setAttribute("mensajeError", "el producto NO se registro correctamente");
                 }
                 break;
-                 case 3://Consultar Mesa
-                    prodVO = prodDAO.consultarProducto(id_producto);
-
-                if (prodVO != null){
+            case 3://Consultar Producto
+                prodVO = prodDAO.consultarProducto(id_producto);
+                
+                if(prodVO != null){
                     request.setAttribute("datosProducto", prodVO);
                     request.getRequestDispatcher("actualizarProducto.jsp").forward(request, response);
-                } else {
+                }else{
+                    
                     request.setAttribute("msError", "El producto no se pudo encontrar");
                     request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 }
                 break;
-                case 4: //actualizar producto
-                 if(prodDAO.actualizarRegistro()){
-
-                      request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
-                 }else{
-                      request.getRequestDispatcher("actualizarProducto.jsp").forward(request, response);
-                      request.setAttribute("mensajeError", "el producto no se actualizo correctamente");
-                 }
-                 break;
-
+                
         }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

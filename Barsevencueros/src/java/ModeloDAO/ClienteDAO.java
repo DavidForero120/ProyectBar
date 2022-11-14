@@ -209,7 +209,7 @@ public class ClienteDAO extends ConexionBd implements Crud{
         ClienteVO cliVO = new ClienteVO();
         try {
             conexion = this.obtenerConexion();
-            sql ="select * from cliente where numero_documento = ?";
+            sql ="select * from cliente where numero_documento=?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, documento);
             mensajero = puente.executeQuery();
@@ -228,12 +228,6 @@ public class ClienteDAO extends ConexionBd implements Crud{
         catch (SQLException e) 
         {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                this.deneterConexion();
-            } catch (SQLException e) {
-                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, e);
-            }
         }
         return cliVO;
     }

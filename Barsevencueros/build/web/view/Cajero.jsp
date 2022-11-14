@@ -4,12 +4,14 @@
     Author     : David
 --%>
 
+<%@page import="ModeloDAO.PagarDAO"%>
+<%@page import="ModeloVO.PagarVO"%>
+<%@page import="ModeloDAO.PedidoDAO"%>
+<%@page import="ModeloVO.PedidoVO"%>
 <%@page import="ModeloDAO.ClienteDAO"%>
 <%@page import="ModeloVO.ClienteVO"%>
 <%@page import="ModeloDAO.ProductoDAO"%>
 <%@page import="ModeloVO.ProductoVO"%>
-<%@page import="ModeloDAO.PedidoDAO"%>
-<%@page import="ModeloVO.PedidoVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.MesaDAO"%>
 <%@page import="ModeloVO.MesaVO"%>
@@ -42,7 +44,7 @@
                 </div>    
                 <div class="butoon" id="butoon">
                     <button class="kik"> <a id="vr" ><i class="fa-solid fa-wine-glass"></i>Administrar Producto</a></button>
-                    <button class="kik"> <a id="vp" ><i class="fa-solid fa-wine-bottle"></i>Pagar Pedido</a></button>    
+                    <button class="kik" > <a id="vp" ><i class="fa-solid fa-wine-bottle"></i>Pagar Pedido</a></button>    
                     <button class="kik"> <a id="vm" ><i class="fa-solid fa-table"></i>Administrar Mesa</a></button>
                 </div>
                 <form method="post" action="Sesiones" id="out_">
@@ -51,6 +53,7 @@
                     </div>    
                 </form>
             </div>
+
 
             <div class="partder" id="partder">
                 <div class="ve_p" id="ve_p">
@@ -123,63 +126,92 @@
                     ${mensajeExito}        
                     <%}%>
 
-                   
+
                 </div>
-                   
-                   
-                        <!--Administrar mesa-->
+
+
+                <!--Administrar mesa-->
                 <div class="ve_me" id="ve_me">
-                   
-                        <h1>Consulta de las mesas</h1>
-                <form method="POST" action="Producto" class="formm" id="formm">
-                    <div class="cards_">
-                        <%
-                            MesaVO mesaVO = new MesaVO();
-                            MesaDAO mesaDAO = new MesaDAO();
 
-                            ArrayList<MesaVO> listarMesa = mesaDAO.listar();
+                    <h1>Consulta de las mesas</h1>
+                    <form method="POST" action="Producto" class="formm" id="formm">
+                        <div class="cards_">
+                            <%
+                                MesaVO mesaVO = new MesaVO();
+                                MesaDAO mesaDAO = new MesaDAO();
 
-                            for (int i = 0; i < listarMesa.size(); i++) {
-                                mesaVO = listarMesa.get(i);
-                        %>        
-                        <div>  
-                            <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                                <div class="card-header">
-                                    <input type="hidden" value="<%=mesaVO.getId_mesa()%>">
-                                    <h3>Número mesa: <%=mesaVO.getMesa_numero()%></h3>
+                                ArrayList<MesaVO> listarMesa = mesaDAO.listar();
+
+                                for (int i = 0; i < listarMesa.size(); i++) {
+                                    mesaVO = listarMesa.get(i);
+                            %>        
+                            <div>  
+                                <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
+                                    <div class="card-header">
+                                        <input type="hidden" value="<%=mesaVO.getId_mesa()%>">
+                                        <h3>Número mesa: <%=mesaVO.getMesa_numero()%></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">Estado:</p>
+                                        <%
+                                            if (mesaVO.getMesa_estado().equals("1")) {
+                                                String act = "Activa";
+                                        %>                                  
+                                        <p class="card-text"><%=act%></p>  
+                                        <%} else if (mesaVO.getMesa_estado().equals("2")) {
+                                            String act = "Inactivo";
+                                        %>
+                                        <p class="card-text"><%=act%></p>  
+                                        <%}%>
+                                    </div>
+                                    <ul class="text-end">
+                                        <input type="hidden" name="id" value="<%=mesaVO.getId_mesa()%>">
+                                        <button class="btn btn-outline-light bu">Editar</button>
+                                        <input type="hidden"  name="valor" value="3">
+                                    </ul>                    
                                 </div>
-                                <div class="card-body">
-                                    <p class="card-text">Estado:</p>
-                                    <%
-                                        if (mesaVO.getMesa_estado().equals("1")) {
-                                            String act = "Activa";
-                                    %>                                  
-                                    <p class="card-text"><%=act%></p>  
-                                    <%} else if (mesaVO.getMesa_estado().equals("2")) {
-                                        String act = "Inactivo";
-                                    %>
-                                    <p class="card-text"><%=act%></p>  
-                                    <%}%>
-                                </div>
-                                <ul class="text-end">
-                                    <input type="hidden" name="id" value="<%=mesaVO.getId_mesa()%>">
-                                    <button class="btn btn-outline-light bu">Editar</button>
-                                    <input type="hidden"  name="valor" value="3">
-                                </ul>                    
+
                             </div>
-
+                            <%}%>
                         </div>
-                        <%}%>
-                    </div>
-                   
-                </div>
                     </form>
+                </div>
+
+                <div class="pagar" id="pagar">
+                    <h1>Pagar pedidos</h1>
+                    <div class="cards_p">
+                        <%
+                            PagarVO pagVO = new PagarVO();
+                            PagarDAO pagDAO = new PagarDAO();
+
+                            ArrayList<PagarVO> listarPedido = pagDAO.listar();
+                            for (int i = 0; i < listarPedido.size(); i++) {
+                                pagVO = listarPedido.get(i);
+                        %>       
 
 
+                        <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
+                            <form action="" method="post">
+                            <div class="card-header">
+                                <input type="hidden" value="<%=pagVO.getId_pedido()%>">
+                                <h3 ><%=pagVO.getClienteFK()%></h3>
+                            </div>
+                            <div class="card-body" id="cardsi">                            
+                                <p class="card-text"><%=pagVO.getFecha()%><p>  
+                                <p class="card-text"><%=pagVO.getPedido_estado()%></p>
+                            </div>
+                            <ul class="text-end">
+                             
+                                <button class="btn btn-outline-light bu">Pagar</button>
+                                <input type="hidden"  name="valor" value="1">
+                            </ul>  
+                            </form>
+                        </div>
+                        <%}%>  
+                    </div>
+                </div>
             </div>
-
-
-</section>
-<script src="assets/js/cajero.js" type="text/javascript"></script>
-</body>
+        </section>
+        <script src="assets/js/cajero.js" type="text/javascript"></script>
+    </body>
 </html>

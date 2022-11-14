@@ -57,7 +57,6 @@ public class Pedido extends HttpServlet {
                     cliVO.setNumero_documento(dni);
                     cliVO = cliDAO.buscar(dni);
                     request.setAttribute("cliente", cliVO);
-
                 case "RegistrarProducto":
                     String id = request.getParameter("id_producto");
                     prodVO.setId_producto(id);
@@ -66,10 +65,9 @@ public class Pedido extends HttpServlet {
                     request.setAttribute("pr", prodVO);
                     request.setAttribute("lista", lista);
                     request.setAttribute("totalPaga", total);
-
                     break;
-
                 case "AgregarQ":
+                    
                     total=0.0;
                     item = item + 1;
                     id_Producto = prodVO.getId_producto();
@@ -77,7 +75,6 @@ public class Pedido extends HttpServlet {
                     precio = prodVO.getProducto_precio();
                     cantidad_producto = Integer.parseInt(request.getParameter("cantidad"));
                     subtotal = precio * cantidad_producto;
-
                     pedVO = new PedidoVO();
                     pedVO.setItem(item);
                     pedVO.setId_producto(id_Producto);
@@ -85,17 +82,35 @@ public class Pedido extends HttpServlet {
                     pedVO.setPrecio(precio);
                     pedVO.setCantidad_producto(cantidad_producto);
                     pedVO.setSubtotal(subtotal);
-                    lista.add(pedVO);
-                    for (int i = 0; i < lista.size(); i++) {
-                        total = total + lista.get(i).getSubtotal();        
-                        System.out.println(total);
-                       
-                    }
+                    boolean cancelarPedido = false;
+                    
+                    while(cancelarPedido== false){
+                        lista.add(pedVO);
+                        for (int i = 0; i < lista.size(); i++) {
+                            total = total + lista.get(i).getSubtotal();        
+                            System.out.println(total);
 
-                    request.setAttribute("totalPaga", total);
+                        }
+
+                        request.setAttribute("totalPaga", total);
+                        request.setAttribute("lista", lista);
+                        request.setAttribute("cliente", cliVO);
+                    }
+                    
+                        lista.remove(pedVO);
+                        request.setAttribute("totalPaga", total);
+                        request.setAttribute("lista", lista);
+                        request.setAttribute("cliente", cliVO);
+                    
+                    
+                case "Cancelar":
+                    for (int j =0; j<lista.size();j++) {
+                        lista.remove(j);
+                    }
                     request.setAttribute("lista", lista);
-                    request.setAttribute("cliente", cliVO);
                     break;
+                    
+                    
                     
                     case "GenerarPedido":
                     //Guardar Pedido 
@@ -123,19 +138,12 @@ public class Pedido extends HttpServlet {
                             pedVO.setTotal(total);
                             pedDAO.Agregardespedido(pedVO);
                         }
+                        
                  
                         request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
-                break;       
-                case "Cancelar":
-                       for (int i = 0; i < lista.size(); i++)
-                        {
-                            lista.remove(pedVO);
-                        }
-                    lista.remove(pedVO);
-                    break;
+                break;  
                 default:
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
-
             }
             request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
         }
