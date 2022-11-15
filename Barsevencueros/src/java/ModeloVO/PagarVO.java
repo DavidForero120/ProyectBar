@@ -12,7 +12,7 @@ package ModeloVO;
 public class PagarVO {
     private String id_pedido, id_usuarioFK, clienteFK, mesaFK,pedido_estado, Metodo_pago, fecha;
 
-    public PagarVO(String id_pedido, String id_usuarioFK, String clienteFK, String mesaFK, String pedido_estado, String Metodo_pago, String fecha) {
+    public PagarVO(String id_pedido, String id_usuarioFK, String clienteFK, String mesaFK, String pedido_estado, String Metodo_pago,String fecha) {
         this.id_pedido = id_pedido;
         this.id_usuarioFK = id_usuarioFK;
         this.clienteFK = clienteFK;
@@ -21,6 +21,8 @@ public class PagarVO {
         this.Metodo_pago = Metodo_pago;
         this.fecha = fecha;
     }
+
+    
 
     public PagarVO() {
     }
@@ -80,5 +82,6 @@ public class PagarVO {
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+    
     
 }

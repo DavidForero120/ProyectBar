@@ -183,10 +183,11 @@
                         <%
                             PagarVO pagVO = new PagarVO();
                             PagarDAO pagDAO = new PagarDAO();
+                            
 
                             ArrayList<PagarVO> listarPedido = pagDAO.listar();
-                            for (int i = 0; i < listarPedido.size(); i++) {
-                                pagVO = listarPedido.get(i);
+                                for (int i = 0; i < listarPedido.size(); i++) {
+                                    pagVO = listarPedido.get(i);
                         %>       
 
 
@@ -194,6 +195,7 @@
                             <form action="" method="post">
                                 <div class="card-header">
                                     <input type="hidden" value="<%=pagVO.getId_pedido()%>">
+                                    
                                     <h3 ><%=pagVO.getClienteFK()%></h3>
                                 </div>
                                 <div class="card-body" id="cardsi">                            
@@ -204,16 +206,18 @@
                                         %>
 
                                     <p class="card-text"><%=estate%></p>
-                                    <%}%>
+                                    <%}%>  
+                                    
                                     <ul class="text-end">
-                                        <button class="btn btn-outline-light bu">Pagar</button>
+                                        <button type="button" class="btn btn-dark">Pagar</button>
                                         <input type="hidden"  name="valor" value="1">
-                                    </ul>  
+                                    </ul>
                                 </div>
 
                             </form>
+                                    
                         </div>
-                        <%}%>  
+                            <%}%>  
                     </div>
                 </div>
             </div>
