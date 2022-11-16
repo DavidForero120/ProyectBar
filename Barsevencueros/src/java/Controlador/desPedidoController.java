@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "desPedidoController", urlPatterns = {"/desPedido"})
 public class desPedidoController extends HttpServlet {
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,30 +32,30 @@ public class desPedidoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String pedidoFK = request.getParameter("pedido");    
         String id_productoFK = request.getParameter("producto");
-        String pedidoFK = request.getParameter("pedido");
-        String mesaFK = request.getParameter("mesa");
-        String cantidad_producto = request.getParameter("cantidad");
-        String metodo_pago = request.getParameter("metodo");
-        String valor_pedido = request.getParameter("valor");
-        String fecha = request.getParameter("fecha");
-        
+        String subtotal = request.getParameter("subtotal");
+        String producto_nombre = request.getParameter("nombrep");
+        double total = 0;
         int valor = Integer.parseInt(request.getParameter("valor"));
-        
-        desPedidoVO desVO = new desPedidoVO();
-        desPedidoDAO desDAO = new desPedidoDAO();
+        int contidad_producto = 0;
+        desPedidoVO desVO = new desPedidoVO(id_productoFK, pedidoFK, subtotal,producto_nombre, contidad_producto, total);
+        desPedidoDAO desDAO = new desPedidoDAO(desVO);
         
         
         
         switch(valor){
             case 1:
-                    if(desDAO.agregarRegistro()){
-                        request.setAttribute("mensajeExito", "El pedido se creo correctamfsad");
-                        
+                desVO = desDAO.consultarDes(pedidoFK);
+                    if(desVO != null){
+                        request.setAttribute("datosConsultados", desVO);
+                        request.getRequestDispatcher("pagar.jsp").forward(request, response);
                     }else{
-                        request.setAttribute("mensajeError", "El pedido NO se creo correctamfsad");
+                        request.getRequestDispatcher("pagar2.jsp").forward(request, response);
                     }
-                    request.getRequestDispatcher("finalProduct.jsp").forward(request, response);
+                break;
+            case 2:
+                    
                 break;
         }
     }

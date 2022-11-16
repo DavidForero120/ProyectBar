@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * David
+ * 
  */
 public class UsuarioDAO extends ConexionBd implements Crud{
 

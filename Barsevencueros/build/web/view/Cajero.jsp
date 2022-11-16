@@ -35,9 +35,7 @@
         <section class="content_family" id="content_family">
 
             <div class="partizq" id="partizq">
-                <div class="titulo">
-                    <h1>Cajero</h1>
-                </div>
+                
                 <div class="image" id="image">
                     <img id="im" class="im" src="assets/img/logocolor.png" alt=""/>
 
@@ -192,9 +190,9 @@
 
 
                         <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                            <form action="" method="post">
+                            <form action="desPedido" method="post">
                                 <div class="card-header">
-                                    <input type="hidden" value="<%=pagVO.getId_pedido()%>">
+                                    <input type="hidden" name="pedido" value="<%=pagVO.getId_pedido()%>">
                                     
                                     <h3 ><%=pagVO.getClienteFK()%></h3>
                                 </div>
@@ -209,15 +207,15 @@
                                     <%}%>  
                                     
                                     <ul class="text-end">
-                                        <button type="button" class="btn btn-dark">Pagar</button>
+                                        <button class="btn btn-dark">Pagar</button>
                                         <input type="hidden"  name="valor" value="1">
                                     </ul>
                                 </div>
-
+                                    <%}%>  
                             </form>
                                     
                         </div>
-                            <%}%>  
+                            
                     </div>
                 </div>
             </div>

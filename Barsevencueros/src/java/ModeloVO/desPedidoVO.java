@@ -12,25 +12,20 @@ import java.util.logging.Logger;
  * @author Aprendiz
  */
 public class desPedidoVO {
-    private String id_productoFK, pedidoFK, total;
-    private int cantidad_producto;
+    private String id_productoFK, pedidoFK, subtotal, producto_nombre;
+    private int cantidad_producto=0;
+    private double total;
 
-    public desPedidoVO(String id_productoFK, String pedidoFK, String total, int cantidad_producto) {
+    public desPedidoVO(String id_productoFK, String pedidoFK, String subtotal, String producto_nombre, int cantidad_producto, double total) {
         this.id_productoFK = id_productoFK;
         this.pedidoFK = pedidoFK;
-        this.total = total;
+        this.subtotal = subtotal;
         this.cantidad_producto = cantidad_producto;
+        this.total = total;
+        this.producto_nombre = producto_nombre;
     }
 
     public desPedidoVO() {
-    }
-
-    public int getCantidad_producto() {
-        return cantidad_producto;
-    }
-
-    public void setCantidad_producto(int cantidad_producto) {
-        this.cantidad_producto = cantidad_producto;
     }
 
     public String getId_productoFK() {
@@ -48,22 +43,40 @@ public class desPedidoVO {
     public void setPedidoFK(String pedidoFK) {
         this.pedidoFK = pedidoFK;
     }
-    
-    public String getTotal() {
+
+    public String getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(String subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public int getCantidad_producto() {
+        return cantidad_producto;
+    }
+
+    public void setCantidad_producto(int cantidad_producto) {
+        this.cantidad_producto = cantidad_producto;
+    }
+
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(String total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
-    
-    
-    
-    
-    
+    public String getProducto_nombre() {
+        return producto_nombre;
+    }
+
+    public void setProducto_nombre(String producto_nombre) {
+        this.producto_nombre = producto_nombre;
+    }
 
     
-
+   
     
 }
