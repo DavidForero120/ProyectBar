@@ -63,7 +63,7 @@
                 <label for="est">Estado:</label>
                 <select name="usuario_estado" id="est" class="form-select" >
                     <option value="1" >Activo</option>
-                    <option value="2" >Inactivo</option>
+                    <option value="2" >Eliminar</option>
                 </select>
                 <div class="formE" id="formE">
                     <p><i class="fa-solid fa-circle-exclamation" id="err"></i>!!Completar el formulario¡¡</p>

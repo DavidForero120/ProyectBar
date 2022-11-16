@@ -172,7 +172,7 @@
                 <h1 id="worker">Mesas</h1>
                 <div id="MError">
                     <%
-                            if (request.getAttribute("menssegeError") != null) { %>
+                        if (request.getAttribute("menssegeError") != null) { %>
                     <div class="alert alert-success" role="alert">
                         ${menssegeError}
                     </div>
@@ -265,56 +265,94 @@
                     <%} else {%>
                     ${mensajeExito}        
                     <%}%>     
-
                 </div>
-
-
             </div>
             <div class="ver_p" id="ver_p">
                 <div class="product_list">
                     <div id="titlep">
                         <h1>Productos</h1>
+                        <div class="error">
+                            <div id="MError">
+                                <%
+                            if (request.getAttribute("mensError") != null) { %>
+                                <div class="alert alert-success" role="alert">
+                                    ${mensError}
+                                </div>
+
+
+                                <%} else {%>
+
+                                <div class="alert alert-success" role="alert">
+                                    ${mensExito}
+                                </div>
+                                <%}%>
+                            </div>
+                        </div>
                     </div>
                     <div id="cards_">
                         <%
-                        ProductoVO prodVO = new ProductoVO();
-                        ProductoDAO prodDAO = new ProductoDAO();
-                        ArrayList<ProductoVO> listarProducto = prodDAO.listar();
+                            ProductoVO prodVO = new ProductoVO();
+                            ProductoDAO prodDAO = new ProductoDAO();
+                            ArrayList<ProductoVO> listarProducto = prodDAO.listar();
 
-                        for (int i = 0; i < listarProducto.size(); i++) {
-                            prodVO = listarProducto.get(i);
-                            
-                            %>
-                       
-                    <div class="ver_p1" id="ver_p1">
-                        <div class="card text-white bg-dark mb-3 " style="width: 15rem; max-height: 18em; ">
-                            <form method="post" action="ProductoAcciones">
-                                <input type="hidden" name="id" value="<%=prodVO.getId_producto()%>">
-                                <div class="card-header border-light mb-3 text-center"><h3><%=prodVO.getProducto_nombre()%></h3></div>
-                                <div class="card-body">
-                                    <h5 class="card-title border-light mb-3"><%=prodVO.getProducto_precio()%></h5>
-                                    <%
-                                    if(prodVO.getProducto_estado().equals("1")){
-                                        String act = "Activo";
-                                    %>  
-                                    <p class="card-text border-light mb-3"><%=act%></p>
-                                     <%}%>
-                                </div>
-                                <ul class="text-center">
+                            for (int i = 0; i < listarProducto.size(); i++) {
+                                prodVO = listarProducto.get(i);
 
-                                    <button class="btn btn-outline-light ">Editar</button>
-                                    <input type="hidden" name="valor" value="3">
+                        %>
 
-                                </ul>  
-                            </form>
+                        <div class="ver_p1" id="ver_p1">
+                            <div class="card text-white bg-dark mb-3 " style="width: 15rem; max-height: 18em; ">
+                                <form method="post" action="Producto">
+                                    <input type="hidden" name="prod_id" value="<%=prodVO.getId_producto()%>">
+                                    <div class="card-header border-light mb-3 text-center"><h3><%=prodVO.getProducto_nombre()%></h3></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title border-light mb-3"><%=prodVO.getProducto_precio()%></h5>
+                                        <%
+                                            if (prodVO.getProducto_estado().equals("1")) {
+                                                String act = "Activo";
+                                        %>  
+                                        <p class="card-text border-light mb-3"><%=act%></p>
+                                        <%}%>
+                                    </div>
+                                    <ul class="text-center">
+
+                                        <button class="btn btn-outline-light ">Editar</button>
+                                        <input type="hidden" name="valor" value="3">
+
+                                    </ul>  
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                           <%}%>
+                        <%}%>
                     </div>
                 </div>
             </div>
             <div class="reg_p" id="reg_p">
-                r productos
+                <form method="POST" action="p">
+                    <h3>Nombre Producto</h3>
+                    <input type="text" name="prod_nombre">
+
+                    <h3>Precio Producto</h3>
+                    <input type="text" name="prod_precio">
+                    <input type="hidden" name="prod_estado" value="1">
+
+                    <h3>Cantidad producto</h3>
+                    <input type="text" name="prod_cant">
+
+                    <button>Registar</button>
+                    <input type="hidden" value="1" name="valor">
+                </form>
+                <div class="error">
+                    <%
+                        if (request.getAttribute("mensaError") != null) { %>
+                    ${mensaError}
+
+                    <%} else {%>
+                    ${mensaExito}        
+                    <%}%>     
+
+                </div>
+
             </div>
             <div class="report" id="report">
                 reporte

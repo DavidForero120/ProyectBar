@@ -120,8 +120,8 @@
                                             <div>
                                                 <button class="btn btn-danger eliminarRow">Eliminar</button>
                                                 <input type="hidden" name="accion" value="Cancelar" class="btn btn-danger">
-                                                <button class="btn btn-danger eliminarRow">Cancelar</button>
-                                                <input type="hidden" value="cancelar">
+                                                <!--<button class="btn btn-danger eliminarRow">Cancelar</button>
+                                                <input type="hidden" value="cancelar">-->
                                             </div>
                                         </td>
                                     </tr>

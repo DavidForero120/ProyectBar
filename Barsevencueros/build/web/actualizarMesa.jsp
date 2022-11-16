@@ -40,7 +40,7 @@
                             <label class="input-group-text">Estado Mesa</label>
                             <select name="estado" class="form-select">
                                 <option value="1">Activo</option>
-                                <option value="2">Inactivo</option>
+                                <option value="2">Eliminar</option>
                             </select>
                         </div>
                         

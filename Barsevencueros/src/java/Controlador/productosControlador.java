@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import ModeloDAO.ProductoDAO;
-import ModeloVO.ProductoVO;
+import ModeloDAO.productosDAO;
+import ModeloVO.productosVO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author alrod
+ * @author 57314
  */
-@WebServlet(name = "Producto", urlPatterns = {"/ProductoAcciones"})
-public class Producto extends HttpServlet {
+@WebServlet(name = "productosControlador", urlPatterns = {"/p"})
+public class productosControlador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,52 +33,32 @@ public class Producto extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        String id_producto = request.getParameter("id");
-        String producto_nombre = request.getParameter("nombre");
-        double producto_precio = Double.parseDouble(request.getParameter("precio"));
-        
-        String producto_estado = request.getParameter("estado");
-        int producto_cantidad = Integer.parseInt(request.getParameter("cantidad"));
+         String id_producto = request.getParameter("prod_id");
+        String producto_nombre = request.getParameter("prod_nombre");
+        String producto_precio = request.getParameter("prod_precio");
+        String producto_estado = request.getParameter("prod_estado");
+        String producto_cantidad = request.getParameter("prod_cant");
         int valor = Integer.parseInt(request.getParameter("valor"));
-        
-        ProductoVO prodVO = new ProductoVO();
-        ProductoDAO prodDAO = new ProductoDAO();
-        
-        
-        
-        
+        productosVO prodVO = new productosVO(id_producto, producto_nombre, producto_estado, producto_precio, producto_cantidad);
+        productosDAO prodDAO = new productosDAO(prodVO);
         switch(valor){
-            case 1://Registrar Producto
+            case 1: 
                 if(prodDAO.agregarRegistro()){
-                    request.setAttribute("mensajeExito", "el producto se registro correctamente");
+                    request.setAttribute("mensaExito", "el producto se registro correctamente");
                 
-                }else{ 
-                    request.setAttribute("mensajeError", "el producto NO se registro correctamente");
+                }else{
+                    request.setAttribute("mensaError", "el producto NO se registro correctamente");
                 }
-                request.getRequestDispatcher("producto.jsp").forward(request, response);
+                request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;
-            case 2://Actualizar Registro
+            case 2:
                 if(prodDAO.actualizarRegistro()){
-                    request.setAttribute("mensajeExito", "el producto se registro correctamente");
+                    request.setAttribute("mensExito", "el producto se actualizo correctamente");
                 }else{
-                    request.setAttribute("mensajeError", "el producto NO se registro correctamente");
+                    request.setAttribute("mensError", "el producto no se pudo actualizar");
                 }
+                 request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;
-            case 3://Consultar Producto
-                prodVO = prodDAO.consultarProducto(id_producto);
-                
-                if(prodVO != null){
-                    request.setAttribute("datosProducto", prodVO);
-                    request.getRequestDispatcher("actualizarProducto.jsp").forward(request, response);
-                }else{
-                    
-                    request.setAttribute("msError", "El producto no se pudo encontrar");
-                    request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
-                }
-                break;
-                
         }
     }
 

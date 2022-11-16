@@ -22,29 +22,22 @@
             
             if(prodVO!=null){
             %>
-            <form method="post" action="ProductoAcciones">
-                <input type="hidden" name="id" value="<%=prodVO.getId_producto()%>">
-                <input type="hidden" name="nombre" value="<%=prodVO.getProducto_nombre()%>">
-                <input type="text" name="precio" value="<%=prodVO.getProducto_precio()%>" >
-                <input type="text" name="cantidad" value="<%=prodVO.getProducto_cantidad()%>" >
+            <form method="post" action="p">
+                <input type="hidden" name="prod_id" value="<%=prodVO.getId_producto()%>">
+                <input type="text" name="prod_nombre" value="<%=prodVO.getProducto_nombre()%>" >
+                <input type="text" name="prod_precio" value="<%=prodVO.getProducto_precio()%>" >
+                <input type="text" name="prod_cant" value="<%=prodVO.getProducto_cantidad()%>" >
                 <label>Estado producto:</label>
-                <select name="estado">
+                <select name="prod_estado">
                     <option value="1">Activar</option>
-                    <option value="2">Desactivar</option>
+                    <option value="2">Eliminar</option>
                 </select>
                 <div>
                     <button >Actualizar</button>
                     <input type="hidden" name="valor" value="2">
                 </div>
             </form>
-                 <div class="error">
-                    <%           
-                     if (request.getAttribute("mensajeError") != null) { %>
-                      ${mensajeError}
-                     <%}%>
-                     
-  
-                </div>
+                 
             <%}%>
       
     </body>

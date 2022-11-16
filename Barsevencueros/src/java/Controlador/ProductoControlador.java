@@ -67,7 +67,7 @@ public class ProductoControlador extends HttpServlet {
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
                 }
                 break;
-                 case 3://Consultar Mesa
+                 case 3://Consultar producto
                     prodVO = prodDAO.consultarProducto(id_producto);
 
                 if (prodVO != null){

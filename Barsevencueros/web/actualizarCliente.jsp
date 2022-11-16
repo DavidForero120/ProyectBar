@@ -61,7 +61,7 @@
                     <div id="group_input">
                         <select name="cliente_estado" value="<%=cliVO.getCliente_estado()%>" id="estad" class="fr_input">
                             <option value="1">Activo</option>
-                            <option value="2">Inactivo</option>
+                            <option value="2">Eliminar</option>
                         </select>
                     </div>
                 </div>
