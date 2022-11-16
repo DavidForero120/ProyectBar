@@ -274,7 +274,7 @@
                         <div class="error">
                             <div id="MError">
                                 <%
-                            if (request.getAttribute("mensError") != null) { %>
+                                    if (request.getAttribute("mensError") != null) { %>
                                 <div class="alert alert-success" role="alert">
                                     ${mensError}
                                 </div>
@@ -328,23 +328,27 @@
                 </div>
             </div>
             <div class="reg_p" id="reg_p">
-                <form method="POST" action="p">
-                    <h3>Nombre Producto</h3>
-                    <input type="text" name="prod_nombre">
-
-                    <h3>Precio Producto</h3>
-                    <input type="text" name="prod_precio">
+                <div id="title"><h1> <i id="p_ri" class="fa-solid fa-champagne-glasses"></i> Nuevo producto</h1></div>
+                <form method="POST" action="p" id="p">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nombre producto:</span>
+                        <input type="text" name="prod_nombre"  class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default"> Prodcuto precio:</span>
+                        <input type="text" name="prod_precio"  class="form-control">
+                    </div>        
                     <input type="hidden" name="prod_estado" value="1">
-
-                    <h3>Cantidad producto</h3>
-                    <input type="text" name="prod_cant">
-
-                    <button>Registar</button>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Cantidad producto:</span>
+                        <input type="text" name="prod_cant"  class="form-control">
+                    </div>
+                    <button class="btn btn-outline-success">Registar</button>
                     <input type="hidden" value="1" name="valor">
                 </form>
                 <div class="error">
                     <%
-                        if (request.getAttribute("mensaError") != null) { %>
+                if (request.getAttribute("mensaError") != null) { %>
                     ${mensaError}
 
                     <%} else {%>

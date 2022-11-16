@@ -46,13 +46,12 @@ public class productosDAO extends ConexionBd implements Crud  {
     public boolean agregarRegistro() {
          try {
             
-            sql="INSERT INTO producto (id_producto, producto_nombre, producto_precio, producto_estado, producto_cantidad) VALUES (?, ?, ?, ?, ?);";
+            sql="INSERT INTO producto (producto_nombre, producto_precio, producto_estado, producto_cantidad) VALUES (?, ?, ?, ?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, id_producto);
-            puente.setString(2, producto_nombre);
-            puente.setString(3,producto_precio);
-            puente.setString(4,producto_estado);
-            puente.setString(5,producto_cantidad);
+            puente.setString(1, producto_nombre);
+            puente.setString(2,producto_precio);
+            puente.setString(3,producto_estado);
+            puente.setString(4,producto_cantidad);
             puente.executeUpdate();
             operacion = true;      
             

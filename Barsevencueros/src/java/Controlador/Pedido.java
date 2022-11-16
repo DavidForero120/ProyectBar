@@ -110,10 +110,9 @@ public class Pedido extends HttpServlet {
                     break;
                 case "Eliminar":
                         for(int i=0;i<lista.size();i++){
-                            pedVO = lista.get(i);
-                            
+                            item = lista.get(i).getItem();
+                            item = item-1;
                             lista.remove(item);
-                            
                         }
                     break;
                     

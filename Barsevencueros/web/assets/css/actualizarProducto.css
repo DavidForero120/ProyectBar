@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 16-nov-2022, 9:06:29
+    Author     : Sena
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+body{
+    margin: 0%;
+    font-family: 'Merriweather', serif;
+}
+.container_{  
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-group{
+    margin: 7% !important;
+}
+button{
+    margin-top: 5% !important;
+   
+}
+.but{
+    margin-right: 3%;
+}
+.log{
+    margin-left: 50%;
+    height: 100%;
+}
+.nav{
+    width: 100%;
+    height: 7em;
+    background-color: black;
+    -webkit-box-shadow: 0px 24px 63px -3px rgba(46, 36, 34, 0.76);
+    -moz-box-shadow: 0px 24px 63px -3px rgba(43, 19, 15, 0.76);
+    box-shadow: 0px 24px 63px -3px rgba(29, 25, 24, 0.76);
+    display: flex;
+    align-items: center;justify-content: space-between;
+ 
+}
+i{
+    margin-right: 0.5em;
+}
+.log img{
+        height: 100%;
+}
+

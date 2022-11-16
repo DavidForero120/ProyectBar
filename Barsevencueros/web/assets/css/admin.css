@@ -1,14 +1,6 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 25/10/2022, 11:32:45 PM
-    Author     : David
-*/
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100&family=Hind+Madurai:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter&family=Teko:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Merriweather&display=swap');
 
 body{
       margin: 0%;
@@ -109,6 +101,7 @@ a:hover{
       display: none;
 }
 .trabajadorR{
+    
       display: flex;
       width: 100%;
       padding: 2%;
@@ -151,9 +144,13 @@ a:hover{
       display: none;
 }
 .productoR{
-      display: flex;
       width: 100%;
-      padding: 2%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+      padding: 2%;
+
 }
 /*reporte ventas*/
 .report{
@@ -304,4 +301,27 @@ p{
     display: flex;
     flex-wrap: wrap;
     padding: 2%;
+};
+
+body{
+    margin: 0%;
+}
+i{
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Merriweather', serif;
+}
+#p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#title{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+#p div{
+    margin-bottom: 10% !important;
+}
+#p_ri{
+    font-size: 1em !important;
 }
