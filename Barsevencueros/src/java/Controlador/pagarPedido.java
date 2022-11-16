@@ -48,6 +48,9 @@ public class pagarPedido extends HttpServlet {
                 
                 
                 break;
+            case 2:
+                
+            break;
             
         }
     }

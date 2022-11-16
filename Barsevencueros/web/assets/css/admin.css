@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100&family=Hind+Madurai:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bitter&family=Teko:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Merriweather&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Dhurjati&display=swap');
 body{
       margin: 0%;
       height: 100vh;
@@ -324,4 +324,52 @@ i{
 }
 #p_ri{
     font-size: 1em !important;
+}
+
+.report_c{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 3%;
+}
+#gener_h1{
+      font-family: 'Dhurjati', sans-serif;
+      font-size: 4em;
+      margin-bottom: 2%;
+}
+#gener_h1:hover{
+      transition: 1s;
+      color: rgb(204, 31, 54);
+}
+#report_{
+      width: 100%;
+      margin-top: 2%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+}
+#gener{
+      background-color: rgb(0, 0, 0);
+      color: #ffffff;
+      border: 1px solid rgb(0, 0, 0);
+      width: 10em;
+      height: 2em;
+      font-size: 1.2em;
+}
+#gener:hover{
+      transition: 0.8s;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      border-radius: 15px;
+      border: 1px solid rgb(255, 0, 0);
+}
+.list_{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+.table{
+      font-family: 'Dhurjati', sans-serif;
+      font-size: 1.5em;
 }

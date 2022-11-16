@@ -59,6 +59,10 @@ public class productosControlador extends HttpServlet {
                 }
                  request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;
+            case 3: 
+                //reporte ventas
+                request.getRequestDispatcher("reportes.jsp").forward(request, response);
+                break;
         }
     }
 

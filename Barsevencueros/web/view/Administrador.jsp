@@ -343,12 +343,12 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">Cantidad producto:</span>
                         <input type="text" name="prod_cant"  class="form-control">
                     </div>
-                    <button class="btn btn-outline-success">Registar</button>
+                    <button class="btn btn-outline-success">Registrar</button>
                     <input type="hidden" value="1" name="valor">
                 </form>
                 <div class="error">
                     <%
-                if (request.getAttribute("mensaError") != null) { %>
+                        if (request.getAttribute("mensaError") != null) { %>
                     ${mensaError}
 
                     <%} else {%>
@@ -359,7 +359,33 @@
 
             </div>
             <div class="report" id="report">
-                reporte
+                <div class="report_c">
+                    <div id="report_">
+                        <form action="p" method="post">
+                            <button id="gener" > Generar reporte</button>
+                            <input type="hidden" name="valor" value="3">
+                        </form>
+                    </div>
+                    <div class="list_">
+                        <h1 id="gener_h1"><i class="fa-solid fa-clipboard-check"></i> Pedidos por mes</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Numero pedido</th>
+                                    <th scope="col">Fecha pedido</th>
+                                    <th scope="col">Estado pedido</th>                           
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>                       
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
