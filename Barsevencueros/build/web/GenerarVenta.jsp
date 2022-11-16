@@ -91,7 +91,7 @@
             <div class="col-sm-7">
                 <div class="card">
                     <div class="card-body">
-                        <form action="Pedido?menu=NuevaVenta&accion=AgregarQ" method="POST">
+                        <form action="Pedido?menu=NuevaVenta" method="POST">
                         <br>
                         <table class="table table-hover" id="cvTable">
                             <caption id="cvTotalTitulos" class="mt-3">Total de registros</caption>
@@ -112,14 +112,14 @@
                                         <td>${list.getItem()}</td>
                                         <td>${list.getId_producto()}</td>
                                         <td>${list.getNombre_Producto()}</td>
-                                        <td>${list.getCantidad_producto()}</td>
+                                        <td><input type="number" value="${list.getCantidad_producto()}"> </td>
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getSubtotal()}</td>
                                         <td>
                                             <button class="btn btn-success" id="agre__">Agregar</button>
                                             <div>
                                                 <button class="btn btn-danger eliminarRow">Eliminar</button>
-                                                <input type="hidden" name="accion" value="Cancelar" class="btn btn-danger">
+                                                <input type="hidden" name="accion" value="Eliminar" class="btn btn-danger">
                                                 <!--<button class="btn btn-danger eliminarRow">Cancelar</button>
                                                 <input type="hidden" value="cancelar">-->
                                             </div>
@@ -127,6 +127,7 @@
                                     </tr>
                                 </pedVO:forEach>
                             </tbody>
+                            
                         </table>
                     </form>
                     </div>
@@ -178,11 +179,13 @@
                                     <option value="<%=mesaVO.getId_mesa()%>"><%=mesaVO.getMesa_numero()%></option>
                                     <%}%>
                                 </select >
-                                <div>
-                                    <button class="btn btn-success">Generar</button>
+                                <div class="d-flex">
+                                    <button class="btn btn-success d-flex" style="margin-right:2%">Generar</button>
                                 <input type="hidden"  name="accion" value="GenerarPedido">
-                                </div>
                                 
+                                    <button class="btn btn-danger d-flex">Cancelar</button>
+                                <input type="hidden" name="accion" value="Cancelar">
+                                </div>
                             </form>
                                 <form method="post" action="Pedido?menu=NuevaVenta&accion=AgregarQ">
                                     

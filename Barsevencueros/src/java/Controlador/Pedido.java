@@ -95,7 +95,27 @@ public class Pedido extends HttpServlet {
                     
                     break;
                     
+                case "Cancelar":
+                    if(pedVO != null){
+                        for(int i=0;i<lista.size();i++){
+                            pedVO = lista.get(i);
+                            item = 0;
+                            total=0;
+                            lista.clear();
+                            
+                        }
+                        request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
+                    }
                     
+                    break;
+                case "Eliminar":
+                        for(int i=0;i<lista.size();i++){
+                            pedVO = lista.get(i);
+                            
+                            lista.remove(item);
+                            
+                        }
+                    break;
                     
                     case "GenerarPedido":
                     //Guardar Pedido 
@@ -122,6 +142,13 @@ public class Pedido extends HttpServlet {
                             pedVO.setSubtotal(lista.get(i).getSubtotal());
                             pedVO.setTotal(total);
                             pedDAO.Agregardespedido(pedVO);
+                        }
+                        for(int i=0;i<lista.size();i++){
+                            pedVO = lista.get(i);
+                            item = 0;
+                            total=0;
+                            lista.clear();
+                            
                         }
                         
                  
