@@ -7,6 +7,30 @@ and open the template in the editor.
     Created on : 25/10/2022, 05:48:55 PM
     Author     : 57314
 */
+.reg_p{
+    display: none;
+}
+.reg_p_show{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100vw; 
+    height: 100vh;
+}
+.ver_p{
+    display: none;
+}
+.ver_p_show{
+    display: flex;
+}
+
+.ven2{
+    display: none;
+}
+
+.vent_show{
+    display: flex;
+}
 body{
     margin: 0;
 }
@@ -81,6 +105,11 @@ hr {
     justify-content: flex-end;
         align-items: center;
         height: 2em;
+}
+.text-center{
+    display: flex;
+    justify-content: center;
+    
 }
 
 @media screen and (min-width: 700px){

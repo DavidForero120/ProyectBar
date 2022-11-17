@@ -63,6 +63,15 @@ public class productosControlador extends HttpServlet {
                 //reporte ventas
                 request.getRequestDispatcher("reportes.jsp").forward(request, response);
                 break;
+            case 4: 
+                if(prodDAO.agregarRegistro()){
+                    request.setAttribute("mensaExito", "el producto se registro correctamente");
+                
+                }else{
+                    request.setAttribute("mensaError", "el producto NO se registro correctamente");
+                }
+                request.getRequestDispatcher("view/Mesero.jsp").forward(request, response);
+                break;
         }
     }
 

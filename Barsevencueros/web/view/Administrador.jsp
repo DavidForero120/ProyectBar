@@ -107,7 +107,7 @@
                     <form action="Usuario" method="post" class="form" id="usuario">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Nombre:</span>
-                            <input type="text" name="usuario_nombre" class="form-control"  >
+                            <input type="text" required="" name="usuario_nombre" class="form-control"  >
 
                         </div>
                         <div id="name_i" class="name_i">
@@ -115,14 +115,14 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Apellido:</span>
-                            <input type="text" name="usuario_apellido" class="form-control" >
+                            <input type="text" required="" name="usuario_apellido" class="form-control" >
                         </div>
                         <div id="ape_e" class="ape_e">
                             <p><i class="fa-solid fa-triangle-exclamation" id="err"></i>¡¡El campo solo acepta letras, minimo 5 letras!!</p>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Contraseña:</span>
-                            <input type="password" name="usuario_password" class="form-control" id="password">
+                            <input type="password" required="" name="usuario_password" class="form-control" id="password">
                         </div>
                         <div id="contra" class="contra">
                             <p><i class="fa-solid fa-triangle-exclamation" id="err"></i>¡¡Minimo 5 caracteres y puede contener puntos!!</p>
@@ -130,7 +130,7 @@
                         <input type="hidden" name="usuario_estado" value="1">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Confirmar contraseña:</span>
-                            <input type="password" name="password2"  class="form-control" id="password2" aria-describedby="basic-addon3">
+                            <input type="password" required="" name="password2"  class="form-control" id="password2" aria-describedby="basic-addon3">
                         </div>
 
                         <div id="incorrecta" class="incorrecta">
