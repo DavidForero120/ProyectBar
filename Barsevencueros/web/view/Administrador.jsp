@@ -1,3 +1,5 @@
+<%@page import="ModeloDAO.PagarDAO"%>
+<%@page import="ModeloVO.PagarVO"%>
 <%@page import="ModeloDAO.ProductoDAO"%>
 <%@page import="ModeloVO.ProductoVO"%>
 <%@page import="ModeloDAO.MesaDAO"%>
@@ -17,6 +19,7 @@
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <title>Bar 7 cueros</title>
+        <link rel="icon" type="image/png" href="assets/img/logocolor.png">
     </head>
     <body>
 
@@ -376,13 +379,23 @@
                                     <th scope="col">Estado pedido</th>                           
                                 </tr>
                             </thead>
+                            <%
+                                PagarVO pagVO = new PagarVO();
+                                PagarDAO pagDAO = new PagarDAO();
+
+                                ArrayList<PagarVO> listarPedido = pagDAO.listar2();
+
+                                for (int i = 0; i < listarPedido.size(); i++) {
+                                    pagVO = listarPedido.get(i);
+                            %>
                             <tbody>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>                       
+                                    <td><%=pagVO.getId_pedido()%></td>
+                                    <td><%=pagVO.getFecha()%></td>
+                                    <td><%=pagVO.getPedido_estado()%></td>                       
                                 </tr>
                             </tbody>
+                            <%}%>
                         </table>
                     </div>
                 </div>

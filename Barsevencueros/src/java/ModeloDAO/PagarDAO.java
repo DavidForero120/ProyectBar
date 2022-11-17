@@ -82,7 +82,40 @@ public class PagarDAO extends ConexionBd implements Crud{
         }
        return listarPedido;
    }
-        
+    public ArrayList<PagarVO> listar2(){
+       ArrayList<PagarVO> listarPedido = new ArrayList<>();
+       
+       try {
+           conexion = this.obtenerConexion();
+           sql="select * from pedido where month(fecha) = month(now()) and pedido_estado =2";
+           puente = conexion.prepareStatement(sql);
+           mensajero = puente.executeQuery();
+           while (mensajero.next()) {                    
+                    PagarVO pagVO = new PagarVO(               
+                            mensajero.getString(1), 
+                            mensajero.getString(2), 
+                            mensajero.getString(3), 
+                            mensajero.getString(4), 
+                            mensajero.getString(5), 
+                            mensajero.getString(6),
+                            mensajero.getString(7)
+                            
+                            
+                    );
+                        listarPedido.add(pagVO);
+                }
+           
+       } catch (SQLException e) {
+           Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
+       }finally {
+            try {
+                this.deneterConexion();
+            } catch (SQLException ex) {
+                Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+       return listarPedido;
+   }     
         
     
     

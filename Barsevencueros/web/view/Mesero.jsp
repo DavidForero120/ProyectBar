@@ -19,6 +19,7 @@
         <script src="https://kit.fontawesome.com/6131ecdde6.js" crossorigin="anonymous"></script>
 
         <title>Bar 7 cueros</title>
+         <link rel="icon" type="image/png" href="assets/img/logocolor.png">
     </head>
     <body>
         <section id="mesero__">
