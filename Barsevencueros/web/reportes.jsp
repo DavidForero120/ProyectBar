@@ -10,8 +10,36 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Report</title>
+         <link rel="icon" type="image/png" href="assets/img/logocolor.png">
+        <link href="assets/css/grafica.css" rel="stylesheet" type="text/css"/>
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div class="ms">Intentalo de nuevo los primeros del mes</div>
+      </div>
+        <div class="option2_">
+            <form method="post" action="Usuario" id="out_">
+                <button type="submit" name="valor" value="6" class="btn btn-outline-dark" >volver</button>
+            </form>
+        </div>
+    <h1>Venta por mes</h1>
+    <div>
+        <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"type="text/css" />
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+
+    <div class="container">
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+    </div>
+    <script src="assets/js/grafica.js" type="text/javascript"></script>
     </body>
 </html>
