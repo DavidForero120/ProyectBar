@@ -190,7 +190,7 @@
                                 <form method="post" action="Pedido?menu=NuevaVenta&accion=AgregarQ">
                                     
                                 </form>
-                                <input type="submit" value="Imprimir" onclick="print()">
+                                
                                 
                             <!-- <a href="Pedido?menu=NuevaVenta&accion=GenerarPedido" class="btn btn-success">Generar Pedido</a>-->
                             

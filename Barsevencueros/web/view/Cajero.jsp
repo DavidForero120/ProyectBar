@@ -95,9 +95,6 @@
                             </div>
                             <%}%>
                         </div>
-
-
-
                         <!--     <h3>Nombre Producto</h3>
                              <input type="text" name="prod_nombre">
      

@@ -71,14 +71,17 @@ public class desPedidoDAO extends ConexionBd implements Crud{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public ArrayList<desPedidoVO> listar(String pedidoFK){
+    public ArrayList<desPedidoVO> listar(){
         ArrayList<desPedidoVO> listaPedido = new ArrayList<>();
         try {
             conexion = this.obtenerConexion();
-                sql =  "SELECT pedido.id_usuarioFK, usuario.usuario_nombre, des_pedido.id_productoFK,producto.producto_nombre, des_pedido.cantidad_producto, des_pedido.sub_total, des_pedido.total, metodo_pago.id_metodoPago FROM `pedido` INNER JOIN usuario ON pedido.id_usuarioFK = usuario.id_usuario INNER JOIN des_pedido ON des_pedido.pedidoFK = pedido.id_pedido INNER JOIN producto ON des_pedido.id_productoFK = producto.id_producto INNER JOIN metodo_pago on pedido.Metodo_pago = metodo_pago.id_metodoPago WHERE des_pedido.pedidoFK =  ?;";
+                sql="select * from des_pedido where pedidoFK = 3";
                 puente = conexion.prepareStatement(sql);
-                puente.setString(1, pedidoFK);
                 mensajero = puente.executeQuery();
+                while (mensajero.next()) {
+           desPedidoVO  desVO = new desPedidoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3),mensajero.getString(4), mensajero.getInt(5), mensajero.getDouble(6));
+           listaPedido.add(desVO);
+            }
         } catch (SQLException e) {
             Logger.getLogger(desPedidoDAO.class.getName()).log(Level.SEVERE, null, e);
         }finally{

@@ -16,54 +16,61 @@
     </head>
     <body>
     
-       <%
+       <!--%
             desPedidoVO desVO = (desPedidoVO)request.getAttribute("datosConsultados");
             desPedidoVO despVO = new desPedidoVO(); 
             desPedidoDAO desDAO = new desPedidoDAO();
             if(desVO!=null){
                
-                
-                
-            %>
-            <form method="post" action="desPedido">
-                <input value="">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>usuario</th>
-                            <th>usuario nombre</th>
-                            <th>producto id</th>
-                            <th>producto nombre</th>
-                            <th>cantidad</th>
-                            <th>sub total</th>
-                            <th>total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td><%=desVO.getId_productoFK()%></td>
-                            <td><%=desVO.getProducto_nombre()%></td>
-                            <td><%=desVO.getCantidad_producto()%></td>
-                            <td><%=desVO.getSubtotal()%></td>
-                            <td><%=desVO.getTotal()%></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                    <button >Actualizar</button>
-                    <input type="hidden" name="valor" value="2">
-                </div>
-            </form>
-               
-            <%}%>
+            }%-->
+            
      <!-- ArrayList<desPedidoVO> listarDes = desDAO.listar();
                 for(int i =0; i<listarDes.size(); i++){
                     despVO = listarDes.get(i);
             }
      -->
-        
-        <h1>Hello World!</h1>
+         <form method="post" action="desPedido">
+                <input value="">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>producto id</th>
+                            <th>pedido id  </th>
+                            <th>cantidad producto </th>
+                            <th>sub total </th>
+                            <th>total</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <%
+                    desPedidoVO desVO = new desPedidoVO();
+                    desPedidoDAO desDAO = new desPedidoDAO();
+                    ArrayList<desPedidoVO> listarp = desDAO.listar();
+                    
+                    for(int i =0; i< listarp.size(); i++){
+                    desVO = listarp.get(i);
+                    
+                    %>
+                    <tbody>
+                        <tr>
+                            <td><%=desVO.getId_productoFK()%></td>
+                            <td><%=desVO.getPedidoFK()%></td>
+                            <td><%=desVO.getCantidad_producto()%><!--%=desVO.getId_productoFK()%--></td>
+                            <td><%=desVO.getSubtotal()%><!--%=desVO.getProducto_nombre()%--></td>
+                            <td><%=desVO.getTotal()%><!--%=desVO.getCantidad_producto()%--></td>
+                            <td><!--%=desVO.getSubtotal()%--></td>
+                            <td><!--%=desVO.getTotal()%--></td>
+                        </tr>
+                         <%}%>
+                    </tbody>
+                                   
+                </table>
+
+                    <button >Actualizar</button>
+                    <input type="hidden" name="valor" value="2">
+              
+            </form>
+      <input type="submit" value="Imprimir" onclick="print()">
     </body>
 </html>

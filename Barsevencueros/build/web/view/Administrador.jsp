@@ -110,7 +110,7 @@
                     <form action="Usuario" method="post" class="form" id="usuario">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Nombre:</span>
-                            <input type="text" required="" name="usuario_nombre" class="form-control"  >
+                            <input type="text" required="" name="usuario_nombre" class="form-control"  required>
 
                         </div>
                         <div id="name_i" class="name_i">
@@ -118,14 +118,14 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Apellido:</span>
-                            <input type="text" required="" name="usuario_apellido" class="form-control" >
+                            <input type="text" required="" name="usuario_apellido" class="form-control" required >
                         </div>
                         <div id="ape_e" class="ape_e">
                             <p><i class="fa-solid fa-triangle-exclamation" id="err"></i>¡¡El campo solo acepta letras, minimo 5 letras!!</p>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Contraseña:</span>
-                            <input type="password" required="" name="usuario_password" class="form-control" id="password">
+                            <input type="password" required="" name="usuario_password" class="form-control" id="password" required>
                         </div>
                         <div id="contra" class="contra">
                             <p><i class="fa-solid fa-triangle-exclamation" id="err"></i>¡¡Minimo 5 caracteres y puede contener puntos!!</p>
@@ -133,7 +133,7 @@
                         <input type="hidden" name="usuario_estado" value="1">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Confirmar contraseña:</span>
-                            <input type="password" required="" name="password2"  class="form-control" id="password2" aria-describedby="basic-addon3">
+                            <input type="password" required="" name="password2"  class="form-control" id="password2" aria-describedby="basic-addon3" required>
                         </div>
 
                         <div id="incorrecta" class="incorrecta">
@@ -245,7 +245,7 @@
                             <div class="card-header text-left ">             
                                 <label id="num_">Numero de Mesa:</label>
                                 <input type="text" name="numero" class="form-control" id="mesa_n" >                  
-                                <div id="mesa_i" class="mesa_i">
+                                <div id="mesa_i" class="mesa_i" required>
                                     <p>¡solo digitar numeros, debe contener minimo un número!</p>
                                 </div>
                             </div>
@@ -335,16 +335,16 @@
                 <form method="POST" action="p" id="p">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Nombre producto:</span>
-                        <input type="text" name="prod_nombre"  class="form-control">
+                        <input type="text" name="prod_nombre"  class="form-control" required>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default"> Prodcuto precio:</span>
-                        <input type="text" name="prod_precio"  class="form-control">
+                        <input type="text" name="prod_precio"  class="form-control" required>
                     </div>        
                     <input type="hidden" name="prod_estado" value="1">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="inputGroup-sizing-default">Cantidad producto:</span>
-                        <input type="text" name="prod_cant"  class="form-control">
+                        <input type="text" name="prod_cant"  class="form-control" required>
                     </div>
                     <button class="btn btn-outline-success">Registrar</button>
                     <input type="hidden" value="1" name="valor">
