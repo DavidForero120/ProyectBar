@@ -134,7 +134,7 @@
                     <div class="form-group d-flex" id="totalP">
                         <div class="col-sm-6 d-flex">
                             <label  class="input-group-text">Total a pagar:</label>
-                        <input class="form-control" name="total" type="text"  value="${totalPaga}" disabled="disabled">
+                        <input class="form-control" id="total_" name="total" type="text"  value="${totalPaga}" disabled="disabled">
 
                         </div>
                     </div>   
@@ -147,7 +147,7 @@
                                 <!-- METODO DE PAGO-->
                                 <hr id="hr">
                                 <label>Metodo de pago:</label>
-                                <select id="mesa_" lass="form-control form-control-lg" name="metodoPago">
+                                <select id="metod_" lass="form-control form-control-lg" name="metodoPago">
                                     <%
                                         MetodoPagoVO MetodoPagoVO = new MetodoPagoVO();
                                         MetodoPagoDAO MetodoPagoDAO = new MetodoPagoDAO();
@@ -180,7 +180,7 @@
                                     <%}%>
                                 </select >
                                 <div class="d-flex">
-                                    <button class="btn btn-success d-flex" style="margin-right:2%">Generar</button>
+                                    <button class="btn btn-success d-flex" style="margin-right:2%" id="venta">Generar</button>
                                 <input type="hidden"  name="accion" value="GenerarPedido">
                                 
                                     <button class="btn btn-danger d-flex">Cancelar</button>
@@ -199,7 +199,8 @@
                 </div>
             </div>
         </div>
-        <script src="assets/js/borrarFila.js" type="text/javascript"></script>
+        <!--script src="assets/js/reglaNegocio.js" type="text/javascript"></script-->
+        <!--<script src="assets/js/borrarFila.js" type="text/javascript"></script>-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

@@ -175,7 +175,8 @@
 
                 <div class="pagar" id="pagar">
                     <h1>Pagar pedidos</h1>
-                    <div class="cards_p">
+                    
+                    <div class="card1_">
                         <%
                             PagarVO pagVO = new PagarVO();
                             PagarDAO pagDAO = new PagarDAO();
@@ -184,36 +185,35 @@
                             ArrayList<PagarVO> listarPedido = pagDAO.listar();
                                 for (int i = 0; i < listarPedido.size(); i++) {
                                     pagVO = listarPedido.get(i);
+                                
                         %>       
-
-
-                        <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                            <form action="pagarPedido" method="post">
-                                <div class="card-header">
-                                    <input type="hidden" name="pedido" value="<%=pagVO.getId_pedido()%>">                        
-                                    <input type="hidden"  value="<%=pagVO.getClienteFK()%>">
-                                    <h3><%=pagVO.getCliente_nombre()%> <%=pagVO.getCliente_apellido()%></h3>
-                                </div>
-                                <div class="card-body" id="cardsi">                             
-                                    <p class="card-text"><%=pagVO.getFecha()%><p>  
+                        <div class="card_">
+                            <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
+                                <form method="post" action="desPedido">
+                                    <div class="card-header">
+                                        <input type="hidden" name="pedido" value="<%=pagVO.getId_pedido()%>">
+                                        <h3><%=pagVO.getCliente_nombre()%> <%=pagVO.getCliente_apellido()%></h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Fecha: <%=pagVO.getFecha()%></p>
                                         <%
-                                            if (pagVO.getPedido_estado().equals("1")) {
-                                                String estate = "Por pagar";
+                                            if(pagVO.getPedido_estado().equals("1")){
+                                            String estate = "Por pagar"; 
                                         %>
-
-                                    <p class="card-text"><%=estate%></p>
-                                    <%}%>  
-                                     <input type="hidden" name="estado" value="<%=pagVO.getPedido_estado()%>">  
+                                        <p class="card-text"><%=estate%></p>
+                                        <%}%>
+                                    </div>
                                     <ul class="text-end">
-                                        <button class="btn btn-dark">Pagar</button>
-                                        <input type="hidden"  name="valor" value="2">
-                                    </ul>
+                                        <input type="hidden" name="id" value="">
+                                        <button class="btn btn-outline-dark bu">Editar</button>
+                                        <input type="hidden"  name="valor" value="1">
+                                    </ul>  
+                                </form>
                                 </div>
-                                    <%}%>  
-                            </form>
-                                    
                         </div>
-                            
+
+                        <%}%>
+                    </div>
                     </div>
                 </div>
             </div>

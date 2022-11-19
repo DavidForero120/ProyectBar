@@ -51,7 +51,7 @@ public class desPedidoController extends HttpServlet {
                         request.setAttribute("datosConsultados", desVO);
                         request.getRequestDispatcher("pagar.jsp").forward(request, response);
                     }else{
-                        request.getRequestDispatcher("pagar2.jsp").forward(request, response);
+                        request.getRequestDispatcher("pagar.jsp").forward(request, response);
                     }
                 break;
             case 2:

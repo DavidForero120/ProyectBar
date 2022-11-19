@@ -143,24 +143,29 @@ public class PagarDAO extends ConexionBd implements Crud{
             }
             return operacion;
     }
-     public boolean actualizarRegistro2(String id_pedido) {
-        
-        try {
-            sql = "UPDATE pedido SET pedido_estado = 1 WHERE id_pedido = ?;";
-            puente = conexion.prepareStatement(sql);
-            puente.executeUpdate();
-            operacion = true;
-        } catch (SQLException e) {
-            Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
-        }finally{
-                try {
-                    this.deneterConexion();
-                } catch (Exception e) {
-                    Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
-                }
-            }
-            return operacion;
-    }
+     
+     
+     public boolean actualizarEstado(String id_pedido){
+         try {
+             conexion = this.obtenerConexion();
+             sql="UPDATE `pedido` SET `pedido_estado`=2 WHERE id_pedido = ?";
+             puente.setString(1, id_pedido);
+             puente = conexion.prepareStatement(sql);
+             
+             puente.executeUpdate();
+                operacion = true;
+         } catch (SQLException e) {
+             Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+         }finally{
+             try {
+                 this.deneterConexion();
+             } catch (SQLException e) {
+                 Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+             }
+         }
+         
+         return operacion;
+     }
 
     @Override
     public boolean eliminarRegistro() {

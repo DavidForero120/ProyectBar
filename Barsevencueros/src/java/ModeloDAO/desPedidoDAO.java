@@ -99,12 +99,19 @@ public class desPedidoDAO extends ConexionBd implements Crud{
         desPedidoVO desVO = null;
         try {
             conexion = this.obtenerConexion();
-            sql = "SELECT pedido.id_usuarioFK, usuario.usuario_nombre, des_pedido.id_productoFK,producto.producto_nombre, des_pedido.cantidad_producto, des_pedido.sub_total, des_pedido.total FROM `pedido` INNER JOIN usuario ON pedido.id_usuarioFK = usuario.id_usuario INNER JOIN des_pedido ON des_pedido.pedidoFK = pedido.id_pedido INNER JOIN producto ON des_pedido.id_productoFK = producto.id_producto WHERE des_pedido.pedidoFK = ?;";
+            sql = "select * from des_pedido where id_productoFK=?";
+            /*SELECT pedido.id_usuarioFK, 
+            usuario.usuario_nombre, des_pedido.id_productoFK,
+            producto.producto_nombre, des_pedido.cantidad_producto, des_pedido.sub_total, des_pedido.total 
+            FROM `pedido` INNER JOIN usuario ON pedido.id_usuarioFK = usuario.id_usuario 
+            INNER JOIN des_pedido ON des_pedido.pedidoFK = pedido.id_pedido 
+            INNER JOIN producto ON des_pedido.id_productoFK = producto.id_producto 
+            WHERE des_pedido.pedidoFK = ?;*/
             puente = conexion.prepareStatement(sql);
             puente.setString(1, pedidoFK);
             mensajero = puente.executeQuery();
             while (mensajero.next()) {
-            desVO = new desPedidoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3),mensajero.getString(4), mensajero.getInt(5), mensajero.getDouble(6));
+            desVO = new desPedidoVO(id_productoFK, pedidoFK, subtotal, producto_nombre, cantidad_producto, total);
             }
 
         } catch (SQLException e) {
