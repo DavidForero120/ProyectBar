@@ -71,12 +71,12 @@ public class PagarDAO extends ConexionBd implements Crud{
                 }
            
        } catch (SQLException e) {
-           Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
+           Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
        }finally {
             try {
                 this.deneterConexion();
             } catch (SQLException ex) {
-                Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
        return listarPedido;
@@ -106,12 +106,12 @@ public class PagarDAO extends ConexionBd implements Crud{
                 }
            
        } catch (SQLException e) {
-           Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, e);
+           Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
        }finally {
             try {
                 this.deneterConexion();
             } catch (SQLException ex) {
-                Logger.getLogger(PedidoDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
        return listarPedido;
@@ -126,7 +126,40 @@ public class PagarDAO extends ConexionBd implements Crud{
 
     @Override
     public boolean actualizarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try {
+            sql = "UPDATE pedido SET pedido_estado = 1 WHERE id_pedido = ?;";
+            puente = conexion.prepareStatement(sql);
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally{
+                try {
+                    this.deneterConexion();
+                } catch (Exception e) {
+                    Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+                }
+            }
+            return operacion;
+    }
+     public boolean actualizarRegistro2(String id_pedido) {
+        
+        try {
+            sql = "UPDATE pedido SET pedido_estado = 1 WHERE id_pedido = ?;";
+            puente = conexion.prepareStatement(sql);
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally{
+                try {
+                    this.deneterConexion();
+                } catch (Exception e) {
+                    Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+                }
+            }
+            return operacion;
     }
 
     @Override

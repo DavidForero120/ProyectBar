@@ -188,13 +188,13 @@
 
 
                         <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                            <form action="desPedido" method="post">
+                            <form action="pagarPedido" method="post">
                                 <div class="card-header">
                                     <input type="hidden" name="pedido" value="<%=pagVO.getId_pedido()%>">                        
                                     <input type="hidden"  value="<%=pagVO.getClienteFK()%>">
                                     <h3><%=pagVO.getCliente_nombre()%> <%=pagVO.getCliente_apellido()%></h3>
                                 </div>
-                                <div class="card-body" id="cardsi">                            
+                                <div class="card-body" id="cardsi">                             
                                     <p class="card-text"><%=pagVO.getFecha()%><p>  
                                         <%
                                             if (pagVO.getPedido_estado().equals("1")) {
@@ -203,10 +203,10 @@
 
                                     <p class="card-text"><%=estate%></p>
                                     <%}%>  
-                                    
+                                     <input type="hidden" name="estado" value="<%=pagVO.getPedido_estado()%>">  
                                     <ul class="text-end">
                                         <button class="btn btn-dark">Pagar</button>
-                                        <input type="hidden"  name="valor" value="1">
+                                        <input type="hidden"  name="valor" value="2">
                                     </ul>
                                 </div>
                                     <%}%>  

@@ -5,7 +5,9 @@
  */
 package Controlador;
 
+import ModeloDAO.PagarDAO;
 import ModeloDAO.PedidoDAO;
+import ModeloVO.PagarVO;
 import ModeloVO.PedidoVO;
 import java.io.IOException;
 
@@ -24,23 +26,19 @@ public class pagarPedido extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id_producto = request.getParameter("");
-        String id_Cliente = request.getParameter("");
-        String nombre_Producto = request.getParameter("");
-        String estado = request.getParameter("");
-        String fecha = request.getParameter("");
-        String id_usuarioFK = request.getParameter("");
+        String id_pedido = request.getParameter("pedido");
+        String id_usuarioFK  = request.getParameter("");
+        String clienteFK = request.getParameter("");
         String mesaFK = request.getParameter("");
-        int id_Pedido = Integer.parseInt(request.getParameter(""));
-        int cantidad_producto = Integer.parseInt(request.getParameter(""));
-        int metodo_pago = Integer.parseInt(request.getParameter(""));
-        double total = Double.parseDouble(request.getParameter(""));
-        double subtotal = Double.parseDouble(request.getParameter(""));
-        double precio = Double.parseDouble(request.getParameter(""));
+        String pedido_estado = request.getParameter("estado");
+        String Metodo_pago = request.getParameter("");
+        String fecha = request.getParameter("");
+        String cliente_nombre = request.getParameter("");
+        String cliente_apellido = request.getParameter("");
         int valor = Integer.parseInt(request.getParameter("valor"));
 
-        PedidoVO pedVO = new PedidoVO();
-        PedidoDAO pedDAO = new PedidoDAO(pedVO);
+        PagarVO pedVO = new PagarVO(id_pedido, id_usuarioFK, clienteFK, mesaFK, pedido_estado, Metodo_pago, fecha, cliente_nombre, cliente_apellido);
+        PagarDAO pedDAO = new PagarDAO(pedVO);
         
         switch(valor){
             
@@ -49,7 +47,12 @@ public class pagarPedido extends HttpServlet {
                 
                 break;
             case 2:
-                
+                if(pedDAO.actualizarRegistro2(id_pedido)){
+                    request.getRequestDispatcher("pagar.jsp").forward(request, response);
+                }else{
+                    request.setAttribute("mensajeError", "El pedido no se pudo pagar");
+                    request.getRequestDispatcher("view/Mesero.jsp").forward(request, response); 
+                }
             break;
             
         }
