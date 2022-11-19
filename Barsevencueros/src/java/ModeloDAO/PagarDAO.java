@@ -23,7 +23,7 @@ public class PagarDAO extends ConexionBd implements Crud{
     private boolean operacion = false;
     private String sql;
 
-    private String id_pedido="", id_usuarioFK="", clienteFK="", mesaFK="",pedido_estado="", Metodo_pago="", fecha="";
+    private String id_pedido="", id_usuarioFK="", clienteFK="", mesaFK="",pedido_estado="", Metodo_pago="", fecha="",cliente_nombre="",cliente_apellido="";
     
     PagarVO pagVO = new PagarVO();
     public PagarDAO(){
@@ -39,6 +39,8 @@ public class PagarDAO extends ConexionBd implements Crud{
             pedido_estado = pagVO.getPedido_estado();
             Metodo_pago = pagVO.getMetodo_pago();
             fecha =pagVO.getFecha();
+            cliente_nombre= pagVO.getCliente_nombre();
+            cliente_apellido = pagVO.getCliente_apellido();
         } catch (Exception e) {
              Logger.getLogger(desPedidoDAO.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -47,8 +49,9 @@ public class PagarDAO extends ConexionBd implements Crud{
        ArrayList<PagarVO> listarPedido = new ArrayList<>();
        
        try {
+           
            conexion = this.obtenerConexion();
-           sql="select pedido.id_pedido, pedido.id_usuarioFK, pedido.clienteFK, pedido.mesaFK, pedido.pedido_estado, pedido.Metodo_pago, pedido.fecha, usuario.usuario_nombre, usuario.usuario_apellido, cliente.cliente_nombre, cliente.cliente_apellido, Metodo_pago.Metodo from pedido INNER JOIN usuario ON pedido.id_usuarioFK = usuario.id_usuario INNER JOIN cliente ON pedido.clienteFK = cliente.id_cliente INNER JOIN Metodo_pago ON pedido.Metodo_pago = Metodo_pago.id_metodoPago WHERE pedido.pedido_estado = 1;";
+           sql="select pedido.id_pedido, pedido.id_usuarioFK, pedido.clienteFK, pedido.mesaFK, pedido.pedido_estado, pedido.Metodo_pago, pedido.fecha ,cliente.cliente_nombre, cliente.cliente_apellido, Metodo_pago.Metodo from pedido INNER JOIN cliente ON pedido.clienteFK = cliente.id_cliente INNER JOIN Metodo_pago ON pedido.Metodo_pago = Metodo_pago.id_metodoPago WHERE pedido.pedido_estado = 1;;";
            puente = conexion.prepareStatement(sql);
            mensajero = puente.executeQuery();
            while (mensajero.next()) {                    
@@ -59,8 +62,9 @@ public class PagarDAO extends ConexionBd implements Crud{
                             mensajero.getString(4), 
                             mensajero.getString(5), 
                             mensajero.getString(6),
-                            mensajero.getString(7)
-                            
+                            mensajero.getString(7),
+                            mensajero.getString(8),
+                             mensajero.getString(9)
                             
                     );
                         listarPedido.add(pagVO);
@@ -93,8 +97,9 @@ public class PagarDAO extends ConexionBd implements Crud{
                             mensajero.getString(4), 
                             mensajero.getString(5), 
                             mensajero.getString(6),
-                            mensajero.getString(7)
-                            
+                            mensajero.getString(7),
+                            mensajero.getString(8),
+                             mensajero.getString(9)
                             
                     );
                         listarPedido.add(pagVO);

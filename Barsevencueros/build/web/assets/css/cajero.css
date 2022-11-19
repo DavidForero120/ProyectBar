@@ -273,8 +273,7 @@ a:hover{
     height: 100%;
 }
 .cards_p{
-    width: 100%;
-    margin-left: 48%;
+   
     margin-top: 3%;
     display: flex;
     flex-wrap: wrap;

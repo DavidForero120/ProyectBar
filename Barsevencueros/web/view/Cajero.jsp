@@ -190,9 +190,9 @@
                         <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
                             <form action="desPedido" method="post">
                                 <div class="card-header">
-                                    <input type="hidden" name="pedido" value="<%=pagVO.getId_pedido()%>">
-                                    
-                                    <h3 ><%=pagVO.getClienteFK()%></h3>
+                                    <input type="hidden" name="pedido" value="<%=pagVO.getId_pedido()%>">                        
+                                    <input type="hidden"  value="<%=pagVO.getClienteFK()%>">
+                                    <h3><%=pagVO.getCliente_nombre()%> <%=pagVO.getCliente_apellido()%></h3>
                                 </div>
                                 <div class="card-body" id="cardsi">                            
                                     <p class="card-text"><%=pagVO.getFecha()%><p>  
