@@ -16,15 +16,21 @@
 
     </head>
     <body>
+        <nav>
+            <div class="partizq" id="partizq">
+                <div class="logo_admin">
+                    <img class="imagen-main" src="assets/img/logocolor.png" alt="logo" class="log_a"/> </div>
+                <form method="post" action="Usuario">
+                    <button class="btn btn-light"> <i class="fa-solid fa-right-from-bracket"></i>Volver</button>
+                    <input type="hidden" name="valor" value="6">
+                </form>
+   
+             
+            </div>
         <div class="alert alert-danger d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
         <div class="ms">Intentalo de nuevo los primeros del mes</div>
       </div>
-        <div class="option2_">
-            <form method="post" action="Usuario" id="out_">
-                <button type="submit" name="valor" value="6" class="btn btn-outline-dark" >volver</button>
-            </form>
-        </div>
     <h1>Venta por mes</h1>
     <div>
         <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"type="text/css" />

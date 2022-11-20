@@ -13,14 +13,13 @@ and open the template in the editor.
 
 .container-family{
     background-color: rgba(240, 248, 255, 0.843);
-    
     height: 109vh;
 }
 
 .formulario-family{
    background-color: rgba(237, 237, 237, 0.923);
     margin: auto;
-    width: 40%;
+    width: 50vh;
     height: 109vh;
     display: flex;
     justify-content: center;

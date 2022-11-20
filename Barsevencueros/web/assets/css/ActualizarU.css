@@ -15,32 +15,15 @@ body{
       font-family: 'Kanit', sans-serif !important;
 }
 .nav_admin{
-      width: 100%;
-      background-color: black;
-      height: 5em;
-     position: fixed;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    background-color: black;
 }
-   
-.logo_admin{
-      height: 100%;
-      width: 20%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-}
-.logo_admin img{
-    width: 40%;
-    height: 100%;
-
+.logo_admin img {
+    height: 69px;
 }
 #cancel{
     margin: 1%;
     width: 7%;
     display: flex;
-
 }
 .actualizar{
       padding: 4%;

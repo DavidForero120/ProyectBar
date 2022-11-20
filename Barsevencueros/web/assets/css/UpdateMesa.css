@@ -4,8 +4,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 17/11/2022, 11:39:20 AM
-    Author     : David
+    Created on : 20/11/2022, 01:40:00 AM
+    Author     : Leider
 */
 
 .partizq {
@@ -25,17 +25,4 @@ and open the template in the editor.
 
 .imagen-main{
     height: 70px;
-}
-
-h1{
-    text-align: center;
-    padding: 3%;
-    color: rgb(5, 17, 47);
-}
-.align-items-center{
-    text-align: center;
-}
-.ms{
-    width: 100%;
-    text-align: center;
 }

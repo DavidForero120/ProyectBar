@@ -18,11 +18,21 @@
         <title>Actualizar</title>
     </head>
     <body>
-        <div class="nav_admin">
-            <div class="logo_admin">
-                <img src="assets/img/logocolor.png" alt="logo" class="log_a"/>
+        <nav>
+            <div class="partizq" id="partizq">
+            <div class="nav_admin">
+                <div class="logo_admin">
+                    <img class="imagen-main" src="assets/img/logocolor.png" alt="logo" class="log_a"/>
+                </div>
+                <div class="but">
+                <form method="post" action="Usuario">
+                    <button class="btn btn-light"> <i class="fa-solid fa-right-from-bracket"></i>volver</button>
+                    <input type="hidden" name="valor" value="6">
+                </form>
             </div>
-        </div>      
+            </div>  
+            </div>
+        </nav>   
         <div class="actualizar">
             <%
                 UsuarioVO usuVO = (UsuarioVO) request.getAttribute("datosConsultados");
@@ -89,7 +99,7 @@
         </div>
 
         <%
-               if (request.getAttribute("Error") != null) { %>
+            if (request.getAttribute("Error") != null) { %>
         ${Error}
 
         <%} else {%>

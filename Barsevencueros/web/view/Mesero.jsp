@@ -22,7 +22,7 @@
          <link rel="icon" type="image/png" href="assets/img/logocolor.png">
     </head>
     <body>
-
+        <section id="mesero__">
             <nav id="nav" class="navbar navbar-dark bg-dark">
                 <div id="log__">
                     <img src="assets/img/logocolor.png" alt=""/>
@@ -48,8 +48,6 @@
                 </form>
 
 
-            </nav>
-<section id="mesero__">
                 <div class="ver_p" id="ver_p">
                     <div class="product_list" style="width: 100vw; height: 100vh; background-color: white; margin-top: 1%">
                         <div id="titlep">
@@ -141,6 +139,8 @@
 
                 </div>       
 
+
+            </nav>
             <hr id="hr">
             <div id="options" class="options">
 

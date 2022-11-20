@@ -6,7 +6,7 @@
 const men = document.getElementById('menu');
 
 men.addEventListener('click', ()=>{
-    const option = document.getElementById('options');
+    const option = document.getElementById('options2');
     option.classList.toggle('active');
     console.log("click")
 })
