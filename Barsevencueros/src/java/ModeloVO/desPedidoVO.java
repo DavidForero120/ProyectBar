@@ -11,7 +11,7 @@ package ModeloVO;
  * @author Aprendiz
  */
 public class desPedidoVO {
-    private String id_productoFK, pedidoFK, subtotal;
+    private String id_productoFK, pedidoFK, subtotal, producto_nombre,producto_precio, pedido_estado, metodo_pago;
     private int cantidad_producto;
     private double total;
 
@@ -21,7 +21,19 @@ public class desPedidoVO {
         this.cantidad_producto = cantidad_producto;
         this.subtotal = subtotal;
         this.total = total;
-  
+
+    }
+    public desPedidoVO(String pedidoFK, String id_productoFK, String producto_nombre,String producto_precio, int cantidad_producto, String subtotal, double total, String pedido_estado, String metodo_pago ){
+        this.pedidoFK = pedidoFK;
+        this.id_productoFK = id_productoFK;
+        this.producto_nombre = producto_nombre;
+        this.producto_precio = producto_precio;
+        this.cantidad_producto = cantidad_producto;
+        this.subtotal = subtotal;
+        this.total = total;
+        this.pedido_estado = pedido_estado;
+        this.metodo_pago = metodo_pago;
+                
     }
 
     public desPedidoVO() {
@@ -65,6 +77,38 @@ public class desPedidoVO {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public String getProducto_nombre() {
+        return producto_nombre;
+    }
+
+    public void setProducto_nombre(String producto_nombre) {
+        this.producto_nombre = producto_nombre;
+    }
+
+    public String getPedido_estado() {
+        return pedido_estado;
+    }
+
+    public void setPedido_estado(String pedido_estado) {
+        this.pedido_estado = pedido_estado;
+    }
+
+    public String getMetodo_pago() {
+        return metodo_pago;
+    }
+
+    public void setMetodo_pago(String metodo_pago) {
+        this.metodo_pago = metodo_pago;
+    }
+
+    public String getProducto_precio() {
+        return producto_precio;
+    }
+
+    public void setProducto_precio(String producto_precio) {
+        this.producto_precio = producto_precio;
     }
     
 }

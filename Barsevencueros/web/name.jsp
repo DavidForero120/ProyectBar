@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="assets/css/name.css" rel="stylesheet" type="text/css"/>
         <title>Welcome</title>
+         <link rel="icon" type="image/png" href="assets/img/logocolor.png">
     </head>
     <body>
         <div id="container-grid">

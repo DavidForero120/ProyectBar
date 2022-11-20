@@ -29,7 +29,7 @@ public class desPedidoDAO extends ConexionBd implements Crud{
     private boolean operacion = false;
     private String sql;
 
-    private String id_productoFK="", pedidoFK="", subtotal="";
+    private String id_productoFK="", pedidoFK="", subtotal="",  producto_nombre="", producto,precio="",pedido_estado="", metodo_pago="";
     private int cantidad_producto ;
     private double  total;
 
@@ -75,12 +75,21 @@ public class desPedidoDAO extends ConexionBd implements Crud{
         ArrayList<desPedidoVO> listaPedido = new ArrayList<>();
         try {
             conexion = this.obtenerConexion();
-                sql="select * from des_pedido where pedidoFK = ?";
+                sql="SELECT des_pedido.pedidoFK, des_pedido.id_productoFK, producto.producto_nombre, producto.producto_precio, des_pedido.cantidad_producto, des_pedido.sub_total, des_pedido.total, pedido.pedido_estado, pedido.Metodo_pago FROM des_pedido INNER JOIN producto on des_pedido.id_productoFK = producto.id_producto INNER JOIN pedido ON des_pedido.pedidoFK = pedido.id_pedido WHERE des_pedido.pedidoFK = ?";
                 puente = conexion.prepareStatement(sql);
                 puente.setString(1, pedidoFK);
                 mensajero = puente.executeQuery();
                 while (mensajero.next()) {
-           desPedidoVO  desVO = new desPedidoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getInt(3), mensajero.getString(4), mensajero.getDouble(5));
+           desPedidoVO  desVO = new desPedidoVO(
+                   mensajero.getString(1), 
+                   mensajero.getString(2), 
+                   mensajero.getString(3), 
+                   mensajero.getString(4), 
+                   mensajero.getInt(5), 
+                   mensajero.getString(6),
+                   mensajero.getDouble(7), 
+                   mensajero.getString(8), 
+                   mensajero.getString(9));
            listaPedido.add(desVO);
             }
         } catch (SQLException e) {

@@ -12,7 +12,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="assets/css/cliente.css" rel="stylesheet" type="text/css"/>
-        <title>Actualizar cliente</title>
+        <title>Actualizar</title>
+         <link rel="icon" type="image/png" href="assets/img/logocolor.png">
     </head>
     <body>
         <section class="container-family" id="container-family">

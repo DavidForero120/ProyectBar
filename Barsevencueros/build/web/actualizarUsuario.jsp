@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="actualizaru.css">
         <link href="assets/css/ActualizarU.css" rel="stylesheet" type="text/css"/>
         <title>Actualizar</title>
+         <link rel="icon" type="image/png" href="assets/img/logocolor.png">
     </head>
     <body>
         <nav>

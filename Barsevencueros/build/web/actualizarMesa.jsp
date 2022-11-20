@@ -16,6 +16,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Actualizar</title>
+         <link rel="icon" type="image/png" href="assets/img/logocolor.png">
     </head>
     <body>
          <nav>
