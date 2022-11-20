@@ -34,28 +34,28 @@
                 <input type="hidden" name="id_usuario" value="<%=usuVO.getId_usuario()%>">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon3">Nombre</span>
-                    <input type="text" name="usuario_nombre" placeholder="<%=usuVO.getUsuario_nombre()%>" id="nombre" class="form-control">
+                    <input type="text" name="usuario_nombre" placeholder="<%=usuVO.getUsuario_nombre()%>" id="nombre" class="form-control" required>
                 </div>
                 <div class="namea" id="namea">
                     <p><i class="fa-solid fa-circle-exclamation" id="err"></i>!!Completa el campo, solo letras¡¡</p>
                 </div>  
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon3">Apellido</span>
-                    <input type="text" name="usuario_apellido" placeholder="<%=usuVO.getUsuario_apellido()%>" id="apelido" class="form-control" >
+                    <input type="text" name="usuario_apellido" placeholder="<%=usuVO.getUsuario_apellido()%>" id="apelido" class="form-control" required>
                 </div>
                 <div class="errorM" id="errorM">
                     <p><i class="fa-solid fa-circle-exclamation" id="err"></i>!!Debe completar este campo, solo acepta letras¡¡</p>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon3">Contraseña</span>
-                    <input type="password" name="usuario_password" placeholder="<%=usuVO.getUsuario_password()%>" id="password1" class="form-control" >
+                    <input type="password" name="usuario_password" placeholder="<%=usuVO.getUsuario_password()%>" id="password1" class="form-control" required>
                 </div>  
                 <div class="passd" id="passd">
                     <p><i class="fa-solid fa-circle-exclamation" id="err"></i>!!Digite una contraseña, acepta puntos¡¡</p>
                 </div> 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon3">Confirmar contraseña</span>
-                    <input type="password" name="password2"  id="password" class="form-control" >
+                    <input type="password" name="password2"  id="password" class="form-control" required>
                 </div>         
                 <div class="act" id="act">
                     <p><i class="fa-solid fa-circle-exclamation" id="err"></i>!!Las contraseñas deben ser iguales¡¡</p>

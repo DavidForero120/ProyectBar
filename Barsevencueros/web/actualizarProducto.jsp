@@ -39,17 +39,17 @@
                     <input type="hidden" name="prod_id" value="<%=prodVO.getId_producto()%>">
                     <div class="input-group">
                         <span class="input-group-text">Nombre producto:</span>
-                        <input type="text" name="prod_nombre" value="<%=prodVO.getProducto_nombre()%>"  aria-label="First name" class="form-control" >
+                        <input type="text" name="prod_nombre" value="<%=prodVO.getProducto_nombre()%>"  aria-label="First name" class="form-control" required>
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-text">Precio producto:</span>
-                        <input type="text" name="prod_precio" value="<%=prodVO.getProducto_precio()%>" aria-label="First name" class="form-control" >
+                        <input type="text" name="prod_precio" value="<%=prodVO.getProducto_precio()%>" aria-label="First name" class="form-control" required>
                     </div>
 
                     <div class="input-group">
                         <span class="input-group-text">Cantidad producto:</span>
-                        <input type="text" name="prod_cant" value="<%=prodVO.getProducto_cantidad()%>" aria-label="First name" class="form-control" >
+                        <input type="text" name="prod_cant" value="<%=prodVO.getProducto_cantidad()%>" aria-label="First name" class="form-control" required>
                     </div>
 
                     <div class="input-group mb-3">

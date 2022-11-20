@@ -5,7 +5,9 @@
  */
 package Controlador;
 
+import ModeloDAO.PagarDAO;
 import ModeloDAO.desPedidoDAO;
+import ModeloVO.PagarVO;
 import ModeloVO.desPedidoVO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,22 +41,23 @@ public class desPedidoController extends HttpServlet {
         double total = 0;
         int valor = Integer.parseInt(request.getParameter("valor"));
         int contidad_producto = 0;
-        desPedidoVO desVO = new desPedidoVO(id_productoFK, pedidoFK, subtotal,producto_nombre, contidad_producto, total);
+        desPedidoVO desVO = new desPedidoVO(id_productoFK, pedidoFK, subtotal, contidad_producto, total);
         desPedidoDAO desDAO = new desPedidoDAO(desVO);
         
         
         
         switch(valor){
             case 1:
-                desVO = desDAO.consultarDes(pedidoFK);
-                    if(desVO != null){
-                        request.setAttribute("datosConsultados", desVO);
-                        request.getRequestDispatcher("pagar.jsp").forward(request, response);
-                    }else{
-                        request.getRequestDispatcher("pagar.jsp").forward(request, response);
-                    }
                 break;
             case 2:
+                desVO = desDAO.consultartarPago(pedidoFK);
+                if(desVO != null){
+                    request.setAttribute("datosConsultados", desVO);
+                       request.getRequestDispatcher("pagar.jsp").forward(request, response);
+                }else{
+                     request.setAttribute("mensajeError", "no se pudo encontrar");
+                     request.getRequestDispatcher("pagar.jsp").forward(request, response);
+                }
                     
                 break;
         }

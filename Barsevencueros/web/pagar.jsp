@@ -18,29 +18,52 @@
         <title>Pagar</title>
     </head>
     <body>
-    
-       <%
-            desPedidoVO desVO = (desPedidoVO)request.getAttribute("datosConsultados");
-            desPedidoVO despVO = new desPedidoVO(); 
+
+        <%
+            desPedidoVO desVO = (desPedidoVO) request.getAttribute("datosConsultados");
+            if (desVO != null) {
+            }%>
+
+        <%
+            String pedidoFK = desVO.getPedidoFK();
+        %>
+        <h1>Detalle de le venta</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id producto</th>
+                    <th scope="col">id pedido</th>
+                    <th scope="col">cantidad</th>
+                    <th scope="col">Sub total</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+        <%
             desPedidoDAO desDAO = new desPedidoDAO();
-            if(desVO!=null){
-               
-            %>
-            <input value="<%=desVO.getPedidoFK()%>">
-            
-            <%}%>
-     <!-- ArrayList<desPedidoVO> listarDes = desDAO.listar();
-                for(int i =0; i<listarDes.size(); i++){
-                    despVO = listarDes.get(i);
-            }
-     -->
-     <form action="Usuario" method="post" id="froma">
-                <div class="boton" id="boton">
-                    <button class="btn-enviarr">Volver</button>
-                    <input type="hidden" value="7" name="valor">
-                </div>
+            ArrayList<desPedidoVO> listarPed = desDAO.listar(pedidoFK);
+            for (int i = 0; i < listarPed.size(); i++) {
+                desVO = listarPed.get(i);
+
+        %>     
+            <tbody>
+                <tr>
+                    <th><%=desVO.getId_productoFK()%></th>
+                    <td><%=desVO.getPedidoFK()%></td>
+                    <td><%=desVO.getCantidad_producto()%></td>
+                    <td><%=desVO.getSubtotal()%></td>
+                    <td><%=desVO.getSubtotal()%></td>
+                </tr>
+            </tbody>
+             <%}%>
+        </table>
+       
+        <form action="Usuario" method="post" id="froma">
+            <div class="boton" id="boton">
+                <button class="btn-enviarr">Volver</button>
+                <input type="hidden" value="7" name="valor">
+            </div>
         </form>
-         
-      <input type="submit" value="Imprimir" onclick="print()">
+
+        <input type="submit" value="Factura" onclick="print()">
     </body>
 </html>

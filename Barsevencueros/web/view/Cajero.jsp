@@ -204,9 +204,11 @@
                                         <%}%>
                                     </div>
                                     <ul class="text-end">
-                                        <input type="hidden" name="id" value="">
-                                        <button class="btn btn-outline-dark bu">Editar</button>
-                                        <input type="hidden"  name="valor" value="1">
+                                        <form method="post" action="desPedido">
+                                        <input type="hidden" name="pedido" value="<%=pagVO.getId_pedido()%>">
+                                        <button value="<%=pagVO.getId_pedido()%>" class="btn btn-outline-dark bu">Pagar</button>
+                                        <input type="hidden"  name="valor" value="2">
+                                        </form>
                                     </ul>  
                                 </form>
                                 </div>

@@ -11,17 +11,17 @@ package ModeloVO;
  * @author Aprendiz
  */
 public class desPedidoVO {
-    private String id_productoFK, pedidoFK, subtotal, producto_nombre;
+    private String id_productoFK, pedidoFK, subtotal;
     private int cantidad_producto;
     private double total;
 
-    public desPedidoVO(String id_productoFK, String pedidoFK, String subtotal, String producto_nombre, int cantidad_producto, double total) {
+    public desPedidoVO(String id_productoFK, String pedidoFK, String subtotal, int cantidad_producto, double total) {
         this.id_productoFK = id_productoFK;
         this.pedidoFK = pedidoFK;
         this.subtotal = subtotal;
         this.cantidad_producto = cantidad_producto;
         this.total = total;
-        this.producto_nombre = producto_nombre;
+  
     }
 
     public desPedidoVO() {
@@ -66,16 +66,5 @@ public class desPedidoVO {
     public void setTotal(double total) {
         this.total = total;
     }
-
-    public String getProducto_nombre() {
-        return producto_nombre;
-    }
-
-    public void setProducto_nombre(String producto_nombre) {
-        this.producto_nombre = producto_nombre;
-    }
-
-    
-   
     
 }

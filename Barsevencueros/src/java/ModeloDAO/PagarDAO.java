@@ -1,6 +1,7 @@
 package ModeloDAO;
 
 import ModeloVO.PagarVO;
+import ModeloVO.desPedidoVO;
 import Util.ConexionBd;
 import Util.Crud;
 import java.sql.Connection;
@@ -166,6 +167,8 @@ public class PagarDAO extends ConexionBd implements Crud{
          
          return operacion;
      }
+     
+    
 
     @Override
     public boolean eliminarRegistro() {

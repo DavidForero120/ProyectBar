@@ -21,11 +21,11 @@
         <h1>Registrar nuevo usuario</h1>
         <form action="Usuario" method="POST">
             <label for="nombre">Nombre:</label>
-            <input type="text" name="usuario_nombre" id="nombre">
+            <input type="text" name="usuario_nombre" id="nombre" required>
             <label for="apelido">Apellido</label>
-            <input type="text" name="usuario_apellido" id="apelido" >
+            <input type="text" name="usuario_apellido" id="apelido" required>
            <label for="password">Contraseña</label>
-           <input type="password" name="usuario_password" id="password" >
+           <input type="password" name="usuario_password" id="password" required>
             <label for="est">Estado</label>
             <select name="usuario_estado" id="est">
                 <option value="1" >Activo</option>

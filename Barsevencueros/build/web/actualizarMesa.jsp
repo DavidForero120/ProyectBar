@@ -33,7 +33,7 @@
                         <input type="hidden" name="id" value="<%=mesaVO.getId_mesa()%>">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3">Numero Mesa</span>
-                            <input type="text" class="form-control" name="numero" placeholder="<%=mesaVO.getMesa_numero()%>">
+                            <input type="text" class="form-control" name="numero" placeholder="<%=mesaVO.getMesa_numero()%>" required>
                         </div>
                         
                         <div class="input-group mb-3">
