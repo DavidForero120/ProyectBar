@@ -41,7 +41,7 @@ public class desPedidoController extends HttpServlet {
         double total = 0;
         int valor = Integer.parseInt(request.getParameter("valor"));
         int contidad_producto = 0;
-        desPedidoVO desVO = new desPedidoVO(id_productoFK, pedidoFK, subtotal, contidad_producto, total);
+        desPedidoVO desVO = new desPedidoVO(id_productoFK, pedidoFK, contidad_producto, subtotal, total);
         desPedidoDAO desDAO = new desPedidoDAO(desVO);
         
         

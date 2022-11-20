@@ -56,8 +56,7 @@ body{
 }
 #out_{
     display: flex;
-    justify-content: flex-end;
-    margin: 10%
+    justify-content: center;
 }
 i{
       color: rgb(5, 2, 0);
@@ -372,4 +371,29 @@ i{
 .table{
       font-family: 'Dhurjati', sans-serif;
       font-size: 1.5em;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1370px){
+    .nav_admin {
+    width: 30%;
+    }
+    .cards_{
+        margin-left: 0%;
+        margin-top: 0%;
+        justify-content: center;
+    }
+    .trabajadorR {
+    display: flex;
+    width: 100%;
+    padding: 0%;
+    align-items: center;
+    justify-content: center;
+    }
+    .nameE, .ape_a, .conA, .act{
+        font-size: 0.7em !important;
+    }#cards_{
+        justify-content: center;
+    }#salir_{
+        width: 100%;
+    }
 }

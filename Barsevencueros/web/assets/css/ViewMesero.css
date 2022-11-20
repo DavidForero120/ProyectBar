@@ -111,6 +111,14 @@ hr {
     justify-content: center;
     
 }
+.active{
+    display: flex;
+}
+
+#hamb__{
+    display: none;
+}
+
 
 @media screen and (min-width: 700px){
     #li{

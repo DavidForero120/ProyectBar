@@ -33,30 +33,36 @@
     </head>
     <body>
 
-        <section class="content_family" id="content_family">
-
-            <div class="partizq" id="partizq">
-                
+         <nav>
+                <div class="partizq" id="partizq">
                 <div class="image" id="image">
                     <img id="im" class="im" src="assets/img/logocolor.png" alt=""/>
+                    
+                    <div id="hamb__">
+                        <i id="menu" class="fa-solid fa-bars"></i>
+                    </div>
+                </div>  
 
-                </div>    
+
+
                 <div class="butoon" id="butoon">
                     <button class="kik"> <a id="vr" ><i class="fa-solid fa-wine-glass"></i>Administrar Producto</a></button>
                     <button class="kik" > <a id="vp" ><i class="fa-solid fa-wine-bottle"></i>Pagar Pedido</a></button>    
-                    <button class="kik"> <a id="vm" ><i class="fa-solid fa-table"></i>Administrar Mesa</a></button>
+                    <button class="kik"> <a id="vm" ><i class="fa-solid fa-table"></i>Administrar Mesa</a></button><form method="post" action="Sesiones" id="out_">
+                        <div class="salr" id="salr">
+                            <button type="submit" value="CerrarSesion" class="btn btn-outline-light" id="kik" ><i class="fa-solid fa-right-from-bracket" id="salir_"></i>SALIR</button>
+                        </div>    
+                    </form>
                 </div>
-                <form method="post" action="Sesiones" id="out_">
-                    <div class="salr" id="salr">
-                        <button type="submit" value="CerrarSesion" class="btn btn-outline-light" id="kik" ><i class="fa-solid fa-right-from-bracket" id="salir_"></i>SALIR</button>
-                    </div>    
-                </form>
+                
+                
+
             </div>
-
-
+        </nav>
+<section class="content_family" id="content_family">
             <div class="partder" id="partder">
                 <div class="ve_p" id="ve_p">
-                    <h1>Consulta de Productos</h1>
+                    <h1 >Consulta de Productos</h1>
 
                     <form method="POST" action="Producto" class="formm" id="formm">
 
@@ -129,7 +135,7 @@
                 <!--Administrar mesa-->
                 <div class="ve_me" id="ve_me">
 
-                    <h1>Consulta de las mesas</h1>
+                    <h1 id="mesas_id">Consulta de las mesas</h1>
                     <form method="POST" action="Producto" class="formm" id="formm">
                         <div class="cards_">
                             <%

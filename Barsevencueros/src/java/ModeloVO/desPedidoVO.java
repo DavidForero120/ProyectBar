@@ -15,11 +15,11 @@ public class desPedidoVO {
     private int cantidad_producto;
     private double total;
 
-    public desPedidoVO(String id_productoFK, String pedidoFK, String subtotal, int cantidad_producto, double total) {
+    public desPedidoVO(String id_productoFK, String pedidoFK,int cantidad_producto,String subtotal, double total) {
         this.id_productoFK = id_productoFK;
         this.pedidoFK = pedidoFK;
-        this.subtotal = subtotal;
         this.cantidad_producto = cantidad_producto;
+        this.subtotal = subtotal;
         this.total = total;
   
     }

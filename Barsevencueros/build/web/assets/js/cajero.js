@@ -4,6 +4,14 @@
  * and open the template in the editor.
  */
 
+const men = document.getElementById('menu');
+
+men.addEventListener('click', ()=>{
+    const button22 = document.getElementById('butoon');
+    button22.classList.toggle('active');
+    console.log("click")
+})
+
 const modalP = document.getElementById(('pagar'));
 
 const abrir = document.getElementById('vr');
@@ -21,7 +29,7 @@ abrir3.addEventListener('click',()=>{
     modalP.classList.replace('activeP','pagar');
     product3.classList.replace('ve_pe','ve_pe_show');
     product.classList.replace('ve_p_show','ve_p');
-    product2.classList.replace('ve_me_show','ve_me');
+    product2.classList.replace('ve_me_show','ve_pe');
  
 });
 

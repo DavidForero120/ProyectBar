@@ -51,7 +51,7 @@
                     <td><%=desVO.getPedidoFK()%></td>
                     <td><%=desVO.getCantidad_producto()%></td>
                     <td><%=desVO.getSubtotal()%></td>
-                    <td><%=desVO.getSubtotal()%></td>
+                    <td><%=desVO.getTotal()%></td>
                 </tr>
             </tbody>
              <%}%>

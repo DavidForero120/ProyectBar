@@ -80,7 +80,7 @@ public class desPedidoDAO extends ConexionBd implements Crud{
                 puente.setString(1, pedidoFK);
                 mensajero = puente.executeQuery();
                 while (mensajero.next()) {
-           desPedidoVO  desVO = new desPedidoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getInt(4), mensajero.getDouble(5));
+           desPedidoVO  desVO = new desPedidoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getInt(3), mensajero.getString(4), mensajero.getDouble(5));
            listaPedido.add(desVO);
             }
         } catch (SQLException e) {
@@ -107,7 +107,7 @@ public class desPedidoDAO extends ConexionBd implements Crud{
              puente.setString(1, pedidoFK);
              mensajero = puente.executeQuery();
                 while (mensajero.next()) {                    
-                    desVO = new desPedidoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getInt(4), mensajero.getDouble(5));                
+                    desVO = new desPedidoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getInt(3), mensajero.getString(4), mensajero.getDouble(5));                
                 }    
          } catch (SQLException e) {
              Logger.getLogger(desPedidoDAO.class.getName()).log(Level.SEVERE, null, e);
