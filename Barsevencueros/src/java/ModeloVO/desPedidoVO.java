@@ -11,7 +11,7 @@ package ModeloVO;
  * @author Aprendiz
  */
 public class desPedidoVO {
-    private String id_productoFK, pedidoFK, subtotal, producto_nombre,producto_precio, pedido_estado, metodo_pago;
+    private String id_productoFK, pedidoFK, subtotal, producto_nombre,producto_precio, pedido_estado, metodo_pago, id_usuarioFK, clienteFK, mesaFK, fecha;
     private int cantidad_producto;
     private double total;
 
@@ -23,7 +23,7 @@ public class desPedidoVO {
         this.total = total;
 
     }
-    public desPedidoVO(String pedidoFK, String id_productoFK, String producto_nombre,String producto_precio, int cantidad_producto, String subtotal, double total, String pedido_estado, String metodo_pago ){
+    public desPedidoVO(String pedidoFK, String id_productoFK, String producto_nombre,String producto_precio, int cantidad_producto, String subtotal, double total, String pedido_estado, String metodo_pago, String id_usuarioFK,String clienteFK, String mesaFK, String fecha ){
         this.pedidoFK = pedidoFK;
         this.id_productoFK = id_productoFK;
         this.producto_nombre = producto_nombre;
@@ -33,8 +33,16 @@ public class desPedidoVO {
         this.total = total;
         this.pedido_estado = pedido_estado;
         this.metodo_pago = metodo_pago;
-                
+        this.id_usuarioFK = id_usuarioFK;
+        this.clienteFK = clienteFK;
+        this.mesaFK = mesaFK;
+        this.fecha = fecha;
     }
+    public desPedidoVO(String pedidoFK){
+        this.pedidoFK = pedidoFK;
+        
+    }
+    
 
     public desPedidoVO() {
     }
@@ -109,6 +117,38 @@ public class desPedidoVO {
 
     public void setProducto_precio(String producto_precio) {
         this.producto_precio = producto_precio;
+    }
+
+    public String getId_usuarioFK() {
+        return id_usuarioFK;
+    }
+
+    public void setId_usuarioFK(String id_usuarioFK) {
+        this.id_usuarioFK = id_usuarioFK;
+    }
+
+    public String getClienteFK() {
+        return clienteFK;
+    }
+
+    public void setClienteFK(String clienteFK) {
+        this.clienteFK = clienteFK;
+    }
+
+    public String getMesaFK() {
+        return mesaFK;
+    }
+
+    public void setMesaFK(String mesaFK) {
+        this.mesaFK = mesaFK;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
     
 }

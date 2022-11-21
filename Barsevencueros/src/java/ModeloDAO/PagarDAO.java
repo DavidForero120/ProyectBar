@@ -98,9 +98,7 @@ public class PagarDAO extends ConexionBd implements Crud{
                             mensajero.getString(4), 
                             mensajero.getString(5), 
                             mensajero.getString(6),
-                            mensajero.getString(7),
-                            mensajero.getString(8),
-                             mensajero.getString(9)
+                            mensajero.getString(7)
                             
                     );
                         listarPedido.add(pagVO);
@@ -129,8 +127,16 @@ public class PagarDAO extends ConexionBd implements Crud{
     public boolean actualizarRegistro() {
         
         try {
-            sql = "UPDATE pedido SET pedido_estado = 1 WHERE id_pedido = ?;";
+            sql = "update pedido set id_usuarioFK=?, clienteFK=?, mesaFK=?, pedido_estado=?, Metodo_pago=?, fecha=? where id_pedido = ?";
             puente = conexion.prepareStatement(sql);
+            puente.setString(1, id_usuarioFK);
+            puente.setString(2, clienteFK);
+            puente.setString(3, mesaFK);
+            puente.setString(4, pedido_estado);
+            puente.setString(5, Metodo_pago);
+            puente.setString(6, fecha);
+            puente.setString(7, id_pedido);
+            
             puente.executeUpdate();
             operacion = true;
         } catch (SQLException e) {
@@ -146,26 +152,30 @@ public class PagarDAO extends ConexionBd implements Crud{
     }
      
      
-     public boolean actualizarEstado(String id_pedido){
+     public boolean actualizarEstado(){
          try {
-             conexion = this.obtenerConexion();
-             sql="UPDATE `pedido` SET `pedido_estado`=2 WHERE id_pedido = ?";
-             puente.setString(1, id_pedido);
-             puente = conexion.prepareStatement(sql);
-             
-             puente.executeUpdate();
-                operacion = true;
-         } catch (SQLException e) {
-             Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
-         }finally{
-             try {
-                 this.deneterConexion();
-             } catch (SQLException e) {
-                 Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
-             }
-         }
-         
-         return operacion;
+            sql = "update pedido set id_usuarioFK=?, clienteFK=?, mesaFK=?, pedido_estado=?, Metodo_pago=?, fecha=? where id_pedido = ?";
+            /*puente = conexion.prepareStatement(sql);*/
+            puente.setString(1, id_usuarioFK);
+            puente.setString(2, clienteFK);
+            puente.setString(3, mesaFK);
+            puente.setString(4, pedido_estado);
+            puente.setString(5, Metodo_pago);
+            puente.setString(6, fecha);
+            puente.setString(7, id_pedido);
+            
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally{
+                try {
+                    this.deneterConexion();
+                } catch (Exception e) {
+                    Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+                }
+            }
+            return operacion;
      }
      
     

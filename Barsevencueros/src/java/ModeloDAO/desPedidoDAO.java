@@ -29,7 +29,7 @@ public class desPedidoDAO extends ConexionBd implements Crud{
     private boolean operacion = false;
     private String sql;
 
-    private String id_productoFK="", pedidoFK="", subtotal="",  producto_nombre="", producto,precio="",pedido_estado="", metodo_pago="";
+    private String id_productoFK="", pedidoFK="", subtotal="",  producto_nombre="", producto,precio="",pedido_estado="", Metodo_pago="",id_usuarioFK="", clienteFK="", mesaFK="", fecha="" , id_pedido="";
     private int cantidad_producto ;
     private double  total;
 
@@ -63,7 +63,24 @@ public class desPedidoDAO extends ConexionBd implements Crud{
 
     @Override
     public boolean actualizarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            sql = "update pedido set  pedido_estado=2 where id_pedido = ?";
+            puente = conexion.prepareStatement(sql);
+            
+            puente.setString(1, pedidoFK);
+            
+            puente.executeUpdate();
+            operacion = true;
+        } catch (SQLException e) {
+            Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+        }finally{
+                try {
+                    this.deneterConexion();
+                } catch (Exception e) {
+                    Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+                }
+            }
+            return operacion;
     }
 
     @Override
@@ -75,7 +92,20 @@ public class desPedidoDAO extends ConexionBd implements Crud{
         ArrayList<desPedidoVO> listaPedido = new ArrayList<>();
         try {
             conexion = this.obtenerConexion();
-                sql="SELECT des_pedido.pedidoFK, des_pedido.id_productoFK, producto.producto_nombre, producto.producto_precio, des_pedido.cantidad_producto, des_pedido.sub_total, des_pedido.total, pedido.pedido_estado, pedido.Metodo_pago FROM des_pedido INNER JOIN producto on des_pedido.id_productoFK = producto.id_producto INNER JOIN pedido ON des_pedido.pedidoFK = pedido.id_pedido WHERE des_pedido.pedidoFK = ?";
+                sql="SELECT des_pedido.pedidoFK,"
+                        + " des_pedido.id_productoFK, "
+                        + "producto.producto_nombre, "
+                        + "producto.producto_precio, "
+                        + "des_pedido.cantidad_producto,"
+                        + " des_pedido.sub_total, "
+                        + "des_pedido.total,"
+                        + " pedido.pedido_estado, "
+                        + "pedido.Metodo_pago, "
+                        + "pedido.id_usuarioFK, "
+                        + "pedido.clienteFK, "
+                        + "pedido.mesaFK,pedido.fecha "
+                        + "FROM des_pedido "
+                        + "INNER JOIN producto on des_pedido.id_productoFK = producto.id_producto INNER JOIN pedido ON des_pedido.pedidoFK = pedido.id_pedido WHERE des_pedido.pedidoFK = ?";
                 puente = conexion.prepareStatement(sql);
                 puente.setString(1, pedidoFK);
                 mensajero = puente.executeQuery();
@@ -89,7 +119,11 @@ public class desPedidoDAO extends ConexionBd implements Crud{
                    mensajero.getString(6),
                    mensajero.getDouble(7), 
                    mensajero.getString(8), 
-                   mensajero.getString(9));
+                   mensajero.getString(9),
+                   mensajero.getString(10), 
+                   mensajero.getString(11), 
+                   mensajero.getString(12), 
+                   mensajero.getString(13));
            listaPedido.add(desVO);
             }
         } catch (SQLException e) {

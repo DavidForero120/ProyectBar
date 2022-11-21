@@ -25,6 +25,7 @@
                 <input type="hidden" value="7" name="valor">
             </div>
         </form>
+        <form method="post" action="pagarPedido">
         <%
             desPedidoVO desVO = (desPedidoVO) request.getAttribute("datosConsultados");
             if (desVO != null) {
@@ -34,7 +35,7 @@
             String pedidoFK = desVO.getPedidoFK();
         %>
         <h1>Detalle de le venta</h1>
-        <form>
+        
             <table class="table">
                 <thead>
                     <tr>
@@ -54,7 +55,7 @@
                         desVO = listarPed.get(i);
 
                 %>  
-                <input type="hidden" name="" value="<%=desVO.getPedidoFK()%>">
+                <input type="hidden" name="pedido" value="<%=desVO.getPedidoFK()%>">
                 
                 <tbody>
                     <tr>                 
@@ -62,8 +63,8 @@
                         <td><%=desVO.getProducto_precio()%></td>
                         <td><%=desVO.getCantidad_producto()%></td>
                         <td><%=desVO.getSubtotal()%></td>
-                        <input type="hidden" name="" value="<%=desVO.getPedido_estado()%>">
-                         <input type="hidden" name="" value="<%=desVO.getMetodo_pago()%>">
+                        <input type="hidden" name="estado" value="2">
+                         <input type="hidden" name="metodo" value="<%=desVO.getMetodo_pago()%>">
                         <%
                             if (desVO.getMetodo_pago().equals("2")) {
                                 String tarjeta = "TARJETA";
@@ -92,10 +93,16 @@
                         <%}%>
                     </tr>
                 </tbody>
+                <input type="hidden" value="<%=desVO.getId_usuarioFK()%>" name="usuario">
+                <input type="hidden" value="<%=desVO.getClienteFK()%>" name="cliente">
+                <input type="hidden" value="<%=desVO.getMesaFK()%>" name="mesa">
+                <input type="hidden" value="<%=desVO.getFecha()%>" name="fecha">
+                <input type="hidden" value="2" name="estado">
                 <%}%>
             </table>
 
             <button>PAGAR</button>
+            <input type="hidden" name="valor" value="1">
         </form>
 
         <input type="submit" value="Factura" onclick="print()">

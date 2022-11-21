@@ -109,11 +109,18 @@ public class Pedido extends HttpServlet {
                     
                     break;
                 case "Eliminar":
+                    
+                    int indice = 0;
+                    if(indice != -1){       
                         for(int i=0;i<lista.size();i++){
-                            item = lista.get(i).getItem();
-                            item = item-1;
-                            lista.remove(item);
+                            
+                            indice = lista.get(i).getItem();
+                            System.out.println("hola munfoo" +item);
                         }
+                        item = indice - 1;
+                        lista.remove(item);
+                    }
+                        
                     break;
                     
                     case "GenerarPedido":

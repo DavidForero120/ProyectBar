@@ -59,9 +59,9 @@
 
                     <%                    UsuarioVO usuVO = new UsuarioVO();
                         UsuarioDAO usuDAO = new UsuarioDAO();
-
+                        
                         ArrayList<UsuarioVO> listarUsuario = usuDAO.listar();
-
+                        
                         for (int i = 0; i < listarUsuario.size(); i++) {
                             usuVO = listarUsuario.get(i);
 
@@ -195,9 +195,9 @@
                         <%
                             MesaVO mesaVO = new MesaVO();
                             MesaDAO mesaDAO = new MesaDAO();
-
+                            
                             ArrayList<MesaVO> listarMesa = mesaDAO.listar();
-
+                            
                             for (int i = 0; i < listarMesa.size(); i++) {
                                 mesaVO = listarMesa.get(i);
                         %>         
@@ -297,7 +297,7 @@
                             ProductoVO prodVO = new ProductoVO();
                             ProductoDAO prodDAO = new ProductoDAO();
                             ArrayList<ProductoVO> listarProducto = prodDAO.listar();
-
+                            
                             for (int i = 0; i < listarProducto.size(); i++) {
                                 prodVO = listarProducto.get(i);
 
@@ -382,9 +382,9 @@
                             <%
                                 PagarVO pagVO = new PagarVO();
                                 PagarDAO pagDAO = new PagarDAO();
-
+                                
                                 ArrayList<PagarVO> listarPedido = pagDAO.listar2();
-
+                                
                                 for (int i = 0; i < listarPedido.size(); i++) {
                                     pagVO = listarPedido.get(i);
                             %>
@@ -392,7 +392,14 @@
                                 <tr>
                                     <td><%=pagVO.getId_pedido()%></td>
                                     <td><%=pagVO.getFecha()%></td>
-                                    <td><%=pagVO.getPedido_estado()%></td>                       
+                                    <% 
+                                        if (pagVO.getPedido_estado().equals("2")) {
+                                        String pago = "PAGADO";
+
+                                    %>
+
+                                    <td><%=pago%></td>  
+                                    <%}%>
                                 </tr>
                             </tbody>
                             <%}%>

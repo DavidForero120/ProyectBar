@@ -7,8 +7,10 @@ package Controlador;
 
 import ModeloDAO.PagarDAO;
 import ModeloDAO.PedidoDAO;
+import ModeloDAO.desPedidoDAO;
 import ModeloVO.PagarVO;
 import ModeloVO.PedidoVO;
+import ModeloVO.desPedidoVO;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -26,37 +28,36 @@ public class pagarPedido extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id_pedido = request.getParameter("pedido");
-        String id_usuarioFK  = request.getParameter("");
-        String clienteFK = request.getParameter("");
-        String mesaFK = request.getParameter("");
+        String pedidoFK = request.getParameter("pedido");
+        String id_usuarioFK  = request.getParameter("usuario");
+        String clienteFK = request.getParameter("cliente");
+        String mesaFK = request.getParameter("mesa");
         String pedido_estado = request.getParameter("estado");
-        String Metodo_pago = request.getParameter("");
-        String fecha = request.getParameter("");
-        String cliente_nombre = request.getParameter("");
-        String cliente_apellido = request.getParameter("");
+        String Metodo_pago = request.getParameter("metodo");
+        String fecha = request.getParameter("fecha");
+       
         int valor = Integer.parseInt(request.getParameter("valor"));
 
-        PagarVO pedVO = new PagarVO(id_pedido, id_usuarioFK, clienteFK, mesaFK, pedido_estado, Metodo_pago, fecha, cliente_nombre, cliente_apellido);
-        PagarDAO pedDAO = new PagarDAO(pedVO);
+        desPedidoVO pedVO = new desPedidoVO(pedidoFK);
+        desPedidoDAO pedDAO = new desPedidoDAO(pedVO);
         
         switch(valor){
             
             case 1:
-                
+                 if(pedDAO.actualizarRegistro()){
+                    request.getRequestDispatcher("view/Cajero.jsp").forward(request, response);
+                    request.setAttribute("mensajeExito", "El pedido se pago");
+                }else{
+                    request.setAttribute("mensajeError", "El pedido no se pudo pagar");
+                    request.getRequestDispatcher("pagar.jsp").forward(request, response);
+                }
                 break;
             case 2:
                 
             break;
             
             case 3:
-                if(pedDAO.actualizarEstado(id_pedido)){
-                    request.getRequestDispatcher("pagar.jsp").forward(request, response);
-                    request.setAttribute("mensajeExito", "El pedido se pago");
-                }else{
-                    request.setAttribute("mensajeError", "El pedido no se pudo pagar");
-                    request.getRequestDispatcher("view/Mesero.jsp").forward(request, response);
-                }
+               
             
         }
     }

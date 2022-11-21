@@ -90,10 +90,10 @@ public class ClienteControlador extends HttpServlet {
                
                cliVO = cliDAO.consultarNumero(numero_documento);
                 if (cliVO != null){
-                    request.setAttribute("datosConsultados", cliVO);
-                    request.getRequestDispatcher("actualizarCliente.jsp").forward(request, response);
+                    request.setAttribute("mensajeExito","El cliente si esta registrado" );
+                    request.getRequestDispatcher("listarCliente.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("mensajeError", "el cliente no se pudo encontrar");
+                    request.setAttribute("mensajeError", "El cliente no se pudo encontrar");
                     request.getRequestDispatcher("listarCliente.jsp").forward(request, response);
                 }
                 break;
