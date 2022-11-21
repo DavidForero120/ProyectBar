@@ -40,7 +40,7 @@ public class Pedido extends HttpServlet {
     List<PedidoVO> lista = new ArrayList<>();
     int item = 0;
     String id_Producto, nombre_Producto;
-    double precio, subtotal, total;
+    double precio, subtotal, total, total2, subtotal2s;
     int cantidad_producto;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -65,10 +65,11 @@ public class Pedido extends HttpServlet {
                     request.setAttribute("pr", prodVO);
                     request.setAttribute("lista", lista);
                     request.setAttribute("totalPaga", total);
+                    
                     break;
                 case "AgregarQ":
-                    
-                    total=0.0;
+
+                    total = 0.0;
                     item = item + 1;
                     id_Producto = prodVO.getId_producto();
                     nombre_Producto = prodVO.getProducto_nombre();
@@ -83,90 +84,121 @@ public class Pedido extends HttpServlet {
                     pedVO.setCantidad_producto(cantidad_producto);
                     pedVO.setSubtotal(subtotal);
                     lista.add(pedVO);
-                        for (int i = 0; i < lista.size(); i++) {
-                            total = total + lista.get(i).getSubtotal();        
-                            System.out.println(total);
-                        }
+                    for (int i = 0; i < lista.size(); i++) {
+                        total = total + lista.get(i).getSubtotal();
+                        System.out.println(total);
+                    }
 
-                        request.setAttribute("totalPaga", total);
-                        request.setAttribute("lista", lista);
-                        request.setAttribute("cliente", cliVO);
-                    
+                    request.setAttribute("totalPaga", total);
+                    request.setAttribute("lista", lista);
+                    request.setAttribute("cliente", cliVO);
+
                     break;
-                    
+
                 case "Cancelar":
-                    if(pedVO != null){
-                        for(int i=0;i<lista.size();i++){
+                    if (pedVO != null) {
+                        for (int i = 0; i < lista.size(); i++) {
                             pedVO = lista.get(i);
                             item = 0;
-                            total=0;
+                            total = 0;
                             lista.clear();
-                            
+
                         }
                         request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
                     }
-                    
+
                     break;
                 case "Eliminar":
-                    
+
                     int indice = 0;
-                    if(indice != -1){       
-                        for(int i=0;i<lista.size();i++){
-                            
+                    if (indice != -1) {
+                        for (int i = 0; i < lista.size(); i++) {
+
                             indice = lista.get(i).getItem();
-                            System.out.println("hola munfoo" +item);
+                            System.out.println("hola munfoo" + item);
                         }
                         item = indice - 1;
                         lista.remove(item);
                     }
-                        
+
                     break;
-                    
-                    case "GenerarPedido":
+
+                case "GenerarPedido":
                     //Guardar Pedido 
-                        String id_usu = request.getParameter("id_usuario");
-                        String idCliente = request.getParameter("idCliente");
-                        String mesaFK = request.getParameter("mesaFK");
-                        int metodoPago = Integer.parseInt(request.getParameter("metodoPago"));
-                       
-                        pedVO.setId_usuarioFK(id_usu);
-                        pedVO.setId_Cliente(idCliente);
-                        pedVO.setMesaFK(mesaFK);
-                        pedVO.setEstado("1");
-                        pedVO.setMetodo_pago(metodoPago);
-                        pedDAO.guardarVenta(pedVO);
-                        //Guardar des_pedido
-                       
-                        int idPedido = pedDAO.idPedido();
-                        for (int i = 0; i < lista.size(); i++)
-                        {
-                            pedVO = new PedidoVO();
-                            pedVO.setId_Pedido(idPedido);
-                            pedVO.setId_producto(lista.get(i).getId_producto());
-                            pedVO.setCantidad_producto(lista.get(i).getCantidad_producto());
-                            pedVO.setSubtotal(lista.get(i).getSubtotal());
-                            pedVO.setTotal(total);
-                            pedDAO.Agregardespedido(pedVO);
-                        }
-                        for(int i=0;i<lista.size();i++){
-                            pedVO = lista.get(i);
-                            item = 0;
-                            total=0;
-                            lista.clear();
-                            
-                        }
-                        
-                 
-                        request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
-                break;  
+                    String id_usu = request.getParameter("id_usuario");
+                    String idCliente = request.getParameter("idCliente");
+                    String mesaFK = request.getParameter("mesaFK");
+                    int metodoPago = Integer.parseInt(request.getParameter("metodoPago"));
+
+                    pedVO.setId_usuarioFK(id_usu);
+                    pedVO.setId_Cliente(idCliente);
+                    pedVO.setMesaFK(mesaFK);
+                    pedVO.setEstado("1");
+                    pedVO.setMetodo_pago(metodoPago);
+                    pedDAO.guardarVenta(pedVO);
+                    //Guardar des_pedido
+
+                    int idPedido = pedDAO.idPedido();
+                    for (int i = 0; i < lista.size(); i++) {
+                        pedVO = new PedidoVO();
+                        pedVO.setId_Pedido(idPedido);
+                        pedVO.setId_producto(lista.get(i).getId_producto());
+                        pedVO.setCantidad_producto(lista.get(i).getCantidad_producto());
+                        pedVO.setSubtotal(lista.get(i).getSubtotal());
+                        pedVO.setTotal(total);
+                        pedDAO.Agregardespedido(pedVO);
+                    }
+                    for (int i = 0; i < lista.size(); i++) {
+                        pedVO = lista.get(i);
+                        item = 0;
+                        total = 0;
+                        lista.clear();
+
+                    }
+
+                    request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
+                    break;
+                case "SumarCantidad":
+                    total2 = 0.0;
+                    cantidad_producto = cantidad_producto + 1;
+                    pedVO.setCantidad_producto(cantidad_producto);
+                    subtotal = precio * cantidad_producto;
+                    pedVO.setSubtotal(subtotal);
+                    
+                    for (int i = 0; i < lista.size(); i++) {
+                        total2 = subtotal + lista.get(i).getSubtotal();
+                        System.out.println(total);
+                    }
+                    
+                    request.setAttribute("totalPaga", total2);
+                    request.setAttribute("lista", lista);
+                    request.setAttribute("cliente", cliVO);
+                    
+                    break;
+                case "RestarCantidad":
+                    total2 = 0.0;
+                    cantidad_producto = cantidad_producto - 1;
+                    pedVO.setCantidad_producto(cantidad_producto);
+                    subtotal = subtotal - precio;
+                    pedVO.setSubtotal(subtotal);
+                    
+                    for (int i = 0; i < lista.size(); i++) {
+                        total2 = subtotal + lista.get(i).getSubtotal();
+                        System.out.println(total);
+                    }
+                    
+                    request.setAttribute("totalPaga", total2);
+                    request.setAttribute("lista", lista);
+                    request.setAttribute("cliente", cliVO);
+
+                    break;
                 default:
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
             }
             request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
         }
-           
-    }
 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

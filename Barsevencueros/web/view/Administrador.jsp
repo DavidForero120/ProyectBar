@@ -188,9 +188,7 @@
                     </div>
                     <%}%>
                 </div>
-                <form method="post" action="Mesa" >
-
-
+ 
                     <div class="cards_">
                         <%
                             MesaVO mesaVO = new MesaVO();
@@ -203,8 +201,10 @@
                         %>         
                         <div>  
                             <div class="card text-bg-dark mb-3" style="width: 18rem; height: 15rem !important;" >
-                                <div class="card-header border-light mb-3" >
-                                    <input type="hidden" value="<%=mesaVO.getId_mesa()%>">
+                                <form method="post" action="Mesa" >
+                                    <div class="card-header border-light mb-3" >
+                                    
+                                        <input type="hidden" name="id" value="<%=mesaVO.getId_mesa()%>">
                                     <h3>Número mesa: <%=mesaVO.getMesa_numero()%></h3>
                                 </div>
                                 <div class="card-body">
@@ -224,13 +224,14 @@
                                     <input type="hidden" name="id" value="<%=mesaVO.getId_mesa()%>">
                                     <button class="btn btn-outline-light bu">Editar</button>
                                     <input type="hidden"  name="valor" value="3">
-                                </ul>                    
+                                </ul>  
+                                    </form>
                             </div>
 
                         </div> 
                         <%}%>
                     </div>
-                </form>
+                
 
 
             </div>
@@ -338,7 +339,7 @@
                         <input type="text" name="prod_nombre"  class="form-control" required>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-default"> Prodcuto precio:</span>
+                        <span class="input-group-text" id="inputGroup-sizing-default"> Producto precio:</span>
                         <input type="text" name="prod_precio"  class="form-control" required>
                     </div>        
                     <input type="hidden" name="prod_estado" value="1">

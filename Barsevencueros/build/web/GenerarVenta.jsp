@@ -18,20 +18,26 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
         <link href="assets/css/Pedido.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body>
-        <div class="d-flex">
+    <body style="height: 100vh">
+        <div class="d-flex" style="width: 91%;">
             <div class="col-sm-5">
                 <div class="card">
                     <div class="card-body">
                         <form action="Pedido?menu=NuevaVenta" method="POST">
                             <!--Cliente-->
                             <div class="form-group">
-                                <label>Identificación cliente : </label>
+                                <label>Datos del Cliente</label>
                             </div>
+                            <%                        if (request.getAttribute("mensajeError") != null) { %>
+                    ${mensajeError}
+
+                    <%} else {%>
+                    ${mensajeExito}        
+                    <%}%>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
 
-                                    <input type="text" name="cliente_documento" value="${cliente.getNumero_documento()}" class="form-control" placeholder="Documento Cliente">
+                                    <input type="text" name="cliente_documento" value="${cliente.getNumero_documento()}" class="form-control" placeholder="No. Documento" style="height: 3em; font-size: 85%;">
                                     <button>Consultar</button>
                                     <input type="hidden" name="accion" value="RegistroCliente" >
                                 </div>
@@ -44,11 +50,11 @@
                             <hr id="hr">
                             <!--producto-->
                             <div class="form-group">
-                                <label>Id producto</label>
+                                <label>Datos Producto</label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="id_producto" value="${pr.getId_producto()}" class="form-control" placeholder="Codigo Producto">
+                                    <input type="text" name="id_producto" value="${pr.getId_producto()}" class="form-control" placeholder="Codigo Producto" style=" font-size: 85%;">
                                     <button>Consultar</button>
                                     <input type="hidden" name="accion" value="RegistrarProducto">
                                 </div>
@@ -88,18 +94,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-7">
-                <div class="card">
+            <div class="col-sm-8.1" >
+                <div class="card" style="width: 105%;">
                     <div class="card-body">
                         <form action="Pedido?menu=NuevaVenta" method="POST">
                         <br>
                         <table class="table table-hover" id="cvTable">
-                            <caption id="cvTotalTitulos" class="mt-3">Total de registros</caption>
+                            
                             <thead>                          
                                 <tr>
                                     <th>Nro</th>
-                                    <th>id_producto</th>
-                                    <th>nombre_producto</th>
+                                    <th>Id Producto</th>
+                                    <th>Nombre Del Producto</th>
                                     <th>Cantidad</th>
                                     <th>Precio</th>
                                     <th>Subtotal</th>
@@ -112,14 +118,16 @@
                                         <td>${list.getItem()}</td>
                                         <td>${list.getId_producto()}</td>
                                         <td>${list.getNombre_Producto()}</td>
-                                        <td><input type="number" value="${list.getCantidad_producto()}"> </td>
+                                        <td>${list.getCantidad_producto()}</td>
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getSubtotal()}</td>
                                         <td>
-                                            <button class="btn btn-success" id="agre__">Agregar</button>
+                                            <button value="SumarCantidad" name="accion" class="btn btn-success" id="agre__">+</button>
+                                         
                                             <div>
-                                                <button class="btn btn-danger eliminarRow">Eliminar</button>
-                                                <input type="hidden" name="accion" value="Eliminar" class="btn btn-danger">
+                                                
+                                                <button name="accion" value="RestarCantidad" class="btn btn-danger eliminarRow">-</button>
+   
                                                 <!--<button class="btn btn-danger eliminarRow">Cancelar</button>
                                                 <input type="hidden" value="cancelar">-->
                                             </div>
@@ -147,7 +155,7 @@
                                 <!-- METODO DE PAGO-->
                                 <hr id="hr">
                                 <label>Metodo de pago:</label>
-                                <select id="metod_" lass="form-control form-control-lg" name="metodoPago">
+                                <select id="metod_" lass="form-control form-control-lg" name="metodoPago" style="height: 2.2em; width: 15%;">
                                     <%
                                         MetodoPagoVO MetodoPagoVO = new MetodoPagoVO();
                                         MetodoPagoDAO MetodoPagoDAO = new MetodoPagoDAO();
@@ -168,7 +176,7 @@
                                 <!-- MESA-->
                                 <hr id="hr">
                                 <label >Seleccione una mesa: </label>
-                                <select id="mesa_" lass="form-control form-control-lg" name="mesaFK">
+                                <select id="mesa_" lass="form-control form-control-lg" name="mesaFK" style="height: 2.2em;">
                                     <%
                                         MesaVO mesaVO = new MesaVO();
                                         MesaDAO mesaDAO = new MesaDAO();
@@ -187,9 +195,13 @@
                                 <input type="hidden" name="accion" value="Cancelar">
                                 </div>
                             </form>
-                                <form method="post" action="Pedido?menu=NuevaVenta&accion=AgregarQ">                                 
-                                </form>                  
-                            <!-- <a href="Pedido?menu=NuevaVenta&accion=GenerarPedido" class="btn btn-success">Generar Pedido</a>-->     
+                                <form method="post" action="Pedido?menu=NuevaVenta&accion=AgregarQ">
+                                    
+                                </form>
+                                
+                                
+                            <!-- <a href="Pedido?menu=NuevaVenta&accion=GenerarPedido" class="btn btn-success">Generar Pedido</a>-->
+                            
                         </div>
                     </div>
                 </div>

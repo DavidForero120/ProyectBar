@@ -26,7 +26,12 @@
                 
                 <div class="formulario" id="filter">  
                     <form action="Usuario" method="POST">
-                        <h1>BizBar</h1>
+                        <div class="container-img">
+                            <img src="assets/img/bizbar.png">
+                            <h1 id="title-main">BizBar</h1>
+                        </div>
+                        
+                        
                         <div id="input">
                             <div id="labe">
                                 <label>Usuario:</label>

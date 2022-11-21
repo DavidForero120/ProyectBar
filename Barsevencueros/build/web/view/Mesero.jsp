@@ -5,7 +5,7 @@
 <%-- 
     Document   : Mesero
     Created on : 23/07/2022, 05:07:47 PM
-    Author     : David
+    Author     : David  
 --%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,7 +23,7 @@
     </head>
     <body>
         <section id="mesero__">
-            <nav id="nav" class="navbar navbar-dark bg-dark">
+            <nav id="nav" class="navbar navbar-dark bg-dark" style="font-size: 90%;">
                 <div id="log__">
                     <img src="assets/img/logocolor.png" alt=""/>
                 </div>
@@ -42,20 +42,20 @@
                 </div>
 
                 <form method="post" action="Sesiones" id="out_">
-                    <div class="salr" id="salr">
+                    <div class="salr" id="salr" style="margin-top: -20%;">
                         <button type="submit" value="CerrarSesion" class="btn btn-outline-light" id="kik" ><i class="fa-solid fa-right-from-bracket" id="salir_"></i>SALIR</button>
                     </div>    
                 </form>
 
 
                 <div class="ver_p" id="ver_p">
-                    <div class="product_list" style="width: 100vw; height: 100vh; background-color: white; margin-top: 1%">
+                    <div class="product_list" style="width: 92%; height: 100vh; background-color: white; margin-top: 1%">
                         <div id="titlep">
-                            <h1 style="display: flex; justify-content: center; font-family: sans-serif; margin-top: 2%" >Productos</h1>
-                            <div class="error" style="    display: flex; justify-content: center; align-items: center;">
+                            <h1 style="display: flex; justify-content: center; font-family: sans-serif; margin-top: 2%; margin-left: 13%;" >Productos</h1>
+                            <div class="error" style="    display: flex; justify-content: center; align-items: center; margin-left: 13%;">
                                 <div id="MError">
                                     <%                                    if (request.getAttribute("mensError") != null) { %>
-                                    <div class="alert alert-success" role="alert">
+                                    <div class="alert alert-success" role="alert" style="margin-left: 225%;">
                                         ${mensError}
                                     </div>
 

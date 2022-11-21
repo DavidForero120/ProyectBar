@@ -1,12 +1,3 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 25/10/2022, 05:48:55 PM
-    Author     : 57314
-*/
 .reg_p{
     display: none;
 }
@@ -19,9 +10,11 @@ and open the template in the editor.
 }
 .ver_p{
     display: none;
+    background-color: white
 }
 .ver_p_show{
     display: flex;
+    background-color: white;
 }
 
 .ven2{
@@ -115,7 +108,8 @@ hr {
     width: 35%;
 }
 #log__ img{
-    width: 85px;
+    width: 140px;
+    height: 75px;
 }
 
 .text-center{
@@ -176,7 +170,7 @@ hr {
     }
     #log__ img {
         width: 140px;
-        height: 85px;
+    height: 75px;
     }
 }
 @media screen and (min-width: 1200px){

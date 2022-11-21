@@ -45,16 +45,26 @@ form {
     align-items: center;
 }
 h1 {
-    padding: 6%;
+    padding: 3%;
     text-align: center;
 }
 
-
+.container-img {
+    height: 100%;
+    align-items: flex-start;
+    width: 80%;
+    display: flex;
+    margin-left: 40%;
+    padding: 2%;
+}
 input[type="text"] {
     padding: 2%;
     margin-bottom: 3%;
 }
 
+.title-main{
+    
+}
 
 input[type="password"]{
     padding: 2%; margin-bottom: 7%;
@@ -74,8 +84,8 @@ button {
 button:hover{
     background-color: white;
     color: black;
-    transition: 1s;
-    border-color: white;    
+    transition: 0.8s;
+    border: 1px solid white;    
 }
 
 
@@ -90,12 +100,17 @@ button:hover{
     margin-top: 6%;
 }
 
-
+img {
+    height: 75px;
+    width: 56px;
+}
 @media screen and (min-width:320px)
 {
     form h1{
         font-size: 1.2em;
         color: white;
+            font-family: 'Lora', serif;
+    font-family: 'Overpass', sans-serif;
     }
     
     .formulario{
@@ -137,6 +152,8 @@ button:hover{
 }
     form h1 {
     font-size: 1.5em;
+        font-family: 'Lora', serif;
+    font-family: 'Overpass', sans-serif;
 }   
     #label {
     font-size: 1.2em;
@@ -178,6 +195,8 @@ button:hover{
 }   
     form h1 {
     font-size: 1.9em;
+        font-family: 'Lora', serif;
+    font-family: 'Overpass', sans-serif;
 }
     #input {
     margin-bottom: 3%;
