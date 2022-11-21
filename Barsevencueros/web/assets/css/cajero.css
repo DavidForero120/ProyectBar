@@ -44,34 +44,31 @@ and open the template in the editor.
 .im{
     height: 111px;
 }
-.butoon{
+.butoon {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 40vh;
+    height: 100%;
+}
+i.fa-solid.fa-wine-glass {
+    width: 1em !important;
 }
 
-.salr{
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    height: 20vh;
-}
-.kik{
-    text-decoration: none;
-    border: none;
-    background-color: transparent;
-    width: 105%;
-    height: 4.3em;
-    color: white;  
-    margin-bottom: 5%;
-}
-#kik{
+.kik {
     text-decoration: none;
     border: none;
     background-color: transparent;
     width: 100%;
-    height: 3.4em;
+    height: 3em;
+    color: white;
+    margin-bottom: 5%;
+}
+#kik {
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 2em;
     color: white;
     font-size: 1.3em;
 }

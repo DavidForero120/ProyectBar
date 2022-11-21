@@ -127,6 +127,9 @@ public class UsuarioControlador extends HttpServlet {
                 case 7:
                     request.getRequestDispatcher("view/Cajero.jsp").forward(request, response);
                     break;
+                case 8:
+                    request.getRequestDispatcher("pagar.jsp").forward(request, response);
+                    break;
         }
     }
 

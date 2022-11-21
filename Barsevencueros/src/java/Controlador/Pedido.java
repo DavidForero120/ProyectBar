@@ -86,7 +86,6 @@ public class Pedido extends HttpServlet {
                         for (int i = 0; i < lista.size(); i++) {
                             total = total + lista.get(i).getSubtotal();        
                             System.out.println(total);
-
                         }
 
                         request.setAttribute("totalPaga", total);

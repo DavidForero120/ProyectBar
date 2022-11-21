@@ -17,6 +17,7 @@ body{
       height: 100vh;
       display: flex;
       flex-direction: column;
+      position: fixed;
       padding: 1%;
       background-color: rgb(48 45 45);
       -webkit-box-shadow: 14px -6px 31px -17px rgba(10,10,9,1);
@@ -88,12 +89,13 @@ a:hover{
 .ver_t{
       display: none;
 }
-.trabajador{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      padding: 2%;
+.trabajador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-left: 30%;
+    padding: 2%;
 }
 /*registrar trabajador*/
 .reg_t{
@@ -110,68 +112,65 @@ a:hover{
 .ver_m{
       display: none;
 }
-.mesaV{
-       display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      padding: 2%;
-}
+.mesaV { display: flex; flex-direction: column; align-items: center; width: 94%; margin-left: 29%; padding: 2%; }
 /*registrar mesas*/
 .reg_m{
       display: none;
 }
-.mesaR{
-      display: flex;
+.mesaR {
+    display: flex;
     flex-direction: column;
     width: 100%;
     padding: 2%;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    margin-left: 30%;
 }
 /*ver productos*/
 .ver_p{
       display: none;
 }
-.productoV{
-      display: flex;
-      width: 100%;
-      padding: 2%; 
+.productoV {
+    display: flex;
+    width: 71%;
+    margin-left: 30%;
+    padding: 2%;
 }
 /*registrar producto*/
 .reg_p{
       display: none;
 }
-.productoR{
-      width: 100%;
+.productoR {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-      padding: 2%;
-
+    padding: 2%;
+    margin-left: 30%;
 }
 /*reporte ventas*/
 .report{
       display: none;
 }
-.reportV{
-      display: flex;
-      width: 100%;
-      padding: 2%; 
+.reportV {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 2%;
+    margin-left: 30%;
 }
-.user_r{
-      display: flex;
-      flex-direction: column;
-      margin-top: -3%;
-      width: 60%;
-      align-items: center;
-      padding: 0%;
+.user_r {
+    display: flex;
+    flex-direction: column;
+    margin-top: -3%;
+    width: 60%;
+    margin-left: 30%;
+    align-items: center;
+    padding: 0%;
 }
 h1{
-      font-family: 'Bitter', serif !important;
-      font-family: 'Teko', sans-serif  !important;
-      font-weight: bold;
+font-family: 'Hind Madurai', sans-serif;
 }
 .form{
       display: flex;

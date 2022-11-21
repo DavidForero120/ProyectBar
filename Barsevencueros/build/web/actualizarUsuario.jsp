@@ -16,22 +16,19 @@
         <link rel="stylesheet" href="actualizaru.css">
         <link href="assets/css/ActualizarU.css" rel="stylesheet" type="text/css"/>
         <title>Actualizar</title>
-         <link rel="icon" type="image/png" href="assets/img/logocolor.png">
+        <link rel="icon" type="image/png" href="assets/img/bizbar.png">
     </head>
     <body>
-        <nav>
+         <nav>
             <div class="partizq" id="partizq">
-            <div class="nav_admin">
                 <div class="logo_admin">
-                    <img class="imagen-main" src="assets/img/logocolor.png" alt="logo" class="log_a"/>
-                </div>
-                <div class="but">
+                    <img class="imagen-main" src="assets/img/logocolor.png" alt="logo" class="log_a"/> </div>
                 <form method="post" action="Usuario">
-                    <button class="btn btn-light"> <i class="fa-solid fa-right-from-bracket"></i>volver</button>
+                    <button class="btn btn-light"><i class="fa-solid fa-right-from-bracket"></i>Volver</button>
                     <input type="hidden" name="valor" value="6">
                 </form>
-            </div>
-            </div>  
+
+
             </div>
         </nav>   
         <div class="actualizar">
@@ -88,15 +85,15 @@
                     <div>
 
 
-                    </div>
-                </div>
+                
                 <%}%>
             </form>
             <form action="Usuario" method="POST" id="cancel">
                 <button class="btn btn-outline-primary">Cancelar</button>
                 <input type="hidden"  name="valor" value="6">
             </form>
-
+    </div>
+                </div>
         </div>
 
         <%

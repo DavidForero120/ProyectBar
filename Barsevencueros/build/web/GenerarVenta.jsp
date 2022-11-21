@@ -26,7 +26,7 @@
                         <form action="Pedido?menu=NuevaVenta" method="POST">
                             <!--Cliente-->
                             <div class="form-group">
-                                <label>Datos del Cliente</label>
+                                <label>Identificación cliente : </label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
@@ -44,7 +44,7 @@
                             <hr id="hr">
                             <!--producto-->
                             <div class="form-group">
-                                <label>Datos Producto</label>
+                                <label>Id producto</label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
@@ -187,13 +187,9 @@
                                 <input type="hidden" name="accion" value="Cancelar">
                                 </div>
                             </form>
-                                <form method="post" action="Pedido?menu=NuevaVenta&accion=AgregarQ">
-                                    
-                                </form>
-                                
-                                
-                            <!-- <a href="Pedido?menu=NuevaVenta&accion=GenerarPedido" class="btn btn-success">Generar Pedido</a>-->
-                            
+                                <form method="post" action="Pedido?menu=NuevaVenta&accion=AgregarQ">                                 
+                                </form>                  
+                            <!-- <a href="Pedido?menu=NuevaVenta&accion=GenerarPedido" class="btn btn-success">Generar Pedido</a>-->     
                         </div>
                     </div>
                 </div>

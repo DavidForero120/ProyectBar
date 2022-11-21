@@ -49,8 +49,7 @@ public class ProductoControlador extends HttpServlet {
         switch(valor){
             case 1: //Registrar Producto
                 if(prodDAO.agregarRegistro()){
-                    request.setAttribute("mensajeExito", "el producto se registro correctamente");
-                
+                    request.setAttribute("mensajeExito", "el producto se registro correctamente");              
                 }else{
                     request.setAttribute("mensajeError", "el producto NO se registro correctamente");
                 }

@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 20/11/2022, 01:40:00 AM
+    Created on : 20/11/2022, 09:43:49 PM
     Author     : Leider
 */
 
@@ -26,17 +26,35 @@ and open the template in the editor.
 .imagen-main{
     height: 70px;
 }
-
-div#reg_t {
+.sub-container {
     display: flex;
     justify-content: center;
-    padding: 4em;
+    padding: 1em;
 }
 
-div#button {
+.button-sub{
     display: flex;
     justify-content: center;
 }
+
 h1{
     text-align: center;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+
+form.sub-mesa {
+    width: 87%;
+}
+
+.main-button{
+    display: flex;
+    justify-content: center;
+        gap: 10px;
+}
+
+@media only screen and (min-width: 320px) and (max-width:570px) {
+    section.container-main-mesa {
+    justify-content: flex-start;
+}
 }

@@ -26,7 +26,7 @@
                 
                 <div class="formulario" id="filter">  
                     <form action="Usuario" method="POST">
-                        <h1>Iniciar sesión</h1>
+                        <h1>BizBar</h1>
                         <div id="input">
                             <div id="labe">
                                 <label>Usuario:</label>

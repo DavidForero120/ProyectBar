@@ -15,7 +15,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <link href="assets/css/actualizarProducto.css" rel="stylesheet" type="text/css"/>
         <title>Actualizar</title>
-         <link rel="icon" type="image/png" href="assets/img/logocolor.png">
+        <link rel="icon" type="image/png" href="assets/img/bizbar.png">
     </head>
     <body>
 
@@ -27,7 +27,7 @@
         <div class="nav"> <div class="log"><img src="assets/img/logocolor.png" alt=""/></div> 
             <div class="but">
                 <form method="post" action="Usuario">
-                    <button class="btn btn-light"> <i class="fa-solid fa-right-from-bracket"></i>volver</button>
+                    <button class="btn btn-light"> <i class="fa-solid fa-right-from-bracket"></i>Volver</button>
                     <input type="hidden" name="valor" value="6">
                 </form>
             </div>
