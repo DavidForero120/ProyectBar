@@ -15,6 +15,7 @@
 .ver_p_show{
     display: flex;
     background-color: white;
+    width: 100vw;
 }
 
 .ven2{
@@ -129,6 +130,11 @@ hr {
     width: 138px;
     height: 66px;
     }
+    .ver_p_show{
+    display: flex;
+    background-color: white;
+    width: 100vw;
+}
 }
 @media screen and (min-width: 800px){
     #hamb__{
@@ -160,6 +166,11 @@ hr {
         color: red;
         transition: 1s;
     }
+    .ver_p_show{
+    display: flex;
+    background-color: white;
+    width: 100vw;
+}
 }
 @media screen and (min-width: 1024px){
     #nav {
@@ -172,10 +183,20 @@ hr {
         width: 140px;
     height: 75px;
     }
+    .ver_p_show{
+    display: flex;
+    background-color: white;
+    width: 100vw;
+}
 }
 @media screen and (min-width: 1200px){
     .options2 {
         width: 55%;
         margin-left: 81px;
     }
+    .ver_p_show{
+    display: flex;
+    background-color: white;
+    width: 100vw;
+}   
 }

@@ -122,11 +122,11 @@
                                         <td>${list.getPrecio()}</td>
                                         <td>${list.getSubtotal()}</td>
                                         <td>
-                                            <button value="SumarCantidad" name="accion" class="btn btn-success" id="agre__">+</button>
+                                            <button value="SumarCantidad" name="accion" class="btn btn-success" id="agre__">Agregar</button>
                                          
                                             <div>
                                                 
-                                                <button name="accion" value="RestarCantidad" class="btn btn-danger eliminarRow">-</button>
+                                                <button name="accion" value="RestarCantidad" class="btn btn-danger eliminarRow">Eliminar</button>
    
                                                 <!--<button class="btn btn-danger eliminarRow">Cancelar</button>
                                                 <input type="hidden" value="cancelar">-->

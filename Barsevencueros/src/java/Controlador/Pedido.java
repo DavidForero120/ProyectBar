@@ -158,7 +158,7 @@ public class Pedido extends HttpServlet {
 
                     request.getRequestDispatcher("GenerarVenta.jsp").forward(request, response);
                     break;
-                case "SumarCantidad":
+                case "AgregarAccion":
                     total2 = 0.0;
                     cantidad_producto = cantidad_producto + 1;
                     pedVO.setCantidad_producto(cantidad_producto);
@@ -175,7 +175,7 @@ public class Pedido extends HttpServlet {
                     request.setAttribute("cliente", cliVO);
                     
                     break;
-                case "RestarCantidad":
+                case "RestarAccion":
                     total2 = 0.0;
                     cantidad_producto = cantidad_producto - 1;
                     pedVO.setCantidad_producto(cantidad_producto);

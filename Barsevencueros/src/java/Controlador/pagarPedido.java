@@ -49,7 +49,7 @@ public class pagarPedido extends HttpServlet {
                     request.setAttribute("mensajeExito", "El pedido se pago");
                 }else{
                     request.setAttribute("mensajeError", "El pedido no se pudo pagar");
-                    request.getRequestDispatcher("pagar.jsp").forward(request, response);
+                    request.getRequestDispatcher("view/Cajero.jsp").forward(request, response);
                 }
                 break;
             case 2:

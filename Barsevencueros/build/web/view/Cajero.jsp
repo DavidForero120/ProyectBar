@@ -181,7 +181,15 @@
 
                 <div class="pagar" id="pagar">
                     <h1>Pagar pedidos</h1>
-                    
+                    <div>
+                        <%
+                        if (request.getAttribute("mensajeError") != null) { %>
+                    ${mensajeError}
+
+                    <%} else {%>
+                    ${mensajeExito}        
+                    <%}%>
+                    </div>
                     <div class="card1_">
                         <%
                             PagarVO pagVO = new PagarVO();

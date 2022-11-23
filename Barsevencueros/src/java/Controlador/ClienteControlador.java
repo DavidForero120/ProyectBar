@@ -50,7 +50,7 @@ public class ClienteControlador extends HttpServlet {
                 if(cliDAO.agregarRegistro()){
                     request.setAttribute("mensajeExito", "!!Cliente Registrado¡¡");
                 }else{
-                    request.setAttribute("mensajeError", "el cliente NO se pudo registrar");
+                    request.setAttribute("mensajeError", "Este cliente ya esta registrado");
                 }
                 request.getRequestDispatcher("cliente.jsp").forward(request, response);
                 break;
@@ -58,7 +58,7 @@ public class ClienteControlador extends HttpServlet {
                     if(cliDAO.actualizarRegistro()){
                         request.setAttribute("mensajeExito", "El cliente se actualizo correctamente");
                     }else{
-                        request.setAttribute("mensajeError", "el cliente NO se actualizo correctamente");
+                        request.setAttribute("mensajeError", "Error al actualizar cliente");
                     }
                     request.getRequestDispatcher("listarCliente.jsp").forward(request, response);
                 break;

@@ -51,7 +51,7 @@ public class ProductoControlador extends HttpServlet {
                 if(prodDAO.agregarRegistro()){
                     request.setAttribute("mensajeExito", "el producto se registro correctamente");              
                 }else{
-                    request.setAttribute("mensajeError", "el producto NO se registro correctamente");
+                    request.setAttribute("mensajeError", "Este producto ya esta registrado");
                 }
                 request.getRequestDispatcher("producto.jsp").forward(request, response);
                 break;

@@ -47,7 +47,7 @@ public class productosControlador extends HttpServlet {
                     request.setAttribute("mensaExito", "el producto se registro correctamente");
                 
                 }else{
-                    request.setAttribute("mensaError", "el producto NO se registro correctamente");
+                    request.setAttribute("mensaError", "El producto ya esta registrado");
                 }
                 request.getRequestDispatcher("view/Administrador.jsp").forward(request, response);
                 break;
