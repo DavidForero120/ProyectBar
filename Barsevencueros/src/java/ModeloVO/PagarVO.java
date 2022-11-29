@@ -11,7 +11,7 @@ package ModeloVO;
  */
 public class PagarVO {
 
-    private String id_pedido, id_usuarioFK, clienteFK, mesaFK, pedido_estado, Metodo_pago, fecha, cliente_nombre, cliente_apellido;
+    private String id_pedido, id_usuarioFK, clienteFK, mesaFK, pedido_estado, Metodo_pago, fecha, cliente_nombre, cliente_apellido, usuario_nombre;
 
     public PagarVO(String id_pedido, String id_usuarioFK, String clienteFK, String mesaFK, String pedido_estado, String Metodo_pago, String fecha) {
       
@@ -25,7 +25,7 @@ public class PagarVO {
     }
     
 
-    public PagarVO(String id_pedido, String id_usuarioFK, String clienteFK, String mesaFK, String pedido_estado, String Metodo_pago, String fecha, String cliente_nombre, String cliente_apellido) {
+    public PagarVO(String id_pedido, String id_usuarioFK, String clienteFK, String mesaFK, String pedido_estado, String Metodo_pago, String fecha, String cliente_nombre, String cliente_apellido, String usuario_nombre) {
         this.id_pedido = id_pedido;
         this.id_usuarioFK = id_usuarioFK;
         this.clienteFK = clienteFK;
@@ -35,6 +35,7 @@ public class PagarVO {
         this.fecha = fecha;
         this.cliente_nombre = cliente_nombre;
         this.cliente_apellido = cliente_apellido;
+        this.usuario_nombre = usuario_nombre;
     }
 
     public PagarVO() {
@@ -112,4 +113,12 @@ public class PagarVO {
         this.cliente_apellido = cliente_apellido;
     }
 
+    public String getUsuario_nombre() {
+        return usuario_nombre;
+    }
+
+    public void setUsuario_nombre(String usuario_nombre) {
+        this.usuario_nombre = usuario_nombre;
+    }
+    
 }

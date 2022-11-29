@@ -38,9 +38,9 @@
 
             <div class="formulario-family" id="formulario-family">
                 <form method="POST" action="Cliente" id="register" class="register">
-                        <div class="tituloo" id="tituloo">
-                            <h1>Registrar Cliente</h1>
-                        </div>
+                    <div class="tituloo" id="tituloo">
+                        <h1>Registrar Cliente</h1>
+                    </div>
                     <div class="data-documents">
                         <div class="labels" id="f_cliente_tipo">
                             <span>Tipo de documento:</span>      
@@ -52,7 +52,7 @@
                                 </select>              
                             </div>
                         </div>
-                    
+
                         <div class="labels" id="f_cliente_documento">
                             <div class="input-group mb-3">
                                 <span c>Numero de documento:</span>       
@@ -66,7 +66,7 @@
                     <div class="information">
                         <div class="labels" id="f_cliente_nombre">
                             <div class="input-group mb-3">
-                                <span c>Nombre:</span>       
+                                <span>Nombre:</span>       
                                 <div class="form-floating">
                                     <input type="text" name="cliente_nombre" id="cliente_nombre" class="cliente_nombre"></i>
                                 </div>
@@ -107,15 +107,15 @@
                             </div>
                         </div>
                     </div>
-                   
-                        <div class="frm-no-enviado" id="frm-no-enviado">
-                            <p><b>Error:</b> Hay campos incompletos o incorrectos.</p>
-                        </div>
 
-                        <div class="boton" id="boton">
-                            <button class="btn-enviar btn btn-outline-dark" type="submit">Registar Cliente</button>
-                            <input type="hidden" value="1" name="valor">
-                        </div>
+                    <div class="frm-no-enviado" id="frm-no-enviado">
+                        <p><b>Error:</b> Hay campos incompletos o incorrectos.</p>
+                    </div>
+
+                    <div class="boton" id="boton">
+                        <button class="btn-enviar btn btn-outline-dark" type="submit">Registar Cliente</button>
+                        <input type="hidden" value="1" name="valor">
+                    </div>
 
                 </form>
                 <div id="error">
@@ -125,12 +125,12 @@
                     <%} else {%>
                     ${mensajeExito}        
                     <%}%>
+                </div>
             </div>
-        </div>
 
 
-    </section>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-    <script src="assets/js/validacionCliente.js" type="text/javascript"></script>
-</body>
+        </section>
+        <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+        <script src="assets/js/validacionCliente.js" type="text/javascript"></script>
+    </body>
 </html>

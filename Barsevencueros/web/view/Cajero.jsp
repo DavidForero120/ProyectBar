@@ -218,16 +218,13 @@
                                         <%}%>
                                     </div>
                                     <ul class="text-end">
-                                        <form method="post" action="desPedido">
                                         <input type="hidden" name="pedido" value="<%=pagVO.getId_pedido()%>">
                                         <button value="<%=pagVO.getId_pedido()%>" class="btn btn-outline-dark bu">VER</button>
-                                        <input type="hidden"  name="valor" value="2">
-                                        </form>
+                                        <input type="hidden"  name="valor" value="2">                                      
                                     </ul>  
                                 </form>
                                 </div>
                         </div>
-
                         <%}%>
                     </div>
                     </div>

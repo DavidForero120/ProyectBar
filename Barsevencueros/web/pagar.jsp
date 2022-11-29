@@ -4,6 +4,8 @@
     Author     : alrod
 --%>
 
+<%@page import="ModeloDAO.PagarDAO"%>
+<%@page import="ModeloVO.PagarVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="ModeloDAO.desPedidoDAO"%>
 <%@page import="ModeloVO.desPedidoVO"%>
@@ -32,91 +34,97 @@
 
             </div>
         </nav> 
+        
         <section class="container-main-mesa">
             <div class="sub-container">
-            <form method="post" action="pagarPedido" class="sub-mesa">
-                <%
-                    desPedidoVO desVO = (desPedidoVO) request.getAttribute("datosConsultados");
-                    if (desVO != null) {
+                 
+                <form method="post" action="pagarPedido" class="sub-mesa">
+                             <%desPedidoVO desVO = (desPedidoVO) request.getAttribute("datosConsultados");
+                        if (desVO != null) {
                     }%>
+                    <%
+                        String idCliente = desVO.getClienteFK();
+                        if(idCliente != null){
+                    %>
+                    <h1><%=idCliente%></h1>
+                        <%}%>                     
+                    <%
+                        String pedidoFK = desVO.getPedidoFK();
+                    %>
+                    <h1>Detalle de la venta</h1>
 
-                <%
-                    String pedidoFK = desVO.getPedidoFK();
-                %>
-                <h1>Detalle de le venta</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
 
-                <table class="table">
-                    <thead>
-                        <tr>
+                                <th scope="col">PRODUCTO</th>
+                                <th scope="col">PRECIO</th>
+                                <th scope="col">CANTIDAD</th>
+                                <th scope="col">SUB TOTAL</th>                
+                                <th scope="col">METODO DE PAGO</th>
+                                <th scope="col">TOTAL</th>
+                            </tr>
+                        </thead>
+                        <%
+                            desPedidoDAO desDAO = new desPedidoDAO();
+                            ArrayList<desPedidoVO> listarPed = desDAO.listar(pedidoFK);
+                            for (int i = 0; i < listarPed.size(); i++) {
+                                desVO = listarPed.get(i);
 
-                            <th scope="col">PRODUCTO</th>
-                            <th scope="col">PRECIO</th>
-                            <th scope="col">CANTIDAD</th>
-                            <th scope="col">SUB TOTAL</th>                
-                            <th scope="col">METODO DE PAGO</th>
-                            <th scope="col">TOTAL</th>
+                        %>  
+                        <input type="hidden" name="pedido" value="<%=desVO.getPedidoFK()%>">
+
+                        <tbody>
+                            <tr>                 
+                                <td><%=desVO.getProducto_nombre()%></td>
+                                <td><%=desVO.getProducto_precio()%></td>
+                                <td><%=desVO.getCantidad_producto()%></td>
+                                <td><%=desVO.getSubtotal()%></td>
+                        <input type="hidden" name="estado" value="2">
+                        <input type="hidden" name="metodo" value="<%=desVO.getMetodo_pago()%>">
+                        <%
+                            if (desVO.getMetodo_pago().equals("2")) {
+                                String tarjeta = "TARJETA";
+
+                        %>                  
+                        <td><%=tarjeta%></td>
+                        <%} else if (desVO.getMetodo_pago().equals("1")) {
+                            String efectivo = "EFECTIVO";
+
+                        %>
+                        <td><%=efectivo%></td>
+                        <%}%>
+
+                        <%
+                            if (desVO.getMetodo_pago().equals("2")) {
+                                double total = desVO.getTotal();
+                                double agregado = total * 0.05;
+                                double pagar = (agregado + total);
+
+                        %>
+                        <td><%=pagar%></td>
+                        <%} else {
+
+                        %>
+                        <td><%=desVO.getTotal()%></td>
+                        <%}%>
                         </tr>
-                    </thead>
-                    <%
-                        desPedidoDAO desDAO = new desPedidoDAO();
-                        ArrayList<desPedidoVO> listarPed = desDAO.listar(pedidoFK);
-                        for (int i = 0; i < listarPed.size(); i++) {
-                            desVO = listarPed.get(i);
-
-                    %>  
-                    <input type="hidden" name="pedido" value="<%=desVO.getPedidoFK()%>">
-
-                    <tbody>
-                        <tr>                 
-                            <td><%=desVO.getProducto_nombre()%></td>
-                            <td><%=desVO.getProducto_precio()%></td>
-                            <td><%=desVO.getCantidad_producto()%></td>
-                            <td><%=desVO.getSubtotal()%></td>
-                    <input type="hidden" name="estado" value="2">
-                    <input type="hidden" name="metodo" value="<%=desVO.getMetodo_pago()%>">
-                    <%
-                        if (desVO.getMetodo_pago().equals("2")) {
-                            String tarjeta = "TARJETA";
-
-                    %>                  
-                    <td><%=tarjeta%></td>
-                    <%} else if (desVO.getMetodo_pago().equals("1")) {
-                        String efectivo = "EFECTIVO";
-
-                    %>
-                    <td><%=efectivo%></td>
-                    <%}%>
-
-                    <%
-                        if (desVO.getMetodo_pago().equals("2")) {
-                            double total = desVO.getTotal();
-                            double agregado = total * 0.05;
-                            double pagar = (agregado + total);
-
-                    %>
-                    <td><%=pagar%></td>
-                    <%} else {
-
-                    %>
-                    <td><%=desVO.getTotal()%></td>
-                    <%}%>
-                    </tr>
-                    </tbody>
-                    <input type="hidden" value="<%=desVO.getId_usuarioFK()%>" name="usuario">
-                    <input type="hidden" value="<%=desVO.getClienteFK()%>" name="cliente">
-                    <input type="hidden" value="<%=desVO.getMesaFK()%>" name="mesa">
-                    <input type="hidden" value="<%=desVO.getFecha()%>" name="fecha">
-                    <input type="hidden" value="2" name="estado">
-                    <%}%>
-                </table>
-                <div class="button-sub">
-                    <button class="btn btn-outline-primary" >Pagar</button>
-                    <input type="hidden" name="valor" value="1"></div>
-                    </form>
-                </div>
-                        <div class="main-button">
-                        <button class="btn btn-outline-success" onclick="print()">Factura</button>
-                        </div>
-                    </section>
-                    </body>
-                    </html>
+                        </tbody>
+                        <input type="hidden" value="<%=desVO.getId_usuarioFK()%>" name="usuario">
+                        <input type="hidden" value="<%=desVO.getClienteFK()%>" name="cliente">
+                        <input type="hidden" value="<%=desVO.getMesaFK()%>" name="mesa">
+                        <input type="hidden" value="<%=desVO.getFecha()%>" name="fecha">
+                        <input type="hidden" value="2" name="estado">
+                        <%}%>
+                    </table>
+                    <div class="button-sub">
+                        <button class="btn btn-outline-primary" >Pagar</button>
+                        <input type="hidden" name="valor" value="1"></div>
+                </form>
+            </div>
+            <div class="main-button">
+                <button class="btn btn-outline-success" onclick="print()">Factura</button>
+            </div>
+        </section>
+    </body>
+</html>
