@@ -173,5 +173,38 @@ public class PedidoDAO extends ConexionBd implements Crud {
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    public int Contador() {
+        int Contador = 0;
+        try {
+            conexion = this.obtenerConexion();
+            sql = "SELECT COUNT(id_pedido) FROM pedido WHERE pedido_estado =2";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                Contador = mensajero.getInt(1);
+            }
+        } catch (Exception e) {
+            Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return Contador;
+    }
 
+    
+    public int Contador2() {
+        int Contador = 0;
+        try {
+            conexion = this.obtenerConexion();
+            sql = "SELECT COUNT(id_pedido) FROM pedido where month(fecha) = month(now()) and pedido_estado =2";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                Contador = mensajero.getInt(1);
+            }
+        } catch (Exception e) {
+            Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return Contador;
+    }
 }

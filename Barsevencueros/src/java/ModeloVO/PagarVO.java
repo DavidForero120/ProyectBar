@@ -12,6 +12,8 @@ package ModeloVO;
 public class PagarVO {
 
     private String id_pedido, id_usuarioFK, clienteFK, mesaFK, pedido_estado, Metodo_pago, fecha, cliente_nombre, cliente_apellido, usuario_nombre;
+    
+    
 
     public PagarVO(String id_pedido, String id_usuarioFK, String clienteFK, String mesaFK, String pedido_estado, String Metodo_pago, String fecha) {
       
@@ -120,5 +122,8 @@ public class PagarVO {
     public void setUsuario_nombre(String usuario_nombre) {
         this.usuario_nombre = usuario_nombre;
     }
-    
+
+   
+
+  
 }

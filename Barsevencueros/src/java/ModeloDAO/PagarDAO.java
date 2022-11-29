@@ -218,4 +218,44 @@ public class PagarDAO extends ConexionBd implements Crud {
 
     }
 
+    public ArrayList<PagarVO> listar3(String id_pedido) {
+        ArrayList<PagarVO> listarPedidos = new ArrayList<>();
+
+        try {
+
+            conexion = this.obtenerConexion();
+            sql = "select pedido.id_pedido, pedido.id_usuarioFK, pedido.clienteFK, pedido.mesaFK, pedido.pedido_estado, pedido.Metodo_pago, pedido.fecha ,cliente.cliente_nombre, cliente.cliente_apellido, usuario.usuario_nombre, Metodo_pago.Metodo from pedido INNER JOIN cliente ON pedido.clienteFK = cliente.id_cliente INNER JOIN usuario ON pedido.id_usuarioFK = usuario.id_usuario INNER JOIN Metodo_pago ON pedido.Metodo_pago = Metodo_pago.id_metodoPago WHERE pedido.id_pedido= ?;";
+            puente = conexion.prepareStatement(sql);
+             puente.setString(1, id_pedido);
+            mensajero = puente.executeQuery();
+            while (mensajero.next()) {
+                PagarVO pagVO = new PagarVO(
+                        mensajero.getString(1),
+                        mensajero.getString(2),
+                        mensajero.getString(3),
+                        mensajero.getString(4),
+                        mensajero.getString(5),
+                        mensajero.getString(6),
+                        mensajero.getString(7),
+                        mensajero.getString(8),
+                        mensajero.getString(9),
+                        mensajero.getString(10)
+                );
+                listarPedidos.add(pagVO);
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.deneterConexion();
+            } catch (SQLException ex) {
+                Logger.getLogger(PagarDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return listarPedidos;
+    }
+    
+    
+
 }

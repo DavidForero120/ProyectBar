@@ -34,7 +34,7 @@ public class PedidoVO {
         this.subtotal = subtotal;
         this.precio = precio;
     }
-
+     
     public PedidoVO() {
     }
 

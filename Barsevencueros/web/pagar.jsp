@@ -42,17 +42,30 @@
                              <%desPedidoVO desVO = (desPedidoVO) request.getAttribute("datosConsultados");
                         if (desVO != null) {
                     }%>
-                    <%
-                        String idCliente = desVO.getClienteFK();
-                        if(idCliente != null){
-                    %>
-                    <h1><%=idCliente%></h1>
-                        <%}%>                     
+                    
+                    
+                    
                     <%
                         String pedidoFK = desVO.getPedidoFK();
+                        String id_pedido = desVO.getPedidoFK();
                     %>
+                    
+                    
                     <h1>Detalle de la venta</h1>
-
+                        <%
+                        PagarVO pagVO = new PagarVO();
+                        PagarDAO pagDAO = new PagarDAO();
+                        ArrayList<PagarVO> listarPedidos = pagDAO.listar3(id_pedido);
+                        for (int i = 0; i < listarPedidos.size(); i++) {
+                                pagVO = listarPedidos.get(i);
+                                                 
+                        %>
+                        <div class="fecha">
+                            <h4>Fecha de creación: <%=pagVO.getFecha()%></h4>
+                        </div>
+                        <h4>Cliente: <%=pagVO.getCliente_nombre()%> <%=pagVO.getCliente_apellido()%></h4>
+                        <h4>Atiende: <%=pagVO.getUsuario_nombre()%></h4>
+                        <% } %>
                     <table class="table">
                         <thead>
                             <tr>

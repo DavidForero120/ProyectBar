@@ -55,7 +55,7 @@
 
                         <div class="labels" id="f_cliente_documento">
                             <div class="input-group mb-3">
-                                <span c>Numero de documento:</span>       
+                                <span>Numero de documento:</span>       
                                 <div class="form-floating">
                                     <input type="text" name="cliente_documento" id="cliente_documento" class="cliente_documento"></i>                  
                                 </div>

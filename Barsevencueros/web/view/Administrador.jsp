@@ -1,3 +1,5 @@
+<%@page import="ModeloDAO.PedidoDAO"%>
+<%@page import="ModeloVO.PedidoVO"%>
 <%@page import="ModeloDAO.PagarDAO"%>
 <%@page import="ModeloVO.PagarVO"%>
 <%@page import="ModeloDAO.ProductoDAO"%>
@@ -38,7 +40,7 @@
                     <div class="option_"><a id="reporte"><i class="fa-solid fa-book"></i>Reporte de ventas</a></div>
                     <div class="option2_">
                         <form method="post" action="Sesiones" id="out_">
-                            <button type="submit"  value="CerrarSesion" class="btn btn-outline-light" ><i class="fa-solid fa-right-from-bracket" id="salir_"></i>Volver</button>
+                            <button type="submit"  value="CerrarSesion" class="btn btn-outline-light" ><i class="fa-solid fa-right-from-bracket" id="salir_"></i>Salir</button>
                         </form>
                     </div>
                 </div>
@@ -370,8 +372,23 @@
                             <input type="hidden" name="valor" value="3">
                         </form>
                     </div>
+                    <div class="contador">
+                        
+                        <div>
+                            <h5>N pedidos año:</h5>
+                            <%
+                            PedidoDAO paDAO = new PedidoDAO();                
+                            %>
+                            <p><%=paDAO.Contador()%></p>
+                        </div>
+                        <div>
+                            <h5>N pedidos mes: </h5>
+                            <p><%=paDAO.Contador2()%></p>
+                        </div>
+                    </div>
                     <div class="list_">
                         <h1 id="gener_h1"><i class="fa-solid fa-clipboard-check"></i> Pedidos por mes</h1>
+                        
                         <table class="table">
                             <thead>
                                 <tr>
