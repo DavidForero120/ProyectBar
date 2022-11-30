@@ -375,14 +375,14 @@
                     <div class="contador">
                         
                         <div>
-                            <h5>N pedidos año:</h5>
+                            <h5>Pedidos al año:</h5>
                             <%
                             PedidoDAO paDAO = new PedidoDAO();                
                             %>
                             <p><%=paDAO.Contador()%></p>
                         </div>
                         <div>
-                            <h5>N pedidos mes: </h5>
+                            <h5>Pedidos al mes: </h5>
                             <p><%=paDAO.Contador2()%></p>
                         </div>
                     </div>

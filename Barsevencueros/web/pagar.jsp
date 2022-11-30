@@ -61,10 +61,10 @@
                                                  
                         %>
                         <div class="fecha">
-                            <h4>Fecha de creación: <%=pagVO.getFecha()%></h4>
+                            <h4 class="date-create">Fecha de creación: <%=pagVO.getFecha()%></h4>
                         </div>
-                        <h4>Cliente: <%=pagVO.getCliente_nombre()%> <%=pagVO.getCliente_apellido()%></h4>
-                        <h4>Atiende: <%=pagVO.getUsuario_nombre()%></h4>
+                        <h4 class="cliente-details">Cliente: <%=pagVO.getCliente_nombre()%> <%=pagVO.getCliente_apellido()%></h4>
+                        <h4 class="atiende-details">Atiende: <%=pagVO.getUsuario_nombre()%></h4>
                         <% } %>
                     <table class="table">
                         <thead>

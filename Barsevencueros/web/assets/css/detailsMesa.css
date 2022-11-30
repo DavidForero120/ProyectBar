@@ -50,7 +50,19 @@ form.sub-mesa {
 .main-button{
     display: flex;
     justify-content: center;
-        gap: 10px;
+    gap: 10px;
+}
+.fecha{
+    display: flex;
+    justify-content: end;
+}
+
+.date-create{
+    font-size: 1.2em;
+}.cliente-details{
+    font-size: 1.2em;
+}.atiende-details{
+    font-size: 1.2em;
 }
 
 @media only screen and (min-width: 320px) and (max-width:570px) {
